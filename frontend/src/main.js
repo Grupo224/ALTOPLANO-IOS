@@ -1,8 +1,10 @@
 import './style.css'
 import { createApp } from 'vue'
-import { FrappeUI } from 'frappe-ui'
+import { FrappeUI, setConfig, frappeRequest } from 'frappe-ui'
 import router from './router'
 import App from './App.vue'
+
+setConfig('resourceFetcher', frappeRequest)
 
 // Evita pantalla en blanco silenciosa: muestra el error real si falla el arranque.
 function showFatal(err) {

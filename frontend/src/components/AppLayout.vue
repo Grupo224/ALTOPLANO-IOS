@@ -12,7 +12,7 @@
         <RouterLink v-for="item in nav" :key="item.route" :to="item.route"
           class="flex items-center gap-2.5 px-4 py-2 text-sm"
           :class="$route.path === item.route || (item.route !== '/' && $route.path.startsWith(item.route)) ? 'bg-surface-blue-2 font-medium text-ink-blue-7' : 'text-ink-gray-7 hover:bg-surface-gray-2'">
-          <span class="size-4" :class="'lucide-' + item.icon"></span>{{ item.label }}
+          <span>{{ item.icon }}</span><span>{{ item.label }}</span>
         </RouterLink>
       </nav>
       <div class="border-t border-outline-gray-2 p-3 text-[11px] text-ink-gray-5">
@@ -21,14 +21,14 @@
       </div>
     </aside>
     <main class="scroll-area min-w-0 flex-1">
-      <RouterView />
+      <slot />
     </main>
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import { useSession } from '../composables/useSession'
 
 const logoUrl = '/assets/altoplano_agents/images/logo.svg'
@@ -36,14 +36,14 @@ const { state: session, load } = useSession()
 onMounted(() => load())
 
 const nav = [
-  { label: 'Inicio', route: '/', icon: 'layout-grid' },
-  { label: 'Cerebro', route: '/cerebro', icon: 'message-circle' },
-  { label: 'Mis agentes', route: '/agents', icon: 'bot' },
-  { label: 'Información', route: '/business', icon: 'book-open' },
-  { label: 'Conversaciones', route: '/conversations', icon: 'messages-square' },
-  { label: 'Conexiones', route: '/connections', icon: 'plug' },
-  { label: 'Aprobaciones', route: '/approvals', icon: 'shield-check' },
-  { label: 'Gastos', route: '/spending', icon: 'wallet' },
-  { label: 'Actividad', route: '/activity', icon: 'history' },
+  { label: 'Inicio', route: '/', icon: '🏠' },
+  { label: 'Cerebro', route: '/cerebro', icon: '🧠' },
+  { label: 'Mis agentes', route: '/agents', icon: '🤖' },
+  { label: 'Información', route: '/business', icon: '📖' },
+  { label: 'Conversaciones', route: '/conversations', icon: '💬' },
+  { label: 'Conexiones', route: '/connections', icon: '🔌' },
+  { label: 'Aprobaciones', route: '/approvals', icon: '🛡️' },
+  { label: 'Gastos', route: '/spending', icon: '💳' },
+  { label: 'Actividad', route: '/activity', icon: '🕘' },
 ]
 </script>
