@@ -65,13 +65,13 @@
    "fieldname": "timezone",
    "fieldtype": "Data",
    "label": "Zona horaria",
-   "reqd": 1
+   "reqd": 0
   },
   {
    "fieldname": "handoff_instructions",
    "fieldtype": "Small Text",
    "label": "Cu\u00e1ndo pedir ayuda humana",
-   "reqd": 1
+   "reqd": 0
   },
   {
    "fieldname": "public_contact",

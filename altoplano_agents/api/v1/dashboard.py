@@ -1,7 +1,7 @@
 import frappe
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def dashboard(company_context=None):
     from altoplano_agents.services.context import resolve_company
     company = resolve_company(company_context)

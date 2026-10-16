@@ -1,7 +1,7 @@
 import frappe
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def summary(company_context=None, agent=None):
     from altoplano_agents.services.context import resolve_company
     company = resolve_company(company_context)
@@ -24,7 +24,7 @@ def summary(company_context=None, agent=None):
     return {"count": len(events), "base_total": total, "by_state": states, "currency": frappe.get_single("AIA Settings").base_currency}
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def events(company_context=None, agent=None, limit=50):
     from altoplano_agents.services.context import resolve_company
     company = resolve_company(company_context)

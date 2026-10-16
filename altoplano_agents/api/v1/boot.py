@@ -1,7 +1,7 @@
 import frappe
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def boot(company_context=None):
     from altoplano_agents.api.v1.common import require_app_access
     require_app_access()

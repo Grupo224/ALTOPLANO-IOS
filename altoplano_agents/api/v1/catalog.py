@@ -3,7 +3,7 @@ import frappe
 from altoplano_agents.api.v1.common import require_app_access
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def templates(company_context=None, limit=50):
     require_app_access()
     filters = {"status": "Published"}
@@ -15,7 +15,7 @@ def templates(company_context=None, limit=50):
     return rows
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def skills(company_context=None, limit=50):
     require_app_access()
     filters = {"status": "Published"}
@@ -27,7 +27,7 @@ def skills(company_context=None, limit=50):
     return rows
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def tools(company_context=None):
     require_app_access()
     rows = frappe.get_all(

@@ -27,7 +27,7 @@ def _dto(doc):
     }
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def list_agents(company_context=None):
     from altoplano_agents.services.context import resolve_company
     company = resolve_company(company_context)
@@ -40,7 +40,7 @@ def list_agents(company_context=None):
     return [_dto(frappe.get_doc("AIA Agent", n.name)) for n in names]
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def get_agent(agent):
     return _dto(_get(agent))
 

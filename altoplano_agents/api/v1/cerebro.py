@@ -10,7 +10,7 @@ from frappe import _
 TOOL_PREFIX = "__cerebo_tool__"
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def start(company_context=None):
     """Inicia/recupera una conversación de Cerebro para el usuario actual."""
     from altoplano_agents.services.context import resolve_company

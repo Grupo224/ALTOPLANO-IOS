@@ -1,7 +1,7 @@
 import frappe
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def list_conversations(company_context=None, limit=50):
     from altoplano_agents.services.context import resolve_company
     company = resolve_company(company_context)
@@ -13,7 +13,7 @@ def list_conversations(company_context=None, limit=50):
     return rows
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def get_messages(conversation, limit=100):
     from altoplano_agents.permissions import has_conversation_permission
     conv = frappe.get_doc("AIA Conversation", conversation)

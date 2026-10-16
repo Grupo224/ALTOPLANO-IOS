@@ -1,7 +1,7 @@
 import frappe
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def resolve_link(erp_link):
     from altoplano_agents.permissions import has_agent_permission
     link = frappe.get_doc("AIA ERP Link", erp_link)
@@ -11,7 +11,7 @@ def resolve_link(erp_link):
     return {"doctype": link.erp_doctype, "name": link.erp_document, "action": link.action}
 
 
-@frappe.whitelist(methods=["GET"])
+@frappe.whitelist(methods=["GET", "POST"])
 def activity(company_context=None, limit=50):
     from altoplano_agents.services.context import resolve_company
     company = resolve_company(company_context)
