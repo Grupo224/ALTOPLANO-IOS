@@ -1,8 +1,11 @@
 import frappe
 
+from altoplano_agents.api.v1.common import require_app_access
+
 
 @frappe.whitelist(methods=["GET"])
 def templates(company_context=None, limit=50):
+    require_app_access()
     filters = {"status": "Published"}
     rows = frappe.get_all(
         "AIA Agent Template", filters=filters,
@@ -14,6 +17,7 @@ def templates(company_context=None, limit=50):
 
 @frappe.whitelist(methods=["GET"])
 def skills(company_context=None, limit=50):
+    require_app_access()
     filters = {"status": "Published"}
     rows = frappe.get_all(
         "AIA Skill", filters=filters,
@@ -25,6 +29,7 @@ def skills(company_context=None, limit=50):
 
 @frappe.whitelist(methods=["GET"])
 def tools(company_context=None):
+    require_app_access()
     rows = frappe.get_all(
         "AIA Tool Definition", filters={"enabled": 1},
         fields=["slug", "display_name", "explanation", "risk"],

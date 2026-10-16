@@ -3,6 +3,8 @@ import frappe
 
 @frappe.whitelist(methods=["GET"])
 def boot(company_context=None):
+    from altoplano_agents.api.v1.common import require_app_access
+    require_app_access()
     from altoplano_agents.services.context import resolve_company, allowed_companies
     roles = frappe.get_roles()
     companies = allowed_companies()

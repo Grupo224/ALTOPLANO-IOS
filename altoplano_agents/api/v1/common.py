@@ -6,6 +6,13 @@ import frappe
 from frappe import _
 
 
+def require_app_access():
+    """Niega el acceso a toda la API a usuarios sin ningún rol AIA."""
+    from altoplano_agents.permissions import can_access_app
+    if not can_access_app():
+        frappe.throw(_("No tienes acceso a Altoplano IA Agents."), frappe.PermissionError)
+
+
 def require_role(role):
     if "System Manager" in frappe.get_roles():
         return
