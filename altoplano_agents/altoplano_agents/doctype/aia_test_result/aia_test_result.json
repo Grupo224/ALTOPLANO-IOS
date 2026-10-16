@@ -1,0 +1,133 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:52.431024",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "revision",
+  "scenario",
+  "execution_mode",
+  "status",
+  "connection_versions_json",
+  "policy_hash",
+  "tested_by",
+  "tested_at",
+  "summary",
+  "trace_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "revision",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Revisi\u00f3n",
+   "options": "AIA Agent Revision",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "scenario",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Escenario",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "execution_mode",
+   "fieldtype": "Select",
+   "label": "Modo",
+   "options": "Mock\nSandbox\nLiveReadOnly\nLive",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Resultado",
+   "options": "Pass\nFail\nBlocked",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "connection_versions_json",
+   "fieldtype": "Code",
+   "label": "Versiones de conexiones",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "policy_hash",
+   "fieldtype": "Data",
+   "label": "Huella de pol\u00edticas",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "tested_by",
+   "fieldtype": "Link",
+   "label": "Probado por",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "tested_at",
+   "fieldtype": "Datetime",
+   "label": "Fecha",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Resultado comprensible",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "trace_id",
+   "fieldtype": "Data",
+   "label": "Seguimiento",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:20.823112",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Test Result",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

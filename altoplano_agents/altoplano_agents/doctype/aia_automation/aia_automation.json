@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:50.132690",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "trigger",
+  "schedule_rule",
+  "timezone",
+  "event_doctype",
+  "event_name",
+  "condition_json",
+  "execution_principal",
+  "enabled",
+  "max_runs_period",
+  "last_run",
+  "next_run"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trigger",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Disparador",
+   "options": "Manual\nSchedule\nDocumentEvent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "schedule_rule",
+   "fieldtype": "Data",
+   "label": "Horario"
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zona horaria",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_doctype",
+   "fieldtype": "Link",
+   "label": "Documento",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "event_name",
+   "fieldtype": "Select",
+   "label": "Evento",
+   "options": "after_insert\non_update\non_submit"
+  },
+  {
+   "fieldname": "condition_json",
+   "fieldtype": "Code",
+   "label": "Condici\u00f3n"
+  },
+  {
+   "fieldname": "execution_principal",
+   "fieldtype": "Link",
+   "label": "Usuario ejecutor",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Activa",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_runs_period",
+   "fieldtype": "Int",
+   "label": "M\u00e1ximo de ejecuciones",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_run",
+   "fieldtype": "Link",
+   "label": "\u00daltima ejecuci\u00f3n",
+   "options": "AIA Run",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_run",
+   "fieldtype": "Datetime",
+   "label": "Siguiente ejecuci\u00f3n",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:15.226728",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Automation",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

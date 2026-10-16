@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:50.352851",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "revision",
+  "execution_principal",
+  "requested_by",
+  "identity_binding",
+  "conversation",
+  "trigger_type",
+  "execution_mode",
+  "status",
+  "trace_id",
+  "started_at",
+  "finished_at",
+  "budget_reservation",
+  "policy_snapshot_json"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "revision",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Revisi\u00f3n",
+   "options": "AIA Agent Revision",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "execution_principal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Usuario ejecutor",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Solicitado por",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "identity_binding",
+   "fieldtype": "Link",
+   "label": "Identidad",
+   "options": "AIA Identity Binding",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversation",
+   "fieldtype": "Link",
+   "label": "Conversaci\u00f3n",
+   "options": "AIA Conversation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trigger_type",
+   "fieldtype": "Select",
+   "label": "Origen",
+   "options": "Manual\nSchedule\nEvent\nChannel\nTest",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "execution_mode",
+   "fieldtype": "Select",
+   "label": "Modo",
+   "options": "Mock\nSandbox\nLiveReadOnly\nLive",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "Queued\nRunning\nWaitingApproval\nSucceeded\nFailed\nCancelled\nTimedOut\nUnknown",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "trace_id",
+   "fieldtype": "Data",
+   "label": "Seguimiento",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "started_at",
+   "fieldtype": "Datetime",
+   "label": "Inicio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finished_at",
+   "fieldtype": "Datetime",
+   "label": "Fin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "budget_reservation",
+   "fieldtype": "Link",
+   "label": "Reserva",
+   "options": "AIA Budget Reservation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "policy_snapshot_json",
+   "fieldtype": "Code",
+   "label": "Pol\u00edticas aplicadas",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:15.886636",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Run",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

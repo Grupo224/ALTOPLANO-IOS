@@ -1,33 +1,48 @@
-### Altoplano IA Agents
+# Altoplano IA Agents
 
-Administra agentes de IA integrados con ERPNext
+Custom App de Grupo Altoplano sobre Frappe Framework / ERPNext para administrar
+agentes de IA integrados a los datos, permisos y procesos reales de ERPNext.
 
-### Installation
+**Frontend:** Vue 3 + Vite + Frappe UI (experiencia tipo Frappe CRM) en `/ai-agents`.
+**Backend:** DocTypes propios + API v1 (`@frappe.whitelist`) + servicios autorizados.
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+## Instalación
 
 ```bash
 cd $PATH_TO_YOUR_BENCH
 bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app altoplano_agents
+bench --site SITE install-app altoplano_agents
+# compilar frontend
+cd apps/altoplano_agents/frontend && npm install && npm run build
 ```
 
-### Contributing
+## Dominio de datos
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+40 DocTypes en el módulo `Altoplano Agents` (`custom=0`), 10 roles `AIA *`,
+y catálogo de herramientas sembrado en `AIA Tool Definition`:
+
+- `erp.search_customers`
+- `erp.create_followup`
+- `erp.create_lead`
+- `erp.create_quotation_draft`
+
+## Cerebro
+
+Chat de la app para consultar el ERP y ejecutar acciones autorizadas. Ver
+[docs/cerebro.md](docs/cerebro.md).
+
+## API v1
+
+`altoplano_agents.api.v1.*` — `boot`, `dashboard`, `business`, `catalog`,
+`agents`, `connections`, `conversations`, `approvals`, `usage`, `erp`, `cerebro`.
+Ver [docs/api.md](docs/api.md).
+
+## Pruebas
 
 ```bash
-cd apps/altoplano_agents
-pre-commit install
+bench --site SITE run-tests --app altoplano_agents
 ```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
-
-- ruff
-- eslint
-- prettier
-- pyupgrade
-
-### License
+## License
 
 mit

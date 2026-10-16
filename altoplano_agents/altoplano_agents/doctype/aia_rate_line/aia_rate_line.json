@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:32:10.722034",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "metric_key",
+  "unit_basis",
+  "unit_price",
+  "currency",
+  "condition_json"
+ ],
+ "fields": [
+  {
+   "fieldname": "metric_key",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "M\u00e9trica",
+   "options": "InputTokens\nOutputTokens\nCachedReadTokens\nCacheWriteTokens\nAudioSeconds\nMessages\nRequests\nStorageGBMonth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit_basis",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Unidades por tarifa",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Precio por unidad de tarifa",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Moneda",
+   "options": "Currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "condition_json",
+   "fieldtype": "Code",
+   "label": "Condiciones"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:23.473795",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Rate Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

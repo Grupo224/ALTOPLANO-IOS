@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:49.503680",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection_type",
+  "provider",
+  "display_name",
+  "base_url",
+  "auth_type",
+  "credential_ref",
+  "external_account_id",
+  "owner_user",
+  "status",
+  "last_checked",
+  "error_code",
+  "capabilities_json",
+  "granted_scopes",
+  "expires_at",
+  "config_json",
+  "config_version",
+  "payer_mode"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "connection_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tipo",
+   "options": "LLM\nERP\nMCP\nTelegram\nWhatsApp\nChatwoot\nRuntime",
+   "reqd": 1
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Proveedor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nombre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Direcci\u00f3n del servicio"
+  },
+  {
+   "fieldname": "auth_type",
+   "fieldtype": "Select",
+   "label": "Autorizaci\u00f3n",
+   "options": "None\nAPIKey\nOAuth\nServiceAccount\nSecretRef",
+   "reqd": 1
+  },
+  {
+   "fieldname": "credential_ref",
+   "fieldtype": "Data",
+   "label": "Referencia de credencial",
+   "read_only": 1
+  },
+  {
+   "fieldname": "external_account_id",
+   "fieldtype": "Data",
+   "label": "Cuenta externa",
+   "read_only": 1
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Responsable",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "PendingAuthorization\nAuthorized\nChecking\nReady\nExpired\nDegraded\nRevoked\nFailed",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_checked",
+   "fieldtype": "Datetime",
+   "label": "\u00daltima verificaci\u00f3n",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_code",
+   "fieldtype": "Data",
+   "label": "C\u00f3digo de problema",
+   "read_only": 1
+  },
+  {
+   "fieldname": "capabilities_json",
+   "fieldtype": "Code",
+   "label": "Capacidades verificadas",
+   "read_only": 1
+  },
+  {
+   "fieldname": "granted_scopes",
+   "fieldtype": "Code",
+   "label": "Permisos concedidos",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expires_at",
+   "fieldtype": "Datetime",
+   "label": "Vence",
+   "read_only": 1
+  },
+  {
+   "fieldname": "config_json",
+   "fieldtype": "Code",
+   "label": "Opciones"
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "payer_mode",
+   "fieldtype": "Select",
+   "label": "Qui\u00e9n paga la IA",
+   "options": "Included\nBYOK\nManaged",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:13.120492",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Connection",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

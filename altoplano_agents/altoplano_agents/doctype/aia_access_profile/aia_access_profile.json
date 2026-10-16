@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:48.788218",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "user",
+  "enabled",
+  "agent_scope",
+  "allowed_agents"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Usuario",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Acceso habilitado",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent_scope",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Agentes visibles",
+   "options": "All\nAssigned",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allowed_agents",
+   "fieldtype": "Table",
+   "label": "Agentes asignados",
+   "options": "AIA Allowed Agent"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:11.495032",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Access Profile",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

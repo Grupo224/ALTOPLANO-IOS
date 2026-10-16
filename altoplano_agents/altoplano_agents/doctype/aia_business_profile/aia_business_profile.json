@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:48.647199",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "display_name",
+  "offering",
+  "audience",
+  "tone",
+  "opening_hours",
+  "timezone",
+  "handoff_instructions",
+  "public_contact",
+  "status",
+  "config_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nombre del negocio",
+   "reqd": 1
+  },
+  {
+   "fieldname": "offering",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Qu\u00e9 ofrece tu negocio",
+   "reqd": 1
+  },
+  {
+   "fieldname": "audience",
+   "fieldtype": "Small Text",
+   "label": "A qui\u00e9n atiendes"
+  },
+  {
+   "fieldname": "tone",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "C\u00f3mo quieres que responda",
+   "options": "Cercano\nProfesional\nBreve",
+   "reqd": 1
+  },
+  {
+   "fieldname": "opening_hours",
+   "fieldtype": "Small Text",
+   "label": "Horario de atenci\u00f3n"
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "label": "Zona horaria",
+   "reqd": 1
+  },
+  {
+   "fieldname": "handoff_instructions",
+   "fieldtype": "Small Text",
+   "label": "Cu\u00e1ndo pedir ayuda humana",
+   "reqd": 1
+  },
+  {
+   "fieldname": "public_contact",
+   "fieldtype": "Data",
+   "label": "Contacto p\u00fablico"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "Active\nArchived",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:11.291908",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Business Profile",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

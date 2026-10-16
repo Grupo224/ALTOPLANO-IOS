@@ -1,0 +1,186 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:50.241701",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "revision",
+  "request_key",
+  "desired_state",
+  "status",
+  "runtime_connection",
+  "lease_owner",
+  "lease_until",
+  "attempt_count",
+  "fencing_token",
+  "requested_by",
+  "expected_applied_revision",
+  "observed_revision",
+  "error_code",
+  "trace_id",
+  "requested_at",
+  "finished_at",
+  "manifest_hash"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "revision",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Revisi\u00f3n",
+   "options": "AIA Agent Revision",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "request_key",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Clave de solicitud",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "desired_state",
+   "fieldtype": "Select",
+   "label": "Solicitud",
+   "options": "Active\nPaused\nArchived",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "Queued\nApplying\nVerifying\nActive\nFailed\nPaused\nSuperseded",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "runtime_connection",
+   "fieldtype": "Link",
+   "label": "Motor",
+   "options": "AIA Connection",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "lease_owner",
+   "fieldtype": "Data",
+   "label": "Worker",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lease_until",
+   "fieldtype": "Datetime",
+   "label": "Vigencia de toma",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attempt_count",
+   "fieldtype": "Int",
+   "label": "Intentos",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "fencing_token",
+   "fieldtype": "Int",
+   "label": "Generaci\u00f3n",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Solicitado por",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_applied_revision",
+   "fieldtype": "Link",
+   "label": "Revisi\u00f3n previa esperada",
+   "options": "AIA Agent Revision",
+   "read_only": 1
+  },
+  {
+   "fieldname": "observed_revision",
+   "fieldtype": "Link",
+   "label": "Revisi\u00f3n confirmada",
+   "options": "AIA Agent Revision",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_code",
+   "fieldtype": "Data",
+   "label": "Problema",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trace_id",
+   "fieldtype": "Data",
+   "label": "Seguimiento",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_at",
+   "fieldtype": "Datetime",
+   "label": "Solicitado en",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "finished_at",
+   "fieldtype": "Datetime",
+   "label": "Finalizado en",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manifest_hash",
+   "fieldtype": "Data",
+   "label": "Huella esperada",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:15.545225",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Deployment",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,208 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:48.997962",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "display_name",
+  "owner_user",
+  "template",
+  "business_profile",
+  "audience",
+  "summary",
+  "model_connection",
+  "model_id",
+  "instructions",
+  "context_notes",
+  "skills",
+  "tools",
+  "knowledge_sources",
+  "delegates",
+  "budget_policy",
+  "draft_version",
+  "current_revision",
+  "applied_revision",
+  "tested_revision",
+  "desired_state",
+  "observed_state",
+  "configuration_hash",
+  "last_heartbeat"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nombre del agente",
+   "reqd": 1
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Responsable",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Plantilla",
+   "options": "AIA Agent Template"
+  },
+  {
+   "fieldname": "business_profile",
+   "fieldtype": "Link",
+   "label": "Negocio",
+   "options": "AIA Business Profile"
+  },
+  {
+   "fieldname": "audience",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tipo de uso",
+   "options": "Customer\nInternal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Qu\u00e9 har\u00e1"
+  },
+  {
+   "fieldname": "model_connection",
+   "fieldtype": "Link",
+   "label": "Proveedor de IA",
+   "options": "AIA Connection"
+  },
+  {
+   "fieldname": "model_id",
+   "fieldtype": "Data",
+   "label": "Modelo"
+  },
+  {
+   "fieldname": "instructions",
+   "fieldtype": "Text Editor",
+   "label": "Indicaciones"
+  },
+  {
+   "fieldname": "context_notes",
+   "fieldtype": "Text Editor",
+   "label": "Contexto adicional"
+  },
+  {
+   "fieldname": "skills",
+   "fieldtype": "Table",
+   "label": "Habilidades",
+   "options": "AIA Skill Assignment"
+  },
+  {
+   "fieldname": "tools",
+   "fieldtype": "Table",
+   "label": "Acciones permitidas",
+   "options": "AIA Tool Grant"
+  },
+  {
+   "fieldname": "knowledge_sources",
+   "fieldtype": "Table",
+   "label": "Informaci\u00f3n disponible",
+   "options": "AIA Source Assignment"
+  },
+  {
+   "fieldname": "delegates",
+   "fieldtype": "Table",
+   "label": "Otros agentes autorizados",
+   "options": "AIA Allowed Agent"
+  },
+  {
+   "fieldname": "budget_policy",
+   "fieldtype": "Link",
+   "label": "Presupuesto principal",
+   "options": "AIA Budget Policy"
+  },
+  {
+   "fieldname": "draft_version",
+   "fieldtype": "Int",
+   "label": "Versi\u00f3n del borrador",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_revision",
+   "fieldtype": "Link",
+   "label": "Revisi\u00f3n solicitada",
+   "options": "AIA Agent Revision",
+   "read_only": 1
+  },
+  {
+   "fieldname": "applied_revision",
+   "fieldtype": "Link",
+   "label": "Revisi\u00f3n aplicada",
+   "options": "AIA Agent Revision",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tested_revision",
+   "fieldtype": "Link",
+   "label": "Revisi\u00f3n probada",
+   "options": "AIA Agent Revision",
+   "read_only": 1
+  },
+  {
+   "fieldname": "desired_state",
+   "fieldtype": "Select",
+   "label": "Estado solicitado",
+   "options": "Draft\nActive\nPaused\nArchived",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "observed_state",
+   "fieldtype": "Select",
+   "label": "Estado real",
+   "options": "NeedsSetup\nValidating\nQueued\nDeploying\nActive\nDegraded\nFailed\nPaused\nSuspended\nArchived",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "configuration_hash",
+   "fieldtype": "Data",
+   "label": "Huella de configuraci\u00f3n",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_heartbeat",
+   "fieldtype": "Datetime",
+   "label": "\u00daltima se\u00f1al",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:11.868869",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Agent",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

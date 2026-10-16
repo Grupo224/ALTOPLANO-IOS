@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:49.378213",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "slug",
+  "display_name",
+  "explanation",
+  "adapter_key",
+  "input_schema",
+  "output_schema",
+  "risk",
+  "allowed_resources",
+  "enabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "slug",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Identificador",
+   "reqd": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nombre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "explanation",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Explicaci\u00f3n",
+   "reqd": 1
+  },
+  {
+   "fieldname": "adapter_key",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Adaptador",
+   "reqd": 1
+  },
+  {
+   "fieldname": "input_schema",
+   "fieldtype": "Code",
+   "label": "Esquema de entrada",
+   "reqd": 1
+  },
+  {
+   "fieldname": "output_schema",
+   "fieldtype": "Code",
+   "label": "Esquema de salida",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk",
+   "fieldtype": "Select",
+   "label": "Riesgo",
+   "options": "Read\nReversibleWrite\nSensitiveWrite",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allowed_resources",
+   "fieldtype": "Code",
+   "label": "Recursos admitidos",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Habilitada",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:12.698044",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Tool Definition",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

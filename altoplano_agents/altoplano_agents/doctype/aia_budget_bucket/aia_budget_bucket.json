@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:51.564205",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "policy",
+  "period_start",
+  "period_end",
+  "bucket_key",
+  "base_currency",
+  "limit_snapshot",
+  "committed_amount",
+  "reserved_amount",
+  "uncertain_amount",
+  "last_reconciled"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "policy",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Pol\u00edtica",
+   "options": "AIA Budget Policy",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "period_start",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Inicio",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "period_end",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Fin",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "bucket_key",
+   "fieldtype": "Data",
+   "label": "Clave",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "base_currency",
+   "fieldtype": "Link",
+   "label": "Moneda",
+   "options": "Currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "limit_snapshot",
+   "fieldtype": "Currency",
+   "label": "L\u00edmite aplicado",
+   "options": "base_currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "committed_amount",
+   "fieldtype": "Currency",
+   "label": "Consumo confirmado",
+   "options": "base_currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "reserved_amount",
+   "fieldtype": "Currency",
+   "label": "Pendiente reservado",
+   "options": "base_currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "uncertain_amount",
+   "fieldtype": "Currency",
+   "label": "Consumo por confirmar",
+   "options": "base_currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_reconciled",
+   "fieldtype": "Datetime",
+   "label": "\u00daltima conciliaci\u00f3n",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:18.490393",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Budget Bucket",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

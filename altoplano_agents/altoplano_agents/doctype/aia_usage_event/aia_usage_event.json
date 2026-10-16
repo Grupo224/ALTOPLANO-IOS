@@ -1,0 +1,209 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:51.289020",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "run",
+  "connection",
+  "event_key",
+  "provider_event_id",
+  "measurement_state",
+  "metrics_json",
+  "supplier_price_card",
+  "supplier_currency",
+  "supplier_amount",
+  "base_currency",
+  "fx_rate",
+  "fx_source",
+  "fx_at",
+  "base_amount",
+  "customer_price_card",
+  "customer_currency",
+  "customer_amount",
+  "pricing_snapshot_json",
+  "occurred_at",
+  "correction_of"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "run",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Ejecuci\u00f3n",
+   "options": "AIA Run",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Conexi\u00f3n",
+   "options": "AIA Connection",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_key",
+   "fieldtype": "Data",
+   "label": "Clave \u00fanica",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "provider_event_id",
+   "fieldtype": "Data",
+   "label": "ID proveedor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "measurement_state",
+   "fieldtype": "Select",
+   "label": "Medici\u00f3n",
+   "options": "Estimated\nReported\nReconciled\nUnpriced\nCorrected",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "metrics_json",
+   "fieldtype": "Code",
+   "label": "M\u00e9tricas",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "supplier_price_card",
+   "fieldtype": "Link",
+   "label": "Tarifa de costo",
+   "options": "AIA Price Card",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier_currency",
+   "fieldtype": "Link",
+   "label": "Moneda del costo",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier_amount",
+   "fieldtype": "Currency",
+   "label": "Costo original",
+   "options": "supplier_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_currency",
+   "fieldtype": "Link",
+   "label": "Moneda del presupuesto",
+   "options": "Currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "fx_rate",
+   "fieldtype": "Float",
+   "label": "Tipo de cambio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fx_source",
+   "fieldtype": "Data",
+   "label": "Fuente del cambio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fx_at",
+   "fieldtype": "Datetime",
+   "label": "Fecha del cambio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_amount",
+   "fieldtype": "Currency",
+   "label": "Costo base",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_price_card",
+   "fieldtype": "Link",
+   "label": "Tarifa de venta",
+   "options": "AIA Price Card",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_currency",
+   "fieldtype": "Link",
+   "label": "Moneda del cobro",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_amount",
+   "fieldtype": "Currency",
+   "label": "Importe cobrable",
+   "options": "customer_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pricing_snapshot_json",
+   "fieldtype": "Code",
+   "label": "C\u00e1lculo aplicado",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "occurred_at",
+   "fieldtype": "Datetime",
+   "label": "Fecha del consumo",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "correction_of",
+   "fieldtype": "Link",
+   "label": "Corrige al evento",
+   "options": "AIA Usage Event",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:17.616044",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Usage Event",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:49.914480",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "binding",
+  "session_key",
+  "external_conversation_id",
+  "identity_binding",
+  "audience",
+  "handler_state",
+  "assigned_user",
+  "summary",
+  "last_activity",
+  "memory_scope"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "binding",
+   "fieldtype": "Link",
+   "label": "Canal",
+   "options": "AIA Channel Binding",
+   "read_only": 1
+  },
+  {
+   "fieldname": "session_key",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Clave de sesi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "external_conversation_id",
+   "fieldtype": "Data",
+   "label": "Conversaci\u00f3n externa",
+   "read_only": 1
+  },
+  {
+   "fieldname": "identity_binding",
+   "fieldtype": "Link",
+   "label": "Identidad",
+   "options": "AIA Identity Binding",
+   "read_only": 1
+  },
+  {
+   "fieldname": "audience",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tipo",
+   "options": "Customer\nInternal",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "handler_state",
+   "fieldtype": "Select",
+   "label": "Atiende",
+   "options": "Bot\nHuman\nClosed",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "assigned_user",
+   "fieldtype": "Link",
+   "label": "Persona responsable",
+   "options": "User"
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Resumen",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_activity",
+   "fieldtype": "Datetime",
+   "label": "\u00daltima actividad",
+   "read_only": 1
+  },
+  {
+   "fieldname": "memory_scope",
+   "fieldtype": "Data",
+   "label": "\u00c1mbito de memoria",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:14.603459",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Conversation",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

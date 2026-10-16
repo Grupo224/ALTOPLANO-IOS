@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:49.103252",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "revision_no",
+  "manifest_schema",
+  "manifest_json",
+  "manifest_hash",
+  "template_version",
+  "created_by",
+  "created_at",
+  "based_on_revision"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "revision_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "N\u00famero de revisi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "manifest_schema",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Versi\u00f3n del manifiesto",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "manifest_json",
+   "fieldtype": "Code",
+   "label": "Manifiesto",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "manifest_hash",
+   "fieldtype": "Data",
+   "label": "Huella",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "template_version",
+   "fieldtype": "Data",
+   "label": "Versi\u00f3n de plantilla",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Creado por",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Creado en",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "based_on_revision",
+   "fieldtype": "Link",
+   "label": "Revisi\u00f3n anterior",
+   "options": "AIA Agent Revision",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:12.078449",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Agent Revision",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

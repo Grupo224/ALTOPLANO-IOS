@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:50.486873",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "run",
+  "tool",
+  "arguments_json",
+  "arguments_redacted_json",
+  "argument_hash",
+  "status",
+  "approval_request",
+  "operation_key",
+  "target_doctype",
+  "target_name",
+  "error_code",
+  "started_at",
+  "finished_at",
+  "result_summary",
+  "execution_actor"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "run",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Ejecuci\u00f3n",
+   "options": "AIA Run",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "tool",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Herramienta",
+   "options": "AIA Tool Definition",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "arguments_json",
+   "fieldtype": "Code",
+   "in_list_view": 1,
+   "label": "Argumentos privados",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "arguments_redacted_json",
+   "fieldtype": "Code",
+   "label": "Argumentos resumidos",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "argument_hash",
+   "fieldtype": "Data",
+   "label": "Huella de argumentos",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "PendingApproval\nQueued\nRunning\nSucceeded\nFailed\nUnknown\nDenied",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "approval_request",
+   "fieldtype": "Link",
+   "label": "Aprobaci\u00f3n",
+   "options": "AIA Approval Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation_key",
+   "fieldtype": "Data",
+   "label": "Clave de operaci\u00f3n",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "label": "Tipo de documento",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Documento ERP",
+   "options": "target_doctype",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_code",
+   "fieldtype": "Data",
+   "label": "Problema",
+   "read_only": 1
+  },
+  {
+   "fieldname": "started_at",
+   "fieldtype": "Datetime",
+   "label": "Inicio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finished_at",
+   "fieldtype": "Datetime",
+   "label": "Fin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "result_summary",
+   "fieldtype": "Small Text",
+   "label": "Resultado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "execution_actor",
+   "fieldtype": "Link",
+   "label": "Usuario efectivo",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:16.228571",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Tool Call",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

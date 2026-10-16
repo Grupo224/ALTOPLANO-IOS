@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:52.094298",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "actor",
+  "event_type",
+  "object_doctype",
+  "object_name",
+  "before_hash",
+  "after_hash",
+  "trace_id",
+  "summary",
+  "created_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "actor",
+   "fieldtype": "Link",
+   "label": "Actor",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Evento",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "object_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tipo",
+   "options": "DocType",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "object_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Registro",
+   "options": "object_doctype",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "before_hash",
+   "fieldtype": "Data",
+   "label": "Huella anterior",
+   "read_only": 1
+  },
+  {
+   "fieldname": "after_hash",
+   "fieldtype": "Data",
+   "label": "Huella posterior",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trace_id",
+   "fieldtype": "Data",
+   "label": "Seguimiento",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Resumen",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Fecha",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:19.870129",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Audit Event",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

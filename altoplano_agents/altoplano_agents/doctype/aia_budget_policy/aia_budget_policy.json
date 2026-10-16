@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:51.453712",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "scope",
+  "agent",
+  "user",
+  "cost_basis",
+  "base_currency",
+  "period",
+  "timezone",
+  "limit_amount",
+  "enforcement",
+  "warning_percent",
+  "max_concurrent",
+  "max_duration",
+  "max_tool_calls",
+  "max_turns",
+  "safety_margin_percent",
+  "enabled",
+  "policy_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Alcance",
+   "options": "Company\nAgent\nUser",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agente",
+   "options": "AIA Agent"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "Usuario",
+   "options": "User"
+  },
+  {
+   "fieldname": "cost_basis",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Qu\u00e9 limita",
+   "options": "SupplierCost\nCustomerCharge",
+   "reqd": 1
+  },
+  {
+   "fieldname": "base_currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Moneda",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Select",
+   "label": "Per\u00edodo",
+   "options": "Daily\nMonthly",
+   "reqd": 1
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "label": "Zona horaria",
+   "reqd": 1
+  },
+  {
+   "fieldname": "limit_amount",
+   "fieldtype": "Currency",
+   "label": "L\u00edmite",
+   "options": "base_currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "enforcement",
+   "fieldtype": "Select",
+   "label": "Aplicaci\u00f3n",
+   "options": "Hard\nSoft",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warning_percent",
+   "fieldtype": "Percent",
+   "label": "Aviso al porcentaje",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_concurrent",
+   "fieldtype": "Int",
+   "label": "Ejecuciones simult\u00e1neas",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_duration",
+   "fieldtype": "Int",
+   "label": "Duraci\u00f3n m\u00e1xima en segundos",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_tool_calls",
+   "fieldtype": "Int",
+   "label": "M\u00e1ximo de acciones",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_turns",
+   "fieldtype": "Int",
+   "label": "M\u00e1ximo de turnos",
+   "reqd": 1
+  },
+  {
+   "fieldname": "safety_margin_percent",
+   "fieldtype": "Percent",
+   "label": "Margen de reserva",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Activa",
+   "reqd": 1
+  },
+  {
+   "fieldname": "policy_version",
+   "fieldtype": "Int",
+   "label": "Versi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:18.129373",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Budget Policy",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

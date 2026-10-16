@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:49.706159",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection",
+  "external_subject_id",
+  "user",
+  "contact",
+  "customer",
+  "status",
+  "verification_method",
+  "verified_by",
+  "verified_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Conexi\u00f3n",
+   "options": "AIA Connection",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "external_subject_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Identificador externo",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "Usuario interno",
+   "options": "User"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contacto",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Cliente",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Estado",
+   "options": "Pending\nVerified\nRevoked",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "verification_method",
+   "fieldtype": "Select",
+   "label": "M\u00e9todo",
+   "options": "PortalConsent\nAdminVerified",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verificado por",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_at",
+   "fieldtype": "Datetime",
+   "label": "Verificado en",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:13.957679",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Identity Binding",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-16 16:31:49.603157",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "agent",
+  "connection",
+  "channel",
+  "external_account_id",
+  "inbox_id",
+  "route_key",
+  "audience",
+  "enabled",
+  "session_scope"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empresa",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agente",
+   "options": "AIA Agent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Conexi\u00f3n",
+   "options": "AIA Connection",
+   "reqd": 1
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Canal",
+   "options": "Portal\nTelegram\nWhatsApp",
+   "reqd": 1
+  },
+  {
+   "fieldname": "external_account_id",
+   "fieldtype": "Data",
+   "label": "Cuenta del canal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "inbox_id",
+   "fieldtype": "Data",
+   "label": "Bandeja"
+  },
+  {
+   "fieldname": "route_key",
+   "fieldtype": "Data",
+   "label": "Clave de ruta",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "audience",
+   "fieldtype": "Select",
+   "label": "Tipo de conversaci\u00f3n",
+   "options": "Customer\nInternal",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Recibir mensajes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "session_scope",
+   "fieldtype": "Data",
+   "label": "Separaci\u00f3n de sesiones",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-16 16:32:13.615579",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Channel Binding",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
