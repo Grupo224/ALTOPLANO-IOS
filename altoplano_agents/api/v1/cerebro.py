@@ -96,12 +96,11 @@ def _route(message, conv):
         q = _extract_query(text)
         rows = search_customers({"query": q}, actor=frappe.session.user)
         if not rows:
-            return "No encontré clientes" + ((" para "" + q + """) if q else "") + ". Escribe un nombre, teléfono o correo."
+            return "No encontré clientes" + ((" para " + q) if q else "") + ". Escribe un nombre, teléfono o correo."
         lines = ["Clientes encontrados:"]
         for c in rows[:5]:
             lines.append("• " + (c.customer_name or c.name) + ((" — " + (c.mobile_no or c.email_id)) if (c.mobile_no or c.email_id) else ""))
-        return "
-".join(lines)
+        return "\n".join(lines)
 
     # Propuesta de acción que requiere aprobación (SensitiveWrite)
     if "cotización" in text or "cotizacion" in text:

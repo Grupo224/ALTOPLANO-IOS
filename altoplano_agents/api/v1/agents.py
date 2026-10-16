@@ -49,6 +49,9 @@ def get_agent(agent):
 def create_agent(company_context=None, display_name=None, summary=None, audience=None, template=None, instructions=None):
     from altoplano_agents.services.context import resolve_company
     company = resolve_company(company_context)
+    if template:
+        template_name = frappe.db.get_value("AIA Agent Template", {"slug": template}, "name")
+        template = template_name or None
     doc = frappe.get_doc({
         "doctype": "AIA Agent",
         "company": company,
@@ -58,6 +61,8 @@ def create_agent(company_context=None, display_name=None, summary=None, audience
         "template": template,
         "instructions": instructions,
         "desired_state": "Draft",
+        "owner_user": frappe.session.user,
+        "draft_version": 0,
     })
     doc.flags.ignore_permissions = True
     doc.insert(ignore_permissions=True)

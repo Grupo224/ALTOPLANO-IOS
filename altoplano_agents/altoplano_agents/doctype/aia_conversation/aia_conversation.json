@@ -37,7 +37,7 @@
    "label": "Agente",
    "options": "AIA Agent",
    "read_only": 1,
-   "reqd": 1
+   "reqd": 0
   },
   {
    "fieldname": "binding",

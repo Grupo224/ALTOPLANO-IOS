@@ -9,7 +9,7 @@
         <div v-if="!messages.length" class="flex h-full flex-col items-center justify-center gap-2 text-center">
           <div class="text-2xl">🧠</div>
           <div class="text-sm font-medium">¿En qué te ayudo?</div>
-          <div class="max-w-sm text-sm text-ink-gray-5">Puedo buscar clientes, crear seguimientos, leads o borradores de cotización. Te mostraré el documento real antes de cualquier cambio.</div>
+          <div class="max-w-sm text-sm text-ink-gray-5">Puedo buscar clientes, crear seguimientos, prospectos o cotizaciones en borrador.</div>
           <div class="mt-2 flex flex-wrap justify-center gap-2">
             <Button v-for="s in suggestions" :key="s" variant="subtle" :label="s" @click="send(s)" />
           </div>
@@ -18,9 +18,6 @@
           <div v-for="(m, i) in messages" :key="i" class="flex" :class="m.role === 'user' ? 'justify-end' : 'justify-start'">
             <div class="max-w-[75%] rounded-xl px-3 py-2 text-sm" :class="m.role === 'user' ? 'bg-surface-blue-2 text-ink-blue-9' : 'bg-surface-base text-ink-gray-9 border border-outline-gray-2'">
               <div class="whitespace-pre-wrap">{{ m.text }}</div>
-              <div v-if="m.actions && m.actions.length" class="mt-2 flex flex-wrap gap-2">
-                <Button v-for="a in m.actions" :key="a.label" size="sm" :variant="a.danger ? 'solid' : 'subtle'" :theme="a.danger ? 'red' : 'blue'" :label="a.label" @click="confirm(m, a)" />
-              </div>
             </div>
           </div>
           <div v-if="busy" class="text-sm text-ink-gray-5">Pensando…</div>
@@ -46,15 +43,16 @@ import { api, humanError } from '../resources/api'
 const messages = ref([])
 const draft = ref('')
 const busy = ref(false)
-const conversation = ref(null)
+const conversationName = ref(null)
 const logRef = ref(null)
 
-const suggestions = ['Mis pendientes', '¿Qué prospectos requieren atención?', '¿Cómo va la venta?', 'Crea una tarea para…']
+const suggestions = ['buscar clientes', 'crear un prospecto', 'crear un seguimiento', 'crear una cotización']
 
 async function ensure() {
-  if (conversation.value) return conversation.value
-  conversation.value = await api.cerebroStart()
-  return conversation.value
+  if (conversationName.value) return conversationName.value
+  const res = await api.cerebroStart()
+  conversationName.value = res.conversation
+  return conversationName.value
 }
 
 async function send(text) {
@@ -66,25 +64,10 @@ async function send(text) {
   scrollDown()
   try {
     const c = await ensure()
-    const reply = await api.cerebroAsk(c.name, msg)
-    messages.value.push({ role: 'assistant', text: reply.text, actions: reply.actions || [] })
+    const res = await api.cerebroAsk(c, msg)
+    messages.value.push({ role: 'assistant', text: res.reply || 'Sin respuesta.' })
   } catch (e) {
-    messages.value.push({ role: 'assistant', text: '⚠️ ' + humanError(e), actions: [] })
-  } finally {
-    busy.value = false
-    scrollDown()
-  }
-}
-
-async function confirm(msgRow, action) {
-  msgRow.actions = []
-  busy.value = true
-  try {
-    const c = await ensure()
-    const reply = await api.cerebroAsk(c.name, action.value || action.label, { execute: true })
-    messages.value.push({ role: 'assistant', text: reply.text, actions: reply.actions || [] })
-  } catch (e) {
-    messages.value.push({ role: 'assistant', text: '⚠️ ' + humanError(e), actions: [] })
+    messages.value.push({ role: 'assistant', text: '⚠️ ' + humanError(e) })
   } finally {
     busy.value = false
     scrollDown()
