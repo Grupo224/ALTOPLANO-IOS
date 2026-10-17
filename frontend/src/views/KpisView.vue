@@ -1,0 +1,2 @@
+<template><OsList eyebrow="KPIs" title="Indicadores" description="Mide lo que importa en cada proceso." doctype="OS KPI Definition" :fields="['name','kpi_title','kpi_code','entity_type','frequency']" :columns="[{fieldname:'kpi_title',label:'KPI'},{fieldname:'kpi_code',label:'Código'},{fieldname:'entity_type',label:'Entidad'},{fieldname:'frequency',label:'Frecuencia'}]" create-label="KPI" :create-fields="[{fieldname:'kpi_title',label:'Título'},{fieldname:'kpi_code',label:'Código'}]" /></template>
+<script setup>import OsList from '../components/OsList.vue'</script>

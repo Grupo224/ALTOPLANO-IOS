@@ -1,31 +1,24 @@
 <template>
-  <div class="app-shell as-app bg-[var(--as-bg)] text-ink-gray-9">
-    <aside class="as-sidebar shrink-0">
-      <div class="as-brand">◭ altoplano<small>AGENT STUDIO</small></div>
-      <div class="as-workspace">▦ &nbsp; {{ session.company || 'Grupo Altoplano' }}</div>
+  <div class="app-shell">
+    <aside class="os-sidebar shrink-0">
+      <div class="os-brand">LIVINGORG<small>OS · SISTEMA OPERATIVO VIVO</small></div>
 
       <template v-for="(group, gi) in navGroups" :key="gi">
-        <div class="as-navlabel">{{ group.label }}</div>
-        <RouterLink
-          v-for="item in group.items"
-          :key="item.route"
-          :to="item.route"
-          class="as-nav-btn"
-          :class="{ active: $route.path === item.route || (item.route !== '/' && $route.path.startsWith(item.route)) }"
-        >
+        <div class="os-navlabel">{{ group.label }}</div>
+        <RouterLink v-for="item in group.items" :key="item.route" :to="item.route" class="os-nav-btn" :class="{ active: isActive(item.route) }">
           <span>{{ item.icon }}</span><span>{{ item.label }}</span>
         </RouterLink>
       </template>
 
-      <div class="as-foot">● &nbsp; Entorno de demostración<br>OpenClaw × Frappe<br>Altoplano · La experiencia</div>
+      <div class="os-foot">● &nbsp; Entorno de demostración<br>LivingOrg OS × Frappe</div>
     </aside>
 
     <main class="flex min-w-0 flex-1 flex-col">
-      <div class="as-top">
-        <span class="text-sm text-ink-gray-7">Workspace &nbsp; / &nbsp; {{ currentLabel }}</span>
+      <div class="os-top">
+        <span class="text-sm" style="color: var(--os-steel)">Altoplano &nbsp; / &nbsp; {{ currentLabel }}</span>
         <div class="flex items-center gap-2">
-          <span class="as-pill">● Datos de ejemplo</span>
-          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-blue-2 text-sm font-semibold text-ink-blue-7">{{ initials }}</span>
+          <span class="os-pill">● En vivo</span>
+          <span class="flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold" style="background:#23334a;color:#ff9422">{{ initials }}</span>
         </div>
       </div>
       <div class="scroll-area min-h-0 flex-1">
@@ -36,47 +29,53 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
-import { RouterLink } from 'vue-router'
-import { useSession } from '../composables/useSession'
+import { computed } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 
-const { state: session, load } = useSession()
-onMounted(() => load())
+const route = useRoute()
 
 const navGroups = [
   {
-    label: 'Workspace',
+    label: 'Operación',
     items: [
-      { label: 'Mis agentes', route: '/agents', icon: '◇' },
-      { label: 'Flujos de trabajo', route: '/flows', icon: '⌘' },
-      { label: 'Cerebro ERP', route: '/cerebro', icon: '◌' },
+      { label: 'Command Center', route: '/', icon: '⌂' },
+      { label: 'Organigrama', route: '/org', icon: '⊞' },
+      { label: 'Procesos', route: '/processes', icon: '⑂' },
+      { label: 'SOP', route: '/sop', icon: '▤' },
+      { label: 'Mi Trabajo', route: '/work', icon: '✓' },
+      { label: 'Aprobaciones', route: '/approvals', icon: '☑' },
+      { label: 'Ejecuciones', route: '/runs', icon: '▶' },
     ],
   },
   {
-    label: 'Conocimiento y acceso',
+    label: 'Gobierno',
     items: [
-      { label: 'Contexto general', route: '/business', icon: '▤' },
-      { label: 'Conectores', route: '/connections', icon: '⊞' },
+      { label: 'Agentes y Prompts', route: '/agents', icon: '◇' },
+      { label: 'Roles', route: '/roles', icon: '✧' },
+      { label: 'KPIs', route: '/kpis', icon: '◴' },
+      { label: 'Integraciones', route: '/integrations', icon: '⊞' },
     ],
   },
   {
-    label: 'Control',
+    label: 'Conocimiento',
     items: [
-      { label: 'Consumo y límites', route: '/spending', icon: '◴' },
-      { label: 'Ejecuciones', route: '/activity', icon: '≡' },
-      { label: 'Agenda', route: '/agenda', icon: '📅' },
+      { label: 'Conocimiento', route: '/knowledge', icon: '▦' },
+    ],
+  },
+  {
+    label: 'Analítica',
+    items: [
+      { label: 'Analítica', route: '/analytics', icon: '▥' },
     ],
   },
 ]
 
-const currentLabel = computed(() => {
-  const flat = navGroups.flatMap((g) => g.items)
-  const m = flat.find((i) => i.route !== '/' && routeMatches(i.route))
-  return m ? m.label : 'Inicio'
-})
-function routeMatches(r) {
-  return typeof window !== 'undefined' && window.location.pathname.startsWith(r)
-}
+const flat = navGroups.flatMap((g) => g.items)
+const currentLabel = computed(() => flat.find((i) => isActive(i.route))?.label || 'Command Center')
+const initials = computed(() => (typeof frappe !== 'undefined' && frappe.session?.user ? frappe.session.user.slice(0, 2).toUpperCase() : 'AQ'))
 
-const initials = computed(() => (session.fullName || session.user || 'AQ').split(/\s+/).slice(0, 2).map((x) => x[0]).join('').toUpperCase())
+function isActive(r) {
+  if (r === '/') return route.path === '/'
+  return route.path === r || route.path.startsWith(r + '/')
+}
 </script>

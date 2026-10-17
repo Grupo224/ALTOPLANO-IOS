@@ -1,0 +1,2 @@
+<template><OsList read-only eyebrow="Mi Trabajo" title="Lo que te toca" description="Pasos asignados a ti, con su evidencia y aprobaciones." doctype="OS Step Run" :fields="['name','step_title_snapshot','status','actor_user','run']" :columns="[{fieldname:'step_title_snapshot',label:'Paso'},{fieldname:'status',label:'Estado'},{fieldname:'actor_user',label:'Responsable'},{fieldname:'run',label:'Ejecución'}]" /></template>
+<script setup>import OsList from '../components/OsList.vue'</script>

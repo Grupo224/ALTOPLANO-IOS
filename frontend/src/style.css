@@ -1,52 +1,47 @@
 @import 'frappe-ui/style.css';
 
-/* ===== Altoplano Agent Studio — paleta (preview/index.html) ===== */
+/* ===== LivingOrg OS — paleta (repo Grupo224/Soft, livingorg-os-v2) ===== */
 :root {
-  --as-bg: #f7f8fa;
-  --as-text: #19283a;
-  --as-body: #25364a;
-  --as-primary: #143e37;
-  --as-primary-hover: #24574e;
-  --as-sage: #648976;
-  --as-sage-soft: #789085;
-  --as-active-bg: #eaf1ee;
-  --as-active-text: #225547;
-  --as-border: #e1e6eb;
-  --as-muted: #7b8794;
-  --as-canvas: #f3f6f5;
-  --as-dot: #cbd7d1;
+  --os-navy: #0C1420;
+  --os-navy-2: #121D2C;
+  --os-navy-3: #16233a;
+  --os-steel: #75879F;
+  --os-text: #C4CFDE;
+  --os-orange: #FF9422;
+  --os-orange-soft: #F5820A;
+  --os-sand: #dccfba;
 }
 
 html, body, #app { height: 100%; }
-body { background: var(--as-bg); }
+body { background: var(--os-navy); color: var(--os-text); }
 #app { overflow: hidden; }
 
-/* Re-marca el primario de frappe-ui ("blue") al verde Agent Studio */
+/* Re-marca el primario de frappe-ui ("blue") al naranja LivingOrg */
 :root {
-  --surface-blue-1: #eaf1ee;
-  --surface-blue-2: #dce9e3;
-  --surface-blue-3: #c3dcd1;
-  --surface-blue-4: #98c1b1;
-  --surface-blue-5: #6ba28e;
-  --surface-blue-6: #45866f;
-  --surface-blue-7: #143e37;
-  --surface-blue-8: #0f302b;
-  --surface-blue-9: #0b231f;
-  --surface-blue-10: #071713;
+  --surface-blue-1: #2b3c56;
+  --surface-blue-2: #23334a;
+  --surface-blue-3: #1a283e;
+  --surface-blue-4: #75879f;
+  --surface-blue-5: #f5820a;
+  --surface-blue-6: #ff9422;
+  --surface-blue-7: #ff9422;
+  --surface-blue-8: #f5820a;
+  --surface-blue-9: #d96f00;
+  --surface-blue-10: #b85c00;
 
-  --ink-blue-1: #eaf1ee;
-  --ink-blue-2: #dce9e3;
-  --ink-blue-3: #c3dcd1;
-  --ink-blue-4: #6ba28e;
-  --ink-blue-5: #45866f;
-  --ink-blue-6: #24574e;
-  --ink-blue-7: #225547;
-  --ink-blue-8: #143e37;
-  --ink-blue-9: #0f302b;
-  --ink-blue-10: #0b231f;
+  --ink-blue-1: #2b3c56;
+  --ink-blue-2: #75879f;
+  --ink-blue-3: #c4cfde;
+  --ink-blue-4: #ff9422;
+  --ink-blue-5: #ff9422;
+  --ink-blue-6: #ff9422;
+  --ink-blue-7: #ff9422;
+  --ink-blue-8: #f5820a;
+  --ink-blue-9: #f5820a;
+  --ink-blue-10: #f5820a;
 
-  --outline-blue-4: #6ba28e;
-  --outline-blue-7: #143e37;
+  --outline-blue-4: #f5820a;
+  --outline-blue-7: #ff9422;
 }
 
 .app-shell {
@@ -58,42 +53,26 @@ body { background: var(--as-bg); }
 .scroll-area {
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--outline-gray-2, #e2e2e2) transparent;
+  scrollbar-color: #2b3c56 transparent;
 }
 
-/* ===== Estructura Agent Studio ===== */
-.as-sidebar {
-  background: #fff;
-  border-right: 1px solid #e3e6eb;
-  width: 226px;
-  display: flex;
-  flex-direction: column;
-  padding: 27px 17px;
-}
-.as-brand { font-size: 19px; font-weight: 750; letter-spacing: -0.7px; color: var(--as-text); margin: 0 9px 30px; }
-.as-brand small { font-size: 10px; display: block; letter-spacing: 2.5px; color: #788390; margin-top: 7px; }
-.as-workspace { padding: 12px; background: #f5f6f8; border: 1px solid #e7eaee; border-radius: 9px; margin-bottom: 24px; color: var(--as-body); font-size: 13px; }
-.as-navlabel { font-size: 10px; letter-spacing: 1.5px; color: #8a929e; padding: 18px 12px 8px; text-transform: uppercase; }
-.as-nav-btn {
-  text-align: left; border: 0; background: transparent; padding: 12px;
-  font-size: 14px; color: var(--as-body); border-radius: 8px; width: 100%;
-  display: flex; align-items: center; gap: 8px;
-}
-.as-nav-btn:hover { background: #edf2f1; }
-.as-nav-btn.active { background: var(--as-active-bg); color: var(--as-active-text); font-weight: 650; }
-.as-foot { margin-top: auto; padding-top: 40px; color: #87929c; font-size: 11px; line-height: 1.7; }
-.as-top { height: 70px; background: #fff; border-bottom: 1px solid #e3e6eb; display: flex; align-items: center; justify-content: space-between; padding: 0 34px; }
-.as-pill { border-radius: 20px; background: #edf4ef; color: #397052; padding: 5px 9px; font-size: 11px; }
-.as-body { padding: 30px 34px; }
-.as-eyebrow { color: #789085; letter-spacing: 1.7px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-.as-h1 { font-size: 29px; letter-spacing: -1px; margin: 10px 0; color: var(--as-text); font-weight: 750; }
-.as-stat, .as-card { background: #fff; border: 1px solid #e1e6eb; border-radius: 11px; padding: 21px; }
-.as-stat span { color: #7d8995; font-size: 12px; }
-.as-stat strong { display: block; font-size: 26px; margin: 10px 0 5px; color: var(--as-text); }
-.as-stat small { color: #648976; font-size: 11px; }
-.as-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-.as-avatar { height: 45px; width: 45px; display: grid; place-items: center; border-radius: 12px; background: #eaf1ed; font-size: 23px; color: var(--as-active-text); }
-.as-tag { font-size: 10px; border: 1px solid #e3e7ed; padding: 5px 7px; border-radius: 5px; color: #6a7989; }
-.as-intro { background: #eaf0ed; border: 1px solid #dce6df; padding: 22px 26px; border-radius: 10px; margin: 26px 0; display: flex; align-items: center; gap: 22px; }
-@media (max-width: 900px) { .as-grid { grid-template-columns: 1fr 1fr; } .as-sidebar { width: 200px; } }
-@media (max-width: 640px) { .as-grid { grid-template-columns: 1fr; } }
+/* ===== Estructura LivingOrg OS ===== */
+.os-sidebar { background: var(--os-navy-2); border-right: 1px solid #1a283e; width: 236px; display: flex; flex-direction: column; padding: 22px 14px; }
+.os-brand { font-family: Montserrat, Inter, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: #fff; margin: 0 8px 22px; }
+.os-brand small { display: block; font-size: 9px; letter-spacing: 2.6px; color: var(--os-steel); margin-top: 6px; font-weight: 600; }
+.os-navlabel { font-size: 10px; letter-spacing: 1.6px; color: var(--os-steel); padding: 16px 12px 7px; text-transform: uppercase; font-weight: 700; }
+.os-nav-btn { text-align: left; border: 0; background: transparent; padding: 10px 12px; font-size: 13.5px; color: var(--os-text); border-radius: 8px; width: 100%; display: flex; align-items: center; gap: 9px; font-weight: 500; }
+.os-nav-btn:hover { background: #1a283e; }
+.os-nav-btn.active { background: #23334a; color: #fff; font-weight: 650; border-left: 3px solid var(--os-orange); }
+.os-foot { margin-top: auto; padding-top: 30px; color: var(--os-steel); font-size: 10.5px; line-height: 1.7; }
+.os-top { height: 60px; background: var(--os-navy-2); border-bottom: 1px solid #1a283e; display: flex; align-items: center; justify-content: space-between; padding: 0 26px; }
+.os-pill { border-radius: 20px; background: #23334a; color: var(--os-sand); padding: 4px 10px; font-size: 11px; }
+.os-body { padding: 26px 28px; }
+.os-eyebrow { color: var(--os-orange); letter-spacing: 2px; font-size: 10px; font-weight: 800; text-transform: uppercase; font-family: Montserrat, sans-serif; }
+.os-h1 { font-family: Montserrat, sans-serif; font-size: 26px; letter-spacing: -0.8px; margin: 8px 0 4px; color: #fff; font-weight: 800; }
+.os-card { background: var(--os-navy-2); border: 1px solid #1a283e; border-radius: 12px; padding: 18px; }
+.os-card strong { display: block; font-size: 24px; margin: 8px 0 3px; color: #fff; font-family: Montserrat, sans-serif; }
+.os-card span { color: var(--os-steel); font-size: 12px; }
+.os-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 900px) { .os-grid { grid-template-columns: 1fr 1fr; } .os-sidebar { width: 200px; } }
+@media (max-width: 640px) { .os-grid { grid-template-columns: 1fr; } }

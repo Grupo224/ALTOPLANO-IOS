@@ -1,0 +1,2 @@
+<template><OsList read-only eyebrow="Execution Center" title="Ejecuciones" description="Cada corrida de un proceso, con su estado y evidencia." doctype="OS Run" :fields="['name','run_code','process_ref','status','initiated_by']" :columns="[{fieldname:'run_code',label:'Código'},{fieldname:'process_ref',label:'Proceso'},{fieldname:'status',label:'Estado'},{fieldname:'initiated_by',label:'Iniciado por'}]" /></template>
+<script setup>import OsList from '../components/OsList.vue'</script>

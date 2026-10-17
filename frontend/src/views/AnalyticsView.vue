@@ -1,0 +1,2 @@
+<template><OsList read-only eyebrow="Analítica" title="Indicadores" description="Vista consolidada de tus KPIs y su estado." doctype="OS KPI Definition" :fields="['name','kpi_title','kpi_code','entity_type','frequency','threshold_warning','threshold_critical']" :columns="[{fieldname:'kpi_title',label:'KPI'},{fieldname:'entity_type',label:'Entidad'},{fieldname:'frequency',label:'Frecuencia'},{fieldname:'threshold_critical',label:'Umbral crítico'}]" /></template>
+<script setup>import OsList from '../components/OsList.vue'</script>
