@@ -1,135 +1,230 @@
 <template>
   <AppLayout>
     <div class="p-6">
-      <div class="mb-4 flex items-center justify-between">
-        <div>
-          <h1 class="text-xl font-semibold">Flujos</h1>
-          <p class="text-sm text-ink-gray-5">Diseña el recorrido de tus agentes: disparador → lógica → herramientas → respuesta.</p>
+      <div class="mb-5 flex flex-wrap items-end gap-3">
+        <div class="min-w-[200px] flex-1">
+          <div class="as-eyebrow">Flow builder</div>
+          <h1 class="as-h1">Diseña cómo trabajan juntos.</h1>
+          <p class="text-sm text-ink-gray-5">Arrastra nodos. Haz clic en dos para conectarlos. Doble clic para renombrar.</p>
         </div>
-        <Button variant="solid" theme="blue" label="Nuevo flujo" @click="openCreate()" />
+        <Select v-model="flowId" :options="flowOptions" class="w-64" placeholder="Elegir flujo" />
+        <Button variant="subtle" label="＋ Nuevo" @click="newFlow" />
+        <Button variant="solid" theme="blue" label="Guardar" :loading="saving" @click="save" />
+        <Button variant="ghost" icon="lucide-trash-2" tooltip="Eliminar nodo" @click="removeNode" />
+        <Button variant="solid" theme="blue" label="▷ Probar flujo" @click="runFlow" />
       </div>
 
-      <div v-if="loading" class="py-8 text-center text-ink-gray-5">Cargando…</div>
-      <div v-else-if="!flows.length" class="rounded-lg border border-dashed border-outline-gray-2 p-10 text-center">
-        <div class="mb-2 text-2xl">🔀</div>
-        <div class="mb-1 font-medium">Aún no tienes flujos</div>
-        <div class="mb-4 text-sm text-ink-gray-5">Crea tu primer flujo para definir cómo responde tu agente.</div>
-        <Button variant="solid" theme="blue" label="Crear flujo" @click="openCreate()" />
-      </div>
+      <div class="flow-layout">
+        <div class="card palette">
+          <h2 class="mb-2 text-sm font-semibold">Biblioteca</h2>
+          <button v-for="t in nodeTypes" :key="t.type" class="palette-btn" @click="addNode(t.type)"><span class="mr-2">{{ t.icon }}</span>{{ t.label }}</button>
+        </div>
 
-      <div v-else class="grid gap-3 lg:grid-cols-2">
-        <div v-for="f in flows" :key="f.name" class="cursor-pointer rounded-xl border p-4 transition" :class="selected === f.name ? 'border-outline-blue-4 bg-surface-base' : 'border-outline-gray-2 bg-surface-base hover:bg-surface-gray-1'" @click="select(f)">
-          <div class="mb-1 flex items-center justify-between gap-2">
-            <span class="truncate font-medium">{{ f.title }}</span>
-            <Badge :label="statusLabel(f.status)" variant="subtle" :theme="statusTheme(f.status)" />
+        <div class="canvas" @pointerdown="canvasDown">
+          <div class="world" :style="{ transform: 'scale(' + zoom + ')' }">
+            <svg class="wires">
+              <line v-for="(e, i) in edges" :key="i" :x1="center(e[0]).x" :y1="center(e[0]).y" :x2="center(e[1]).x" :y2="center(e[1]).y" />
+            </svg>
+            <div
+              v-for="n in nodes"
+              :key="n.id"
+              class="node"
+              :class="{ selected: n.id === selectedId, 'from-node': n.id === connectFrom }"
+              :style="{ left: n.x + 'px', top: n.y + 'px' }"
+              @pointerdown.stop="startDrag($event, n)"
+              @dblclick.stop="rename(n)"
+            >
+              <div class="node-type">{{ typeIcon(n.type) }}</div>
+              <div class="node-label">{{ n.label }}</div>
+            </div>
           </div>
-          <div class="text-xs text-ink-gray-5">v{{ f.revision }} · {{ shortDate(f.modified) }}</div>
         </div>
       </div>
 
-      <!-- Editor -->
-      <div v-if="selectedFlow" class="mt-6 rounded-xl border border-outline-gray-2 bg-surface-base p-5">
-        <div class="mb-4 flex items-center justify-between">
-          <div>
-            <div class="font-medium">{{ selectedFlow.title }}</div>
-            <div class="text-xs text-ink-gray-5">v{{ selectedFlow.revision }}</div>
-          </div>
-          <Button variant="ghost" size="sm" label="Cerrar" @click="selectedFlow = null" />
-        </div>
-
-        <div class="mb-4 flex flex-wrap gap-2">
-          <Badge v-for="n in nodes" :key="n.id" :label="typeLabel(n.type)" variant="subtle" theme="blue" />
-          <Badge v-if="!nodes.length" label="Sin nodos" variant="subtle" theme="gray" />
-        </div>
-
-        <div class="mb-2 text-xs font-medium uppercase text-ink-gray-5">Diseño del flujo (JSON)</div>
-        <Textarea v-model="graphText" class="font-mono text-xs" :rows="10" />
-        <div class="mt-3 flex gap-2">
-          <Button variant="solid" theme="blue" label="Guardar flujo" :loading="saving" @click="saveFlow" />
-          <Button variant="ghost" label="Cancelar" @click="selectedFlow = null" />
-        </div>
-        <div v-if="graphError" class="mt-2 text-sm text-ink-red-7">{{ graphError }}</div>
-      </div>
-
-      <Dialog v-model:open="showCreate" title="Nuevo flujo" size="sm">
-        <TextInput v-model="newTitle" label="Nombre del flujo" placeholder="Atención al cliente" />
-        <template #actions="{ close }">
-          <Button variant="ghost" label="Cancelar" @click="close()" />
-          <Button variant="solid" theme="blue" label="Crear" :loading="creating" @click="create" />
-        </template>
-      </Dialog>
+      <div class="notice">Prueba local: muestra el recorrido del flujo. Los nodos no ejecutan llamadas externas.</div>
+      <div v-if="runResult" class="mt-3 rounded-lg bg-surface-blue-2 px-4 py-3 text-sm text-ink-blue-7">{{ runResult }}</div>
     </div>
   </AppLayout>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { Button, Badge, Dialog, TextInput, Textarea, toast } from 'frappe-ui'
+import { Button, Select, toast } from 'frappe-ui'
 import AppLayout from '../components/AppLayout.vue'
 import { api, humanError } from '../resources/api'
 
+const nodeTypes = [
+  { type: 'trigger', label: 'Disparador', icon: 'ϟ' },
+  { type: 'agent', label: 'Agente IA', icon: '◇' },
+  { type: 'condition', label: 'Condición', icon: '⑂' },
+  { type: 'tool', label: 'Herramienta MCP', icon: '⊞' },
+  { type: 'approval', label: 'Aprobación', icon: '☑' },
+  { type: 'response', label: 'Respuesta', icon: '↗' },
+]
+function typeIcon(t) { return nodeTypes.find((x) => x.type === t)?.icon || '●' }
+function typeLabel(t) { return nodeTypes.find((x) => x.type === t)?.label || t }
+
 const flows = ref([])
-const loading = ref(true)
-const showCreate = ref(false)
-const newTitle = ref('')
-const creating = ref(false)
+const flowId = ref('')
+const flowName = ref('')
+const nodes = ref([])
+const edges = ref([])
+const zoom = ref(1)
+const selectedId = ref(null)
+const connectFrom = ref(null)
 const saving = ref(false)
-const selected = ref('')
-const selectedFlow = ref(null)
-const graphText = ref('')
-const graphError = ref('')
+const runResult = ref('')
+let seq = 1
 
-const NODE_LABELS = { trigger: 'Disparador', agent: 'Agente', condition: 'Condición', tool: 'Herramienta', approval: 'Aprobación', response: 'Respuesta' }
+const flowOptions = computed(() => flows.value.map((f) => ({ label: f.title, value: f.name })))
 
-const nodes = computed(() => {
-  try { return JSON.parse(graphText.value || '{}').nodes || [] } catch { return [] }
-})
-function typeLabel(t) { return NODE_LABELS[t] || t || 'Nodo' }
-function statusLabel(s) { return { Draft: 'Borrador', Published: 'Publicado', Archived: 'Archivado' }[s] || s || 'Borrador' }
-function statusTheme(s) { return { Published: 'green', Archived: 'gray' }[s] || 'amber' }
-function shortDate(d) { return d ? String(d).slice(0, 16) : '' }
-
-async function load() {
-  loading.value = true
-  try { flows.value = await api.listFlows() } catch (e) { toast.error(humanError(e)) } finally { loading.value = false }
+async function loadFlows() {
+  flows.value = await api.listFlows()
+  if (flows.value.length && !flowId.value) {
+    flowId.value = flows.value[0].name
+    await open(flows.value[0].name)
+  }
 }
 
-function openCreate() { newTitle.value = ''; showCreate.value = true }
-
-async function create() {
-  if (!newTitle.value.trim()) { toast.warning('Escribe un nombre para el flujo.'); return }
-  creating.value = true
+async function open(name) {
   try {
-    const f = await api.createFlow({ title: newTitle.value })
-    toast.success('Flujo creado.')
-    showCreate.value = false
-    await load()
-    selected.value = f.name
-    await select({ name: f.name, title: f.title, status: f.status, revision: f.revision })
-  } catch (e) { toast.error(humanError(e)) } finally { creating.value = false }
-}
-
-async function select(f) {
-  selected.value = f.name
-  try {
-    const d = await api.getFlow(f.name)
-    selectedFlow.value = d
-    graphText.value = d.graph_json || ''
-    graphError.value = ''
+    const d = await api.getFlow(name)
+    flowName.value = d.title
+    const g = safeParse(d.graph_json)
+    nodes.value = (g.nodes || []).map((n) => ({ id: n.id, type: n.type, label: (n.config && n.config.label) || typeLabel(n.type), x: (n.config && n.config.position && n.config.position.x) || 40, y: (n.config && n.config.position && n.config.position.y) || 40 }))
+    edges.value = (g.edges || []).map((e) => [e.source, e.target])
+    seq = nodes.value.length + 1
+    selectedId.value = null
+    connectFrom.value = null
+    runResult.value = ''
   } catch (e) { toast.error(humanError(e)) }
 }
 
-async function saveFlow() {
-  try { JSON.parse(graphText.value) } catch (e) { graphError.value = 'JSON inválido: ' + e.message; return }
+function safeParse(s) { try { return JSON.parse(s || '{}') } catch { return {} } }
+
+async function newFlow() {
+  const f = await api.createFlow({ title: 'Nuevo flujo' })
+  await loadFlows()
+  flowId.value = f.name
+  await open(f.name)
+  toast.success('Flujo creado.')
+}
+
+function addNode(type) {
+  const t = nodeTypes.find((x) => x.type === type)
+  nodes.value.push({ id: 'n' + seq++, type, label: t.label, x: 60 + (nodes.value.length % 5) * 40, y: 60 + (nodes.value.length % 5) * 60 })
+}
+
+function center(id) {
+  const n = nodes.value.find((x) => x.id === id)
+  return n ? { x: n.x + 70, y: n.y + 22 } : { x: 0, y: 0 }
+}
+
+// Drag
+let dragNode = null
+let startX = 0, startY = 0, origX = 0, origY = 0, moved = false
+function startDrag(e, node) {
+  dragNode = node
+  moved = false
+  startX = e.clientX; startY = e.clientY
+  origX = node.x; origY = node.y
+  window.addEventListener('pointermove', onDrag)
+  window.addEventListener('pointerup', endDrag)
+}
+function onDrag(e) {
+  if (!dragNode) return
+  const dx = (e.clientX - startX) / zoom.value
+  const dy = (e.clientY - startY) / zoom.value
+  if (Math.abs(dx) > 3 || Math.abs(dy) > 3) moved = true
+  dragNode.x = origX + dx
+  dragNode.y = origY + dy
+}
+function endDrag() {
+  window.removeEventListener('pointermove', onDrag)
+  window.removeEventListener('pointerup', endDrag)
+  const node = dragNode
+  dragNode = null
+  if (!moved && node) clickNode(node)
+}
+
+function clickNode(node) {
+  if (connectFrom.value) {
+    if (connectFrom.value !== node.id && !edges.value.some((e) => e[0] === connectFrom.value && e[1] === node.id)) {
+      edges.value.push([connectFrom.value, node.id])
+    }
+    connectFrom.value = null
+  } else {
+    connectFrom.value = node.id
+    selectedId.value = node.id
+  }
+}
+
+function canvasDown() {
+  if (!connectFrom.value && selectedId.value) { selectedId.value = null }
+}
+
+function removeNode() {
+  if (!selectedId.value && !connectFrom.value) { toast.warning('Selecciona un nodo primero.'); return }
+  const id = connectFrom.value || selectedId.value
+  nodes.value = nodes.value.filter((n) => n.id !== id)
+  edges.value = edges.value.filter((e) => e[0] !== id && e[1] !== id)
+  selectedId.value = null
+  connectFrom.value = null
+}
+
+function rename(node) {
+  const name = prompt('Nombre del nodo:', node.label)
+  if (name && name.trim()) node.label = name.trim()
+}
+
+async function save() {
+  if (!flowId.value) { toast.warning('Crea o elige un flujo primero.'); return }
   saving.value = true
   try {
-    await api.saveFlow({ name: selectedFlow.value.name, title: selectedFlow.value.title, graph_json: graphText.value })
+    const graph = {
+      schema_version: 'altoplano.flow/1',
+      nodes: nodes.value.map((n) => ({ id: n.id, type: n.type, config: { label: n.label, position: { x: n.x, y: n.y } } })),
+      edges: edges.value.map((e) => ({ source: e[0], target: e[1], port: 'out' })),
+      limits: { max_steps: 20, timeout_seconds: 120 },
+    }
+    await api.saveFlow({ name: flowId.value, title: flowName.value || 'Flujo', graph_json: JSON.stringify(graph) })
     toast.success('Flujo guardado.')
-    selectedFlow.value = null
-    selected.value = ''
-    await load()
   } catch (e) { toast.error(humanError(e)) } finally { saving.value = false }
 }
 
-onMounted(load)
+function runFlow() {
+  if (!nodes.value.length) { runResult.value = 'Agrega nodos para probar el flujo.'; return }
+  const start = nodes.value.find((n) => n.type === 'trigger') || nodes.value[0]
+  const path = [start]
+  const seen = new Set([start.id])
+  let cur = start
+  while (true) {
+    const edge = edges.value.find((e) => e[0] === cur.id && !seen.has(e[1]))
+    if (!edge) break
+    const next = nodes.value.find((n) => n.id === edge[1])
+    if (!next) break
+    path.push(next); seen.add(next.id); cur = next
+  }
+  runResult.value = 'Recorrido: ' + path.map((n) => typeLabel(n.type)).join(' → ')
+}
+
+onMounted(loadFlows)
 </script>
+
+<style>
+.flow-layout { display: grid; grid-template-columns: 185px 1fr; gap: 15px; }
+.palette { padding: 16px; background: #fff; border: 1px solid #e1e6eb; border-radius: 11px; }
+.palette-btn { width: 100%; margin-bottom: 10px; text-align: left; padding: 10px; border: 1px solid #dfe4e9; background: #fff; border-radius: 8px; color: #25364a; }
+.palette-btn:hover { background: #edf2f1; }
+.canvas { height: 510px; overflow: auto; position: relative; border: 1px solid #dce3e7; border-radius: 10px; background-color: #f3f6f5; background-image: radial-gradient(#cbd7d1 1px, transparent 1px); background-size: 18px 18px; }
+.world { position: relative; width: 1050px; height: 700px; transform-origin: 0 0; }
+.wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.wires line { stroke: #98c1b1; stroke-width: 2; }
+.node { position: absolute; background: #fff; border: 1px solid #dce3e7; border-radius: 8px; padding: 10px 14px; cursor: grab; user-select: none; min-width: 120px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.node.selected { border-color: #143e37; box-shadow: 0 0 0 2px #c3dcd1; }
+.node.from-node { border-color: #143e37; background: #eaf1ee; }
+.node-type { font-size: 16px; font-weight: 700; color: #225547; }
+.node-label { font-size: 13px; color: #25364a; margin-top: 3px; }
+.notice { margin-top: 15px; font-size: 12px; color: #7b8794; }
+@media (max-width: 768px) { .flow-layout { grid-template-columns: 1fr; } }
+</style>
