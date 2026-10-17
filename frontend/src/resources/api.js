@@ -37,6 +37,10 @@ export const api = {
   // cerebro
   cerebroStart: () => call(NS + 'cerebro.start'),
   cerebroAsk: (conversation, message) => call(NS + 'cerebro.ask', { conversation, message }),
+  // agenda
+  calendars: () => call(NS + 'calendar.list_calendars'),
+  appointments: () => call(NS + 'calendar.list_appointments'),
+  createCalendar: (fields) => call(NS + 'calendar.create_calendar', fields),
 }
 
 export function humanError(err) {

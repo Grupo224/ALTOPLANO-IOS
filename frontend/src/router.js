@@ -11,6 +11,7 @@ const routes = [
   { path: '/spending', name: 'Spending', component: () => import('./views/SpendingView.vue') },
   { path: '/cerebro', name: 'Cerebro', component: () => import('./views/CerebroView.vue') },
   { path: '/activity', name: 'Activity', component: () => import('./views/ActivityView.vue') },
+  { path: '/agenda', name: 'Agenda', component: () => import('./views/AgendaView.vue') },
 ]
 
 const router = createRouter({

@@ -42,6 +42,7 @@ const nav = [
   { label: 'Información', route: '/business', icon: '📖' },
   { label: 'Conversaciones', route: '/conversations', icon: '💬' },
   { label: 'Conexiones', route: '/connections', icon: '🔌' },
+  { label: 'Agenda', route: '/agenda', icon: '📅' },
   { label: 'Aprobaciones', route: '/approvals', icon: '🛡️' },
   { label: 'Gastos', route: '/spending', icon: '💳' },
   { label: 'Actividad', route: '/activity', icon: '🕘' },
