@@ -11,6 +11,7 @@
           <Button variant="ghost" label="← Procesos" @click="$router.push('/processes')" />
           <Button variant="ghost" label="✎ Editar datos" @click="wizardOpen = true" />
           <Button variant="ghost" :theme="connectMode ? 'orange' : 'gray'" :label="connectMode ? 'Conectar: ON' : 'Conectar'" @click="connectMode = !connectMode" />
+          <Button variant="solid" theme="orange" label="▶ Ejecutar prueba" :loading="running" @click="runProcess" />
           <Button variant="solid" theme="blue" label="Guardar" :loading="saving" @click="save" />
         </div>
       </div>
@@ -49,20 +50,23 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { Button, Dialog, toast } from 'frappe-ui'
 import AppLayout from '../components/AppLayout.vue'
 import OsForm from '../components/OsForm.vue'
 import ProcessWizard from '../components/ProcessWizard.vue'
 import { osApi, humanError, resetForm, fillFromDoc, coerceValues } from '../resources/os'
+import { bridgeApi } from '../resources/runtime'
 
 const route = useRoute()
+const $router = useRouter()
 const process = ref({})
 const nodes = ref([])
 const edges = ref([])
 const connectMode = ref(false)
 const connectFrom = ref(null)
 const saving = ref(false)
+const running = ref(false)
 const wizardOpen = ref(false)
 
 const dialogOpen = ref(false)
@@ -177,6 +181,15 @@ async function save() {
     await osApi.saveProcessCanvas(route.params.name, nodes.value.map((n) => ({ step_key: n.key, step_title: n.label, x: n.x, y: n.y })), edges.value.map((e) => ({ source_step_key: e.source, target_step_key: e.target, relation_type: e.relation_type })))
     toast.success('Proceso guardado.')
   } catch (e) { toast.error(humanError(e)) } finally { saving.value = false }
+}
+
+async function runProcess() {
+  running.value = true
+  try {
+    const r = await bridgeApi.startRun(route.params.name, 'Test')
+    toast.success('Ejecución creada: ' + r.run_code)
+    $router.push('/runs/' + r.run)
+  } catch (e) { toast.error(humanError(e)) } finally { running.value = false }
 }
 
 onMounted(() => { loadMeta(); load() })
