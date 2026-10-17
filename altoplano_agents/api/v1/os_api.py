@@ -2,6 +2,43 @@ import json
 
 import frappe
 
+SKIP_META = {"name", "owner", "creation", "modified", "modified_by", "docstatus", "idx",
+             "parent", "parentfield", "parenttype", "_user_tags", "_comments", "_assign",
+             "_liked_by", "naming_series"}
+
+
+@frappe.whitelist(methods=["GET", "POST"])
+def get_doctype_meta(doctype=None):
+    """Devuelve los campos editables de un doctype (label/fieldtype/options/reqd)
+    para que el frontend renderice formularios completos sin hardcodear campos."""
+    if not doctype:
+        return {"fields": []}
+    meta = frappe.get_meta(doctype)
+    fields = []
+    for f in meta.fields:
+        if f.fieldname in SKIP_META:
+            continue
+        if f.fieldtype in ("Section Break", "Column Break", "Heading", "Fold", "Read Only", "Table"):
+            continue
+        if getattr(f, "read_only", 0):
+            continue
+        entry = {
+            "fieldname": f.fieldname,
+            "label": f.label or f.fieldname,
+            "fieldtype": f.fieldtype,
+            "options": f.options or "",
+            "reqd": 1 if f.reqd else 0,
+            "description": f.description or "",
+        }
+        if f.fieldtype == "Link":
+            entry["link_doctype"] = f.options or ""
+            try:
+                entry["link_title_field"] = frappe.get_meta(f.options).title_field or "name"
+            except Exception:
+                entry["link_title_field"] = "name"
+        fields.append(entry)
+    return {"doctype": doctype, "fields": fields}
+
 
 @frappe.whitelist(methods=["GET", "POST"])
 def get_process(name):
@@ -10,7 +47,7 @@ def get_process(name):
         "name": d.name,
         "process_title": d.process_title,
         "status": d.status,
-        "steps": [{"name": s.name, "step_key": s.step_key, "step_title": s.step_title, "step_type": s.step_type, "x": float(s.x or 0), "y": float(s.y or 0)} for s in d.get("steps", [])],
+        "steps": [dict(s.as_dict(), x=float(s.x or 0), y=float(s.y or 0)) for s in d.get("steps", [])],
         "edges": [{"name": e.name, "source_step_key": e.source_step_key, "target_step_key": e.target_step_key, "relation_type": e.relation_type} for e in d.get("edges", [])],
     }
 
@@ -44,6 +81,33 @@ def add_process_step(name, step_title=None, step_type=None):
     d.flags.ignore_permissions = True
     d.save(ignore_permissions=True)
     return {"step_key": key}
+
+
+@frappe.whitelist(methods=["POST"])
+def save_process_step(name, step_key=None, values=None):
+    """Edita los campos de un paso (child table OS Process Step) dentro del proceso padre."""
+    if isinstance(values, str):
+        values = json.loads(values)
+    d = frappe.get_doc("OS Process", name)
+    for s in d.get("steps", []):
+        if s.step_key == step_key:
+            for k, v in (values or {}).items():
+                s.set(k, v)
+            break
+    d.flags.ignore_permissions = True
+    d.save(ignore_permissions=True)
+    return {"ok": 1}
+
+
+@frappe.whitelist(methods=["POST"])
+def delete_process_step(name, step_key=None):
+    d = frappe.get_doc("OS Process", name)
+    keep = [s for s in d.get("steps", []) if s.step_key != step_key]
+    d.set("steps", keep)
+    d.set("edges", [e for e in d.get("edges", []) if e.source_step_key != step_key and e.target_step_key != step_key])
+    d.flags.ignore_permissions = True
+    d.save(ignore_permissions=True)
+    return {"ok": 1}
 
 
 @frappe.whitelist(methods=["GET", "POST"])

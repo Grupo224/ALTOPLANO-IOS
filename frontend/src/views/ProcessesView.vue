@@ -7,7 +7,7 @@
           <h1 class="os-h1">Procesos</h1>
           <p class="text-sm" style="color: var(--os-steel)">Dibuja cómo se hace el trabajo: pasos, decisiones y responsables.</p>
         </div>
-        <Button variant="solid" theme="blue" label="＋ Nuevo proceso" @click="openCreate = true" />
+        <Button variant="solid" theme="blue" label="＋ Nuevo proceso" @click="openCreate()" />
       </div>
 
       <div v-if="loading" class="py-8 text-center" style="color: var(--os-steel)">Cargando…</div>
@@ -23,17 +23,12 @@
         </RouterLink>
       </div>
 
-      <Dialog v-model:open="openCreate" title="Nuevo proceso" size="md">
-        <div class="flex flex-col gap-3">
-          <TextInput v-model="form.process_title" label="Nombre del proceso" />
-          <TextInput v-model="form.process_code" label="Código / ID" />
-          <TextInput v-model="form.purpose" label="Propósito" />
-          <Select v-model="form.risk_level" label="Criticidad" :options="['Low','Medium','High','Critical']" />
-          <Select v-model="form.trigger_type" label="Disparador" :options="['Manual','ERP Event','Webhook','Schedule','External']" />
-        </div>
+      <Dialog v-model:open="dialogOpen" :title="editingName ? 'Editar proceso' : 'Nuevo proceso'" size="xl">
+        <div v-if="metaLoading" class="py-6 text-center" style="color: var(--os-steel)">Cargando formulario…</div>
+        <OsForm v-else :fields="metaFields" :value="form" />
         <template #actions="{ close }">
           <Button variant="ghost" label="Cancelar" @click="close()" />
-          <Button variant="solid" theme="blue" label="Crear" :loading="saving" @click="create" />
+          <Button variant="solid" theme="blue" :label="editingName ? 'Guardar' : 'Crear'" :loading="saving" @click="save" />
         </template>
       </Dialog>
     </div>
@@ -41,28 +36,64 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useList, call, Button, Dialog, TextInput, Select, toast } from 'frappe-ui'
+import { useList, call, Button, Dialog, toast } from 'frappe-ui'
 import AppLayout from '../components/AppLayout.vue'
-import { osApi, humanError } from '../resources/os'
+import OsForm from '../components/OsForm.vue'
+import { osApi, humanError, resetForm, fillFromDoc, coerceValues } from '../resources/os'
 
-const list = useList({ doctype: 'OS Process', fields: ['name', 'process_title', 'process_code', 'purpose', 'status', 'risk_level'], orderBy: 'modified desc', limit: 100 })
+const list = useList({ doctype: 'OS Process', fields: ['name', 'process_title', 'process_code', 'purpose', 'status', 'risk_level'], orderBy: 'modified desc', limit: 200 })
 const rows = computed(() => list.data || [])
 const loading = computed(() => list.loading)
 
-const openCreate = ref(false)
-const form = reactive({ process_title: '', process_code: '', purpose: '', risk_level: 'Medium', trigger_type: 'Manual' })
+const dialogOpen = ref(false)
+const editingName = ref(null)
+const form = reactive({})
 const saving = ref(false)
+const metaFields = ref([])
+const metaLoading = ref(false)
 
-async function create() {
-  if (!form.process_title.trim()) { toast.warning('Escribe el nombre del proceso.'); return }
+async function loadMeta() {
+  metaLoading.value = true
+  try {
+    const r = await osApi.getDoctypeMeta('OS Process')
+    metaFields.value = (r.fields || []).filter((f) => !['steps', 'edges', 'goals', 'canvas_json'].includes(f.fieldname))
+  } catch (e) { toast.error(humanError(e)) } finally { metaLoading.value = false }
+}
+
+function openCreate() {
+  editingName.value = null
+  resetForm(metaFields.value, form, { status: 'Draft', trigger_type: 'Manual', max_autonomy: 'L1', risk_level: 'Medium', version_label: '1' })
+  dialogOpen.value = true
+}
+
+async function editRow(p) {
+  editingName.value = p.name
+  resetForm(metaFields.value, form, {})
+  try {
+    const doc = await call('frappe.client.get', { doctype: 'OS Process', name: p.name })
+    fillFromDoc(metaFields.value, form, doc)
+    dialogOpen.value = true
+  } catch (e) { toast.error(humanError(e)) }
+}
+
+async function save() {
   saving.value = true
   try {
-    await osApi.createProcess({ process_title: form.process_title, process_code: form.process_code, purpose: form.purpose, risk_level: form.risk_level, trigger_type: form.trigger_type })
-    toast.success('Proceso creado.')
-    openCreate.value = false
+    const values = coerceValues(metaFields.value, form)
+    if (editingName.value) {
+      await osApi.updateDoc('OS Process', editingName.value, values)
+      toast.success('Proceso guardado.')
+    } else {
+      const r = await call('frappe.client.insert', { doc: { doctype: 'OS Process', ...values } })
+      toast.success('Proceso creado.')
+      editingName.value = r.name
+    }
+    dialogOpen.value = false
     list.reload()
   } catch (e) { toast.error(humanError(e)) } finally { saving.value = false }
 }
+
+onMounted(loadMeta)
 </script>
