@@ -1,0 +1,360 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-10-17 16:38:35.985184",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sop_title",
+  "sop_code",
+  "version_label",
+  "status",
+  "department",
+  "objective",
+  "scope",
+  "trigger",
+  "expected_result",
+  "owner_user",
+  "responsible_users",
+  "roles",
+  "approved_by",
+  "approved_on",
+  "process_ref",
+  "tools",
+  "file",
+  "risk_level",
+  "valid_from",
+  "valid_until",
+  "last_reviewed_on",
+  "next_review_on",
+  "estimated_time_minutes",
+  "steps",
+  "definition_of_done",
+  "evidence_required",
+  "exceptions",
+  "controls",
+  "metrics",
+  "procedure_legacy"
+ ],
+ "fields": [
+  {
+   "fieldname": "sop_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "SOP Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sop_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "SOP Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "version_label",
+   "fieldtype": "Data",
+   "label": "Version Label"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nIn Review\nApproved\nPublished\nObsolete"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department (\u00c1rea)",
+   "options": "Department"
+  },
+  {
+   "fieldname": "objective",
+   "fieldtype": "Small Text",
+   "label": "Objective"
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Small Text",
+   "label": "Scope"
+  },
+  {
+   "fieldname": "trigger",
+   "fieldtype": "Data",
+   "label": "Trigger"
+  },
+  {
+   "fieldname": "expected_result",
+   "fieldtype": "Small Text",
+   "label": "Expected Result"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner User",
+   "options": "User"
+  },
+  {
+   "description": "Lista libre; para permisos reales usa Role Permission Manager.",
+   "fieldname": "responsible_users",
+   "fieldtype": "Small Text",
+   "label": "Responsible Users"
+  },
+  {
+   "fieldname": "roles",
+   "fieldtype": "Small Text",
+   "label": "Participating Roles"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved On"
+  },
+  {
+   "fieldname": "process_ref",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Process",
+   "options": "OS Process"
+  },
+  {
+   "fieldname": "tools",
+   "fieldtype": "Small Text",
+   "label": "Tools"
+  },
+  {
+   "description": "Documento asociado al SOP completo (no a un paso).",
+   "fieldname": "file",
+   "fieldtype": "Attach",
+   "label": "SOP-level File"
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From"
+  },
+  {
+   "fieldname": "valid_until",
+   "fieldtype": "Date",
+   "label": "Valid Until"
+  },
+  {
+   "fieldname": "last_reviewed_on",
+   "fieldtype": "Date",
+   "label": "Last Reviewed On"
+  },
+  {
+   "fieldname": "next_review_on",
+   "fieldtype": "Date",
+   "label": "Next Review On"
+  },
+  {
+   "fieldname": "estimated_time_minutes",
+   "fieldtype": "Int",
+   "label": "Estimated Time (minutes)"
+  },
+  {
+   "fieldname": "steps",
+   "fieldtype": "Table",
+   "label": "Steps",
+   "options": "OS SOP Step"
+  },
+  {
+   "fieldname": "definition_of_done",
+   "fieldtype": "Small Text",
+   "label": "Definition of Done"
+  },
+  {
+   "fieldname": "evidence_required",
+   "fieldtype": "Small Text",
+   "label": "Evidence Policy"
+  },
+  {
+   "fieldname": "exceptions",
+   "fieldtype": "Small Text",
+   "label": "Exceptions"
+  },
+  {
+   "fieldname": "controls",
+   "fieldtype": "Small Text",
+   "label": "Controls"
+  },
+  {
+   "fieldname": "metrics",
+   "fieldtype": "Small Text",
+   "label": "Metrics"
+  },
+  {
+   "description": "Campo heredado de la versi\u00f3n anterior; el procedimiento vivo ahora es la tabla Steps.",
+   "fieldname": "procedure_legacy",
+   "fieldtype": "Text Editor",
+   "label": "Procedure (legacy free text)"
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-17 16:39:14.947131",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "OS SOP",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

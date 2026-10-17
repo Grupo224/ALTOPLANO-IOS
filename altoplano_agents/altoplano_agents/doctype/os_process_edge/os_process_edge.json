@@ -1,0 +1,59 @@
+{
+ "doctype": "DocType",
+ "name": "OS Process Edge",
+ "module": "Altoplano Agents",
+ "custom": 0,
+ "istable": 1,
+ "editable_grid": 1,
+ "track_changes": 0,
+ "fields": [
+  {
+   "fieldname": "edge_key",
+   "label": "Edge Key",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "source_step_key",
+   "label": "Source Step Key",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "target_step_key",
+   "label": "Target Step Key",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "relation_type",
+   "label": "Relation Type",
+   "fieldtype": "Select",
+   "options": "NEXT\nTRUE\nFALSE\nERROR\nTIMEOUT\nHANDOFF",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "condition_expression",
+   "label": "Condition Expression",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "label",
+   "label": "Label",
+   "fieldtype": "Data"
+  }
+ ],
+ "permissions": [],
+ "field_order": [
+  "edge_key",
+  "source_step_key",
+  "target_step_key",
+  "relation_type",
+  "condition_expression",
+  "label"
+ ]
+}

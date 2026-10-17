@@ -1,0 +1,251 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-10-17 16:38:30.510064",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "prompt_title",
+  "prompt_code",
+  "version_label",
+  "status",
+  "system_instruction",
+  "task_template",
+  "context_template",
+  "tool_policy",
+  "output_schema",
+  "fallback",
+  "approval_policy",
+  "owner_user",
+  "docs"
+ ],
+ "fields": [
+  {
+   "fieldname": "prompt_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Prompt Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "prompt_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Prompt Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "version_label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Version Label"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nTested\nApproved\nDeprecated"
+  },
+  {
+   "fieldname": "system_instruction",
+   "fieldtype": "Text Editor",
+   "label": "System Instruction"
+  },
+  {
+   "fieldname": "task_template",
+   "fieldtype": "Code",
+   "label": "Task Template"
+  },
+  {
+   "fieldname": "context_template",
+   "fieldtype": "Text Editor",
+   "label": "Context Template"
+  },
+  {
+   "fieldname": "tool_policy",
+   "fieldtype": "Small Text",
+   "label": "Tool Policy"
+  },
+  {
+   "fieldname": "output_schema",
+   "fieldtype": "Code",
+   "label": "Output Schema",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "fallback",
+   "fieldtype": "Small Text",
+   "label": "Fallback"
+  },
+  {
+   "fieldname": "approval_policy",
+   "fieldtype": "Small Text",
+   "label": "Approval Policy"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner User",
+   "options": "User"
+  },
+  {
+   "fieldname": "docs",
+   "fieldtype": "Attach",
+   "label": "Test Cases / Attachments"
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-17 16:39:30.164623",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "OS Prompt",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

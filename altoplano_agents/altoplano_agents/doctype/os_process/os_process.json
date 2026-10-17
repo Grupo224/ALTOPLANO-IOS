@@ -1,0 +1,482 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-10-17 16:38:35.270151",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "process_title",
+  "process_code",
+  "company",
+  "department",
+  "owner_user",
+  "purpose",
+  "status",
+  "trigger_type",
+  "trigger_reference",
+  "max_autonomy",
+  "risk_level",
+  "sla_minutes",
+  "sop",
+  "version_label",
+  "published_on",
+  "canvas_json",
+  "steps",
+  "edges",
+  "outcome",
+  "priority",
+  "org_area",
+  "suppliers",
+  "inputs",
+  "outputs",
+  "clients",
+  "scope",
+  "frequency",
+  "rules",
+  "exceptions",
+  "raci_responsible",
+  "raci_consulted",
+  "raci_informed",
+  "responsible_node",
+  "gates",
+  "policy",
+  "controls",
+  "kpis",
+  "goals",
+  "definition_of_done",
+  "evidence_required",
+  "docs",
+  "next_review_on",
+  "changelog",
+  "kaizen"
+ ],
+ "fields": [
+  {
+   "fieldname": "process_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Process Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "process_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Process Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Owner User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nPilot\nActive\nDegraded\nRetired",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trigger_type",
+   "fieldtype": "Select",
+   "label": "Trigger Type",
+   "options": "Manual\nERP Event\nWebhook\nSchedule\nExternal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trigger_reference",
+   "fieldtype": "Data",
+   "label": "Trigger Reference"
+  },
+  {
+   "fieldname": "max_autonomy",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Max Autonomy",
+   "options": "L0\nL1\nL2\nL3\nL4",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Risk Level",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sla_minutes",
+   "fieldtype": "Int",
+   "label": "SLA Minutes"
+  },
+  {
+   "fieldname": "sop",
+   "fieldtype": "Link",
+   "label": "SOP",
+   "options": "OS SOP"
+  },
+  {
+   "fieldname": "version_label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Version Label",
+   "reqd": 1
+  },
+  {
+   "fieldname": "published_on",
+   "fieldtype": "Datetime",
+   "label": "Published On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "canvas_json",
+   "fieldtype": "Long Text",
+   "label": "Canvas JSON (viewport/layout)"
+  },
+  {
+   "fieldname": "steps",
+   "fieldtype": "Table",
+   "label": "Steps",
+   "options": "OS Process Step"
+  },
+  {
+   "fieldname": "edges",
+   "fieldtype": "Table",
+   "label": "Edges",
+   "options": "OS Process Edge"
+  },
+  {
+   "description": "La salida de valor concreta cuando el proceso sale bien.",
+   "fieldname": "outcome",
+   "fieldtype": "Small Text",
+   "label": "Expected Outcome"
+  },
+  {
+   "description": "Criticidad de negocio (distinta de Risk Level, que es riesgo operativo).",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "description": "Ubica el proceso en el Organigrama Vivo.",
+   "fieldname": "org_area",
+   "fieldtype": "Link",
+   "label": "Area (Organigrama)",
+   "options": "OS Org Node"
+  },
+  {
+   "description": "SIPOC: qui\u00e9n provee los insumos, separado por comas.",
+   "fieldname": "suppliers",
+   "fieldtype": "Small Text",
+   "label": "Suppliers"
+  },
+  {
+   "description": "SIPOC: qu\u00e9 se necesita para poder ejecutar, separado por comas.",
+   "fieldname": "inputs",
+   "fieldtype": "Small Text",
+   "label": "Inputs"
+  },
+  {
+   "description": "SIPOC: qu\u00e9 produce el proceso, separado por comas.",
+   "fieldname": "outputs",
+   "fieldtype": "Small Text",
+   "label": "Outputs"
+  },
+  {
+   "description": "SIPOC: qui\u00e9n recibe la salida.",
+   "fieldname": "clients",
+   "fieldtype": "Data",
+   "label": "Process Client"
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Small Text",
+   "label": "Scope (Includes / Excludes)"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Execution Frequency",
+   "options": "On Demand\nDaily\nWeekly\nBiweekly\nMonthly"
+  },
+  {
+   "description": "Bifurcaciones: si pasa X, entonces Y.",
+   "fieldname": "rules",
+   "fieldtype": "Small Text",
+   "label": "Decision Rules"
+  },
+  {
+   "description": "Qu\u00e9 hacer cuando algo se sale de lo normal.",
+   "fieldname": "exceptions",
+   "fieldtype": "Small Text",
+   "label": "Exceptions Handling"
+  },
+  {
+   "description": "Qui\u00e9n ejecuta el trabajo. El Aprobador (A) es Owner User.",
+   "fieldname": "raci_responsible",
+   "fieldtype": "Link",
+   "label": "RACI Responsible (R)",
+   "options": "User"
+  },
+  {
+   "description": "A qui\u00e9n se consulta antes de decidir, separado por comas.",
+   "fieldname": "raci_consulted",
+   "fieldtype": "Small Text",
+   "label": "RACI Consulted (C)"
+  },
+  {
+   "description": "A qui\u00e9n se notifica del resultado, separado por comas.",
+   "fieldname": "raci_informed",
+   "fieldtype": "Small Text",
+   "label": "RACI Informed (I)"
+  },
+  {
+   "description": "Persona o rol del organigrama que responde por este proceso.",
+   "fieldname": "responsible_node",
+   "fieldtype": "Link",
+   "label": "Responsible (Org Node)",
+   "options": "OS Org Node"
+  },
+  {
+   "description": "D\u00f3nde el proceso se detiene a esperar autorizaci\u00f3n.",
+   "fieldname": "gates",
+   "fieldtype": "Small Text",
+   "label": "Approval Gates"
+  },
+  {
+   "description": "Reglas que el proceso debe cumplir.",
+   "fieldname": "policy",
+   "fieldtype": "Link",
+   "label": "Applicable Policy",
+   "options": "OS Policy"
+  },
+  {
+   "description": "Salvaguardas que reducen el riesgo. Obligatorio en la pr\u00e1ctica si Risk Level es High/Critical.",
+   "fieldname": "controls",
+   "fieldtype": "Small Text",
+   "label": "Controls"
+  },
+  {
+   "description": "KPIs del proceso, separados por comas.",
+   "fieldname": "kpis",
+   "fieldtype": "Small Text",
+   "label": "KPIs"
+  },
+  {
+   "fieldname": "goals",
+   "fieldtype": "Table",
+   "label": "Goals by Cadence",
+   "options": "OS Process Goal"
+  },
+  {
+   "fieldname": "definition_of_done",
+   "fieldtype": "Small Text",
+   "label": "Definition of Done"
+  },
+  {
+   "description": "Qu\u00e9 debe guardarse para probar que el proceso se ejecut\u00f3 bien.",
+   "fieldname": "evidence_required",
+   "fieldtype": "Small Text",
+   "label": "Evidence Required"
+  },
+  {
+   "fieldname": "docs",
+   "fieldtype": "Attach",
+   "label": "Supporting Documents"
+  },
+  {
+   "fieldname": "next_review_on",
+   "fieldtype": "Date",
+   "label": "Next Review"
+  },
+  {
+   "fieldname": "changelog",
+   "fieldtype": "Long Text",
+   "label": "Changelog"
+  },
+  {
+   "fieldname": "kaizen",
+   "fieldtype": "Long Text",
+   "label": "Improvement Opportunities"
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-17 16:39:17.456156",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "OS Process",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
