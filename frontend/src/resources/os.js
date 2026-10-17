@@ -9,6 +9,8 @@ export const osApi = {
   getOrg: () => call(NS + 'get_org'),
   addOrgNode: (title, nodeType, x, y) => call(NS + 'add_org_node', { title, node_type: nodeType, x, y }),
   saveOrgNode: (name, x, y) => call(NS + 'save_org_node', { name, x, y }),
+  createProcess: (fields) => call(NS + 'create_process', fields),
+  updateDoc: (doctype, name, values) => call(NS + 'update_doc', { doctype, name, values }),
 }
 
 export function humanError(err) {

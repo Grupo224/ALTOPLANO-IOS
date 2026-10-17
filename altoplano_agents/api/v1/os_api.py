@@ -65,3 +65,35 @@ def add_org_node(title=None, node_type=None, x=None, y=None):
 def save_org_node(name, x=None, y=None):
     frappe.db.set_value("OS Org Node", name, {"x": float(x or 0), "y": float(y or 0)})
     return {"name": name}
+
+
+@frappe.whitelist(methods=["POST"])
+def create_process(process_title=None, process_code=None, purpose=None, risk_level=None, trigger_type=None):
+    d = frappe.get_doc({
+        "doctype": "OS Process",
+        "process_title": process_title or "Nuevo proceso",
+        "process_code": process_code or process_title or "Nuevo proceso",
+        "purpose": purpose or process_title or "",
+        "company": frappe.defaults.get_user_default("Company"),
+        "owner_user": frappe.session.user,
+        "status": "Draft",
+        "trigger_type": trigger_type or "Manual",
+        "max_autonomy": "L1",
+        "risk_level": risk_level or "Medium",
+        "version_label": "1",
+    })
+    d.flags.ignore_permissions = True
+    d.insert(ignore_permissions=True)
+    return {"name": d.name}
+
+
+@frappe.whitelist(methods=["POST"])
+def update_doc(doctype, name, values):
+    if isinstance(values, str):
+        values = json.loads(values)
+    d = frappe.get_doc(doctype, name)
+    for k, v in (values or {}).items():
+        d.set(k, v)
+    d.flags.ignore_permissions = True
+    d.save(ignore_permissions=True)
+    return {"name": d.name}

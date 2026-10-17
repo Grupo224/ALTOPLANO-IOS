@@ -45,7 +45,7 @@ import { ref, reactive, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useList, call, Button, Dialog, TextInput, Select, toast } from 'frappe-ui'
 import AppLayout from '../components/AppLayout.vue'
-import { humanError } from '../resources/os'
+import { osApi, humanError } from '../resources/os'
 
 const list = useList({ doctype: 'OS Process', fields: ['name', 'process_title', 'process_code', 'purpose', 'status', 'risk_level'], orderBy: 'modified desc', limit: 100 })
 const rows = computed(() => list.data || [])
@@ -59,12 +59,7 @@ async function create() {
   if (!form.process_title.trim()) { toast.warning('Escribe el nombre del proceso.'); return }
   saving.value = true
   try {
-    await call('frappe.client.insert', { doc: {
-      doctype: 'OS Process', process_title: form.process_title, process_code: form.process_code || form.process_title,
-      purpose: form.purpose || form.process_title, status: 'Draft', trigger_type: form.trigger_type,
-      max_autonomy: 'L1', risk_level: form.risk_level, version_label: '1',
-      company: frappe.defaults?.get_user_default?.('Company') || null, owner_user: frappe.session?.user,
-    } })
+    await osApi.createProcess({ process_title: form.process_title, process_code: form.process_code, purpose: form.purpose, risk_level: form.risk_level, trigger_type: form.trigger_type })
     toast.success('Proceso creado.')
     openCreate.value = false
     list.reload()

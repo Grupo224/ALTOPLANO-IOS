@@ -13,7 +13,8 @@
 }
 
 html, body, #app { height: 100%; }
-body { background: var(--os-navy); color: var(--os-text); }
+body { background: var(--os-navy); }
+.app-shell { color: var(--os-text); }
 #app { overflow: hidden; }
 
 /* Re-marca el primario de frappe-ui ("blue") al naranja LivingOrg */
@@ -76,3 +77,20 @@ body { background: var(--os-navy); color: var(--os-text); }
 .os-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 900px) { .os-grid { grid-template-columns: 1fr 1fr; } .os-sidebar { width: 200px; } }
 @media (max-width: 640px) { .os-grid { grid-template-columns: 1fr; } }
+
+/* ===== Canvas (Procesos + Organigrama) ===== */
+.flow-layout { display: grid; grid-template-columns: 185px 1fr; gap: 15px; }
+.palette { padding: 16px; background: var(--os-navy-2); border: 1px solid #1a283e; border-radius: 12px; }
+.palette-btn { width: 100%; margin-bottom: 10px; text-align: left; padding: 10px; border: 1px solid #2b3c56; background: var(--os-navy-3); border-radius: 8px; color: var(--os-text); }
+.palette-btn:hover { background: #23334a; }
+.canvas { height: 510px; overflow: auto; position: relative; border: 1px solid #1a283e; border-radius: 10px; background-color: #0a111c; background-image: radial-gradient(#1a283e 1px, transparent 1px); background-size: 18px 18px; }
+.world { position: relative; width: 1050px; height: 700px; transform-origin: 0 0; }
+.wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.wires line { stroke: #ff9422; stroke-width: 2; }
+.node { position: absolute; background: var(--os-navy-2); border: 1px solid #2b3c56; border-radius: 8px; padding: 10px 14px; cursor: grab; user-select: none; min-width: 120px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+.node.selected { border-color: #ff9422; box-shadow: 0 0 0 2px rgba(255,148,34,0.3); }
+.node.from-node { border-color: #ff9422; background: #23334a; }
+.node-type { font-size: 16px; font-weight: 700; color: #ff9422; }
+.node-label { font-size: 13px; color: var(--os-text); margin-top: 3px; }
+.notice { margin-top: 15px; font-size: 12px; color: var(--os-steel); }
+@media (max-width: 768px) { .flow-layout { grid-template-columns: 1fr; } }
