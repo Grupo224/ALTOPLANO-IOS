@@ -12,6 +12,7 @@ const routes = [
   { path: '/cerebro', name: 'Cerebro', component: () => import('./views/CerebroView.vue') },
   { path: '/activity', name: 'Activity', component: () => import('./views/ActivityView.vue') },
   { path: '/agenda', name: 'Agenda', component: () => import('./views/AgendaView.vue') },
+  { path: '/wizard', name: 'Wizard', component: () => import('./views/WizardView.vue') },
 ]
 
 const router = createRouter({

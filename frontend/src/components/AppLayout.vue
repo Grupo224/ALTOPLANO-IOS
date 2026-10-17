@@ -36,6 +36,7 @@ const { state: session, load } = useSession()
 onMounted(() => load())
 
 const nav = [
+  { label: 'Crear agente', route: '/wizard', icon: '✨' },
   { label: 'Inicio', route: '/', icon: '🏠' },
   { label: 'Cerebro', route: '/cerebro', icon: '🧠' },
   { label: 'Mis agentes', route: '/agents', icon: '🤖' },
