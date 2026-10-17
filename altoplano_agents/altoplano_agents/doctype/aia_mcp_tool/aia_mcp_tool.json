@@ -1,0 +1,203 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "mcp_server",
+  "remote_name",
+  "display_title",
+  "description",
+  "input_schema_json",
+  "output_schema_json",
+  "annotations_json",
+  "observed_schema_hash",
+  "approved_schema_hash",
+  "review_status",
+  "risk_level",
+  "requires_approval",
+  "tool_definition",
+  "enabled",
+  "reviewed_by",
+  "reviewed_at",
+  "last_seen_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "mcp_server",
+   "fieldtype": "Link",
+   "label": "Servidor",
+   "options": "AIA MCP Server",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "remote_name",
+   "fieldtype": "Data",
+   "label": "Nombre remoto exacto",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "display_title",
+   "fieldtype": "Data",
+   "label": "Nombre visible",
+   "read_only": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Descripción externa",
+   "read_only": 1
+  },
+  {
+   "fieldname": "input_schema_json",
+   "fieldtype": "Code",
+   "label": "Esquema de entrada",
+   "options": "JSON",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "output_schema_json",
+   "fieldtype": "Code",
+   "label": "Esquema de salida",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "annotations_json",
+   "fieldtype": "Code",
+   "label": "Indicaciones del servidor",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "observed_schema_hash",
+   "fieldtype": "Data",
+   "label": "Huella descubierta",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_schema_hash",
+   "fieldtype": "Data",
+   "label": "Huella aprobada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_status",
+   "fieldtype": "Select",
+   "label": "Revisión",
+   "options": "Pending; Approved; Changed; Blocked; Retired",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Riesgo asignado localmente",
+   "options": "Read; Write; Destructive; ExternalMessage; Financial",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requires_approval",
+   "fieldtype": "Check",
+   "label": "Requiere revisión humana",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "tool_definition",
+   "fieldtype": "Link",
+   "label": "Acción del catálogo Altoplano",
+   "options": "AIA Tool Definition",
+   "read_only": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Disponible para asignar",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Revisado por",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reviewed_at",
+   "fieldtype": "Datetime",
+   "label": "Fecha de revisión",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_seen_at",
+   "fieldtype": "Datetime",
+   "label": "Última aparición",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA MCP Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

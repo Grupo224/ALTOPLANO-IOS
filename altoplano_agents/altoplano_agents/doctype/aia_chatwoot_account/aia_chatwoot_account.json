@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection",
+  "base_url",
+  "account_id",
+  "api_token_ref",
+  "auth_header_mode",
+  "chatwoot_version",
+  "webhook_route_key",
+  "webhook_url",
+  "webhook_auth_mode",
+  "webhook_secret_ref",
+  "agent_bot_id",
+  "handoff_team_id",
+  "last_event_at",
+  "config_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "label": "Conexión",
+   "options": "AIA Connection",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Servidor Chatwoot",
+   "reqd": 1
+  },
+  {
+   "fieldname": "account_id",
+   "fieldtype": "Data",
+   "label": "ID de cuenta",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_token_ref",
+   "fieldtype": "Data",
+   "label": "Token de API",
+   "read_only": 1
+  },
+  {
+   "fieldname": "auth_header_mode",
+   "fieldtype": "Select",
+   "label": "Método de autenticación",
+   "options": "ApiAccessToken; Bearer",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "chatwoot_version",
+   "fieldtype": "Data",
+   "label": "Versión comprobada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "webhook_route_key",
+   "fieldtype": "Data",
+   "label": "Ruta de webhook",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "URL de recepción",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "webhook_auth_mode",
+   "fieldtype": "Select",
+   "label": "Autenticidad del ingreso",
+   "options": "ProviderSignature; PrivateRelay",
+   "reqd": 1
+  },
+  {
+   "fieldname": "webhook_secret_ref",
+   "fieldtype": "Data",
+   "label": "Secreto de ingreso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "agent_bot_id",
+   "fieldtype": "Data",
+   "label": "Bot de cuenta",
+   "read_only": 1
+  },
+  {
+   "fieldname": "handoff_team_id",
+   "fieldtype": "Data",
+   "label": "Equipo humano"
+  },
+  {
+   "fieldname": "last_event_at",
+   "fieldtype": "Datetime",
+   "label": "Último evento verificado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versión",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Chatwoot Account",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

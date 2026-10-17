@@ -1,0 +1,203 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection",
+  "check_key",
+  "config_version",
+  "credential_version",
+  "requested_by",
+  "capability",
+  "effect_level",
+  "status",
+  "started_at",
+  "finished_at",
+  "valid_until",
+  "latency_ms",
+  "provider_error_code",
+  "diagnostic_code",
+  "summary",
+  "evidence_json",
+  "trace_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "label": "Conexión",
+   "options": "AIA Connection",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "check_key",
+   "fieldtype": "Data",
+   "label": "Clave de comprobación",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versión comprobada",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "credential_version",
+   "fieldtype": "Int",
+   "label": "Credencial comprobada",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Solicitado por",
+   "options": "User",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "capability",
+   "fieldtype": "Data",
+   "label": "Operación comprobada",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "effect_level",
+   "fieldtype": "Select",
+   "label": "Efecto de la prueba",
+   "options": "ReadOnly; AuthorizedSend; AuthorizedWrite",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Resultado",
+   "options": "Queued; Running; Pass; Fail; Blocked; Unknown",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "started_at",
+   "fieldtype": "Datetime",
+   "label": "Inicio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finished_at",
+   "fieldtype": "Datetime",
+   "label": "Fin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "valid_until",
+   "fieldtype": "Datetime",
+   "label": "Vigencia",
+   "read_only": 1
+  },
+  {
+   "fieldname": "latency_ms",
+   "fieldtype": "Int",
+   "label": "Duración de respuesta",
+   "read_only": 1
+  },
+  {
+   "fieldname": "provider_error_code",
+   "fieldtype": "Data",
+   "label": "Código externo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "diagnostic_code",
+   "fieldtype": "Data",
+   "label": "Causa normalizada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Text",
+   "label": "Qué ocurrió",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "evidence_json",
+   "fieldtype": "Code",
+   "label": "Evidencia mínima",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trace_id",
+   "fieldtype": "Data",
+   "label": "Seguimiento",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Connection Check",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

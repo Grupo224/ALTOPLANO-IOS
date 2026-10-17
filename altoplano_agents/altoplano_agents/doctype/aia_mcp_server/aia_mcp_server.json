@@ -1,0 +1,291 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection",
+  "transport",
+  "server_url",
+  "resource_uri",
+  "protocol_mode",
+  "protocol_version",
+  "client_supported_versions_json",
+  "server_supported_versions_json",
+  "client_sdk_name",
+  "client_sdk_version",
+  "server_name",
+  "server_version",
+  "auth_mode",
+  "auth_header_name",
+  "oauth_grant",
+  "headers",
+  "managed_stdio_profile",
+  "connect_timeout_seconds",
+  "request_timeout_seconds",
+  "max_response_bytes",
+  "max_tools",
+  "capabilities_json",
+  "catalog_digest",
+  "last_discovered_at",
+  "discovery_complete",
+  "allow_resources",
+  "allow_prompts",
+  "allow_sampling",
+  "allow_elicitation",
+  "config_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "label": "Conexión",
+   "options": "AIA Connection",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "transport",
+   "fieldtype": "Select",
+   "label": "Transporte",
+   "options": "StreamableHTTP; LegacySSE; ManagedStdio",
+   "reqd": 1
+  },
+  {
+   "fieldname": "server_url",
+   "fieldtype": "Data",
+   "label": "Endpoint MCP"
+  },
+  {
+   "fieldname": "resource_uri",
+   "fieldtype": "Data",
+   "label": "Recurso OAuth canónico",
+   "read_only": 1
+  },
+  {
+   "fieldname": "protocol_mode",
+   "fieldtype": "Select",
+   "label": "Familia de protocolo",
+   "options": "Unknown; RequestMetadata2026; SessionLegacy",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "protocol_version",
+   "fieldtype": "Data",
+   "label": "Versión compatible",
+   "read_only": 1
+  },
+  {
+   "fieldname": "client_supported_versions_json",
+   "fieldtype": "Code",
+   "label": "Versiones del cliente",
+   "options": "JSON",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "server_supported_versions_json",
+   "fieldtype": "Code",
+   "label": "Versiones del servidor",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "client_sdk_name",
+   "fieldtype": "Data",
+   "label": "SDK utilizado",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "client_sdk_version",
+   "fieldtype": "Data",
+   "label": "Versión de SDK",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "server_name",
+   "fieldtype": "Data",
+   "label": "Nombre reportado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "server_version",
+   "fieldtype": "Data",
+   "label": "Versión reportada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "auth_mode",
+   "fieldtype": "Select",
+   "label": "Autorización MCP",
+   "options": "None; Bearer; APIKeyHeader; OAuth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "auth_header_name",
+   "fieldtype": "Data",
+   "label": "Encabezado de API key"
+  },
+  {
+   "fieldname": "oauth_grant",
+   "fieldtype": "Link",
+   "label": "Autorización OAuth",
+   "options": "AIA OAuth Grant",
+   "read_only": 1
+  },
+  {
+   "fieldname": "headers",
+   "fieldtype": "Table",
+   "label": "Encabezados adicionales",
+   "options": "AIA MCP Header"
+  },
+  {
+   "fieldname": "managed_stdio_profile",
+   "fieldtype": "Data",
+   "label": "Perfil local administrado"
+  },
+  {
+   "fieldname": "connect_timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Tiempo de conexión",
+   "reqd": 1
+  },
+  {
+   "fieldname": "request_timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Tiempo por solicitud",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_response_bytes",
+   "fieldtype": "Int",
+   "label": "Máximo de respuesta",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_tools",
+   "fieldtype": "Int",
+   "label": "Máximo de herramientas",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capabilities_json",
+   "fieldtype": "Code",
+   "label": "Capacidades del servidor",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "catalog_digest",
+   "fieldtype": "Data",
+   "label": "Huella del catálogo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_discovered_at",
+   "fieldtype": "Datetime",
+   "label": "Último descubrimiento",
+   "read_only": 1
+  },
+  {
+   "fieldname": "discovery_complete",
+   "fieldtype": "Check",
+   "label": "Descubrimiento completo",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "allow_resources",
+   "fieldtype": "Check",
+   "label": "Permitir recursos",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allow_prompts",
+   "fieldtype": "Check",
+   "label": "Permitir prompts externos",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allow_sampling",
+   "fieldtype": "Check",
+   "label": "Permitir muestreo solicitado",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allow_elicitation",
+   "fieldtype": "Check",
+   "label": "Permitir solicitud de datos",
+   "reqd": 1
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versión",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA MCP Server",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

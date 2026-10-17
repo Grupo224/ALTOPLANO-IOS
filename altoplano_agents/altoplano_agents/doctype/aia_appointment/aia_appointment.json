@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "calendar",
+  "event",
+  "agent",
+  "conversation",
+  "customer",
+  "contact",
+  "booking_key",
+  "timezone",
+  "status",
+  "hold_expires_at",
+  "source",
+  "notification_policy",
+  "last_notification",
+  "cancel_reason",
+  "revision"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "calendar",
+   "fieldtype": "Link",
+   "label": "Agenda",
+   "options": "AIA Calendar",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "label": "Cita nativa",
+   "options": "Event",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agente originador",
+   "options": "AIA Agent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversation",
+   "fieldtype": "Link",
+   "label": "Conversación origen",
+   "options": "AIA Conversation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Cliente",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contacto",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "booking_key",
+   "fieldtype": "Data",
+   "label": "Clave de reserva",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "label": "Zona al reservar",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado de reserva",
+   "options": "Held; Confirmed; Cancelled; Completed; NoShow",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "hold_expires_at",
+   "fieldtype": "Datetime",
+   "label": "Vence apartado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Origen",
+   "options": "Portal; WhatsApp; Email; InternalAgent",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "notification_policy",
+   "fieldtype": "Select",
+   "label": "Notificaciones",
+   "options": "None; HumanApproval; ApprovedTemplates",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_notification",
+   "fieldtype": "Link",
+   "label": "Última notificación",
+   "options": "AIA Outbox Event",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cancel_reason",
+   "fieldtype": "Small Text",
+   "label": "Motivo de cancelación"
+  },
+  {
+   "fieldname": "revision",
+   "fieldtype": "Int",
+   "label": "Versión de reserva",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Appointment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

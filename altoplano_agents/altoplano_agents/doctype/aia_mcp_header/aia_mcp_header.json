@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "header_name",
+  "value_mode",
+  "static_value",
+  "secret_ref"
+ ],
+ "fields": [
+  {
+   "fieldname": "header_name",
+   "fieldtype": "Data",
+   "label": "Nombre de encabezado",
+   "reqd": 1
+  },
+  {
+   "fieldname": "value_mode",
+   "fieldtype": "Select",
+   "label": "Tipo de valor",
+   "options": "Static; SecretRef",
+   "reqd": 1
+  },
+  {
+   "fieldname": "static_value",
+   "fieldtype": "Data",
+   "label": "Valor no secreto"
+  },
+  {
+   "fieldname": "secret_ref",
+   "fieldtype": "Data",
+   "label": "Referencia protegida",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA MCP Header",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

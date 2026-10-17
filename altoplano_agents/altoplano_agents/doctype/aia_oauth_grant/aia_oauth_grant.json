@@ -1,0 +1,252 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection",
+  "subject_user",
+  "principal_kind",
+  "resource_uri",
+  "protected_resource_metadata_url",
+  "issuer",
+  "authorization_endpoint",
+  "token_endpoint",
+  "revocation_endpoint",
+  "registration_method",
+  "client_id",
+  "client_secret_ref",
+  "redirect_uri",
+  "requested_scopes_json",
+  "granted_scopes_json",
+  "pkce_method",
+  "token_bundle_ref",
+  "expires_at",
+  "refresh_available",
+  "status",
+  "authorized_at",
+  "last_refreshed_at",
+  "token_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "label": "Conexión",
+   "options": "AIA Connection",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "subject_user",
+   "fieldtype": "Link",
+   "label": "Usuario autorizante",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "principal_kind",
+   "fieldtype": "Select",
+   "label": "Tipo de principal",
+   "options": "OwnerUser; CompanyService",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "resource_uri",
+   "fieldtype": "Data",
+   "label": "Recurso autorizado",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "protected_resource_metadata_url",
+   "fieldtype": "Data",
+   "label": "Metadatos del recurso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "issuer",
+   "fieldtype": "Data",
+   "label": "Emisor OAuth",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "authorization_endpoint",
+   "fieldtype": "Data",
+   "label": "Endpoint de autorización",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "token_endpoint",
+   "fieldtype": "Data",
+   "label": "Endpoint de tokens",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "revocation_endpoint",
+   "fieldtype": "Data",
+   "label": "Endpoint de revocación",
+   "read_only": 1
+  },
+  {
+   "fieldname": "registration_method",
+   "fieldtype": "Select",
+   "label": "Registro de cliente",
+   "options": "PreRegistered; ClientIDMetadata; DynamicRegistration",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Identificador del cliente",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "client_secret_ref",
+   "fieldtype": "Data",
+   "label": "Secreto del cliente",
+   "read_only": 1
+  },
+  {
+   "fieldname": "redirect_uri",
+   "fieldtype": "Data",
+   "label": "URL de retorno",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "requested_scopes_json",
+   "fieldtype": "Code",
+   "label": "Scopes solicitados",
+   "options": "JSON",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "granted_scopes_json",
+   "fieldtype": "Code",
+   "label": "Scopes efectivos",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pkce_method",
+   "fieldtype": "Select",
+   "label": "Método PKCE",
+   "options": "S256",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "token_bundle_ref",
+   "fieldtype": "Data",
+   "label": "Tokens protegidos",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expires_at",
+   "fieldtype": "Datetime",
+   "label": "Vencimiento del acceso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refresh_available",
+   "fieldtype": "Check",
+   "label": "Puede renovarse",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "Pending; Active; Expired; Revoked; Failed",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "authorized_at",
+   "fieldtype": "Datetime",
+   "label": "Fecha de autorización",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_refreshed_at",
+   "fieldtype": "Datetime",
+   "label": "Última renovación",
+   "read_only": 1
+  },
+  {
+   "fieldname": "token_version",
+   "fieldtype": "Int",
+   "label": "Versión de tokens",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA OAuth Grant",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

@@ -1,0 +1,259 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection",
+  "meta_app",
+  "business_portfolio_id",
+  "waba_id",
+  "phone_number_id",
+  "phone_number_e164",
+  "verified_name",
+  "access_token_ref",
+  "token_kind",
+  "token_expires_at",
+  "data_access_expires_at",
+  "granted_permissions_json",
+  "registration_status",
+  "waba_subscribed",
+  "quality_rating",
+  "platform_type",
+  "onboarding_method",
+  "coexistence_status",
+  "default_template",
+  "service_window_hours",
+  "last_inbound_webhook_at",
+  "last_status_webhook_at",
+  "last_delivery_at",
+  "messaging_policy_version",
+  "config_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "label": "Conexión",
+   "options": "AIA Connection",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "meta_app",
+   "fieldtype": "Link",
+   "label": "Aplicación Meta",
+   "options": "AIA Meta App",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_portfolio_id",
+   "fieldtype": "Data",
+   "label": "ID del negocio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "waba_id",
+   "fieldtype": "Data",
+   "label": "ID de cuenta WhatsApp Business",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number_id",
+   "fieldtype": "Data",
+   "label": "ID del número en Meta",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number_e164",
+   "fieldtype": "Data",
+   "label": "Número verificado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_name",
+   "fieldtype": "Data",
+   "label": "Nombre verificado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "access_token_ref",
+   "fieldtype": "Data",
+   "label": "Token de acceso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "token_kind",
+   "fieldtype": "Select",
+   "label": "Tipo de token",
+   "options": "Unknown; User; SystemUser; BusinessIntegration",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "token_expires_at",
+   "fieldtype": "Datetime",
+   "label": "Caducidad",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_access_expires_at",
+   "fieldtype": "Datetime",
+   "label": "Vence acceso a datos",
+   "read_only": 1
+  },
+  {
+   "fieldname": "granted_permissions_json",
+   "fieldtype": "Code",
+   "label": "Permisos efectivos",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "registration_status",
+   "fieldtype": "Select",
+   "label": "Registro del número",
+   "options": "Unknown; Pending; Registered; Failed",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "waba_subscribed",
+   "fieldtype": "Check",
+   "label": "App suscrita al WABA",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_rating",
+   "fieldtype": "Data",
+   "label": "Calidad informada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "platform_type",
+   "fieldtype": "Data",
+   "label": "Plataforma reportada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "onboarding_method",
+   "fieldtype": "Select",
+   "label": "Forma de conexión",
+   "options": "Manual; EmbeddedSignup",
+   "reqd": 1
+  },
+  {
+   "fieldname": "coexistence_status",
+   "fieldtype": "Select",
+   "label": "Coexistencia con app móvil",
+   "options": "NotRequested; Unverified; Supported; Unsupported",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "default_template",
+   "fieldtype": "Link",
+   "label": "Plantilla predeterminada",
+   "options": "AIA WhatsApp Template"
+  },
+  {
+   "fieldname": "service_window_hours",
+   "fieldtype": "Int",
+   "label": "Ventana configurada",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_inbound_webhook_at",
+   "fieldtype": "Datetime",
+   "label": "Último mensaje auténtico",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_status_webhook_at",
+   "fieldtype": "Datetime",
+   "label": "Último estado auténtico",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_delivery_at",
+   "fieldtype": "Datetime",
+   "label": "Última entrega confirmada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "messaging_policy_version",
+   "fieldtype": "Data",
+   "label": "Política aplicada",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versión",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA WhatsApp Account",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

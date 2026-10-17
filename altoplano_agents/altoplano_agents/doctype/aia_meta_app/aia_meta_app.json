@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "display_name",
+  "meta_app_id",
+  "graph_api_version",
+  "app_secret_ref",
+  "verify_token_ref",
+  "embedded_signup_enabled",
+  "embedded_signup_config_id",
+  "signup_contract_version",
+  "allowed_origin",
+  "oauth_redirect_uri",
+  "webhook_route_key",
+  "webhook_callback_url",
+  "webhook_verified_at",
+  "webhook_fields_json",
+  "app_mode",
+  "enabled",
+  "config_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "label": "Nombre interno",
+   "reqd": 1
+  },
+  {
+   "fieldname": "meta_app_id",
+   "fieldtype": "Data",
+   "label": "ID de aplicación Meta",
+   "reqd": 1
+  },
+  {
+   "fieldname": "graph_api_version",
+   "fieldtype": "Data",
+   "label": "Versión de Graph API",
+   "reqd": 1
+  },
+  {
+   "fieldname": "app_secret_ref",
+   "fieldtype": "Data",
+   "label": "Secreto de aplicación",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verify_token_ref",
+   "fieldtype": "Data",
+   "label": "Token de verificación",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "embedded_signup_enabled",
+   "fieldtype": "Check",
+   "label": "Conectar con Meta",
+   "reqd": 1
+  },
+  {
+   "fieldname": "embedded_signup_config_id",
+   "fieldtype": "Data",
+   "label": "ID de configuración de registro"
+  },
+  {
+   "fieldname": "signup_contract_version",
+   "fieldtype": "Data",
+   "label": "Contrato de registro validado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "allowed_origin",
+   "fieldtype": "Data",
+   "label": "Origen autorizado del portal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "oauth_redirect_uri",
+   "fieldtype": "Data",
+   "label": "Callback de autorización",
+   "read_only": 1
+  },
+  {
+   "fieldname": "webhook_route_key",
+   "fieldtype": "Data",
+   "label": "Ruta de recepción",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "webhook_callback_url",
+   "fieldtype": "Data",
+   "label": "URL del webhook",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "webhook_verified_at",
+   "fieldtype": "Datetime",
+   "label": "Callback verificado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "webhook_fields_json",
+   "fieldtype": "Code",
+   "label": "Suscripciones del webhook",
+   "options": "JSON",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "app_mode",
+   "fieldtype": "Select",
+   "label": "Modo comprobado",
+   "options": "Unknown; Development; Live",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Habilitada",
+   "reqd": 1
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versión",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Meta App",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}

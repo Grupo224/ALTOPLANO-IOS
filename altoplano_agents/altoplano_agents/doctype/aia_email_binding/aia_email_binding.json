@@ -1,0 +1,204 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "connection",
+  "email_account",
+  "mailbox_kind",
+  "auth_owner",
+  "receive_enabled",
+  "send_enabled",
+  "reply_policy",
+  "allowed_recipient_domains",
+  "max_recipients_per_message",
+  "max_attachment_mb",
+  "allowed_attachment_types_json",
+  "process_historical_mail",
+  "processing_from",
+  "auto_create_contacts",
+  "native_reply_suppressed",
+  "last_inbound_communication",
+  "last_outgoing_queue",
+  "config_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Empresa",
+   "options": "Company",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "connection",
+   "fieldtype": "Link",
+   "label": "Conexión",
+   "options": "AIA Connection",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "email_account",
+   "fieldtype": "Link",
+   "label": "Cuenta de correo nativa",
+   "options": "Email Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mailbox_kind",
+   "fieldtype": "Select",
+   "label": "Tipo de buzón",
+   "options": "Personal; Shared; Service",
+   "reqd": 1
+  },
+  {
+   "fieldname": "auth_owner",
+   "fieldtype": "Link",
+   "label": "Usuario que autorizó",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "receive_enabled",
+   "fieldtype": "Check",
+   "label": "Recibir para agentes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "send_enabled",
+   "fieldtype": "Check",
+   "label": "Enviar desde agentes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reply_policy",
+   "fieldtype": "Select",
+   "label": "Modo de respuesta",
+   "options": "DraftOnly; HumanApproval; AutoWithinPolicy",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allowed_recipient_domains",
+   "fieldtype": "Small Text",
+   "label": "Dominios de destino permitidos"
+  },
+  {
+   "fieldname": "max_recipients_per_message",
+   "fieldtype": "Int",
+   "label": "Destinatarios máximos",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_attachment_mb",
+   "fieldtype": "Int",
+   "label": "Límite de adjuntos del agente",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allowed_attachment_types_json",
+   "fieldtype": "Code",
+   "label": "Adjuntos permitidos",
+   "options": "JSON",
+   "reqd": 1
+  },
+  {
+   "fieldname": "process_historical_mail",
+   "fieldtype": "Check",
+   "label": "Procesar correo anterior",
+   "reqd": 1
+  },
+  {
+   "fieldname": "processing_from",
+   "fieldtype": "Datetime",
+   "label": "Procesar desde"
+  },
+  {
+   "fieldname": "auto_create_contacts",
+   "fieldtype": "Check",
+   "label": "Crear contactos",
+   "reqd": 1
+  },
+  {
+   "fieldname": "native_reply_suppressed",
+   "fieldtype": "Check",
+   "label": "Autorrespuesta nativa desactivada",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_inbound_communication",
+   "fieldtype": "Link",
+   "label": "Último correo procesado",
+   "options": "Communication",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_outgoing_queue",
+   "fieldtype": "Link",
+   "label": "Último envío en cola",
+   "options": "Email Queue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "config_version",
+   "fieldtype": "Int",
+   "label": "Versión",
+   "reqd": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "links": [],
+ "modified": "2026-10-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "AIA Email Binding",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  },
+  {
+   "role": "Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "import": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "share": 1,
+   "if_owner": 0,
+   "permlevel": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash"
+}
