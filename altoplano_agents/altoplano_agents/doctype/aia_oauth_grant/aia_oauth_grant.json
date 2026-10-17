@@ -45,7 +45,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexión",
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -90,7 +90,7 @@
   {
    "fieldname": "authorization_endpoint",
    "fieldtype": "Data",
-   "label": "Endpoint de autorización",
+   "label": "Endpoint de autorizaci\u00f3n",
    "read_only": 1,
    "reqd": 1
   },
@@ -104,7 +104,7 @@
   {
    "fieldname": "revocation_endpoint",
    "fieldtype": "Data",
-   "label": "Endpoint de revocación",
+   "label": "Endpoint de revocaci\u00f3n",
    "read_only": 1
   },
   {
@@ -153,7 +153,7 @@
   {
    "fieldname": "pkce_method",
    "fieldtype": "Select",
-   "label": "Método PKCE",
+   "label": "M\u00e9todo PKCE",
    "options": "S256",
    "read_only": 1,
    "reqd": 1
@@ -189,25 +189,25 @@
   {
    "fieldname": "authorized_at",
    "fieldtype": "Datetime",
-   "label": "Fecha de autorización",
+   "label": "Fecha de autorizaci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "last_refreshed_at",
    "fieldtype": "Datetime",
-   "label": "Última renovación",
+   "label": "\u00daltima renovaci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "token_version",
    "fieldtype": "Int",
-   "label": "Versión de tokens",
+   "label": "Versi\u00f3n de tokens",
    "read_only": 1,
    "reqd": 1
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:34.155425",
+ "modified": "2026-10-17 16:22:44.994594",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA OAuth Grant",

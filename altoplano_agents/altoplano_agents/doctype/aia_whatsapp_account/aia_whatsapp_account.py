@@ -13,7 +13,7 @@ class AIAWhatsAppAccount(Document):
 
 		access_token_ref: DF.Data | None
 		business_portfolio_id: DF.Data | None
-		coexistence_status: DF.Literal["NotRequested; Unverified; Supported; Unsupported"]
+		coexistence_status: DF.Literal["NotRequested", "Unverified", "Supported", "Unsupported"]
 		company: DF.Link
 		config_version: DF.Int
 		connection: DF.Link
@@ -25,15 +25,15 @@ class AIAWhatsAppAccount(Document):
 		last_status_webhook_at: DF.Datetime | None
 		messaging_policy_version: DF.Data
 		meta_app: DF.Link
-		onboarding_method: DF.Literal["Manual; EmbeddedSignup"]
+		onboarding_method: DF.Literal["Manual", "EmbeddedSignup"]
 		phone_number_e164: DF.Data | None
 		phone_number_id: DF.Data
 		platform_type: DF.Data | None
 		quality_rating: DF.Data | None
-		registration_status: DF.Literal["Unknown; Pending; Registered; Failed"]
+		registration_status: DF.Literal["Unknown", "Pending", "Registered", "Failed"]
 		service_window_hours: DF.Int
 		token_expires_at: DF.Datetime | None
-		token_kind: DF.Literal["Unknown; User; SystemUser; BusinessIntegration"]
+		token_kind: DF.Literal["Unknown", "User", "SystemUser", "BusinessIntegration"]
 		verified_name: DF.Data | None
 		waba_id: DF.Data
 		waba_subscribed: DF.Check

@@ -34,7 +34,7 @@
    "fieldname": "conversation",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conversación",
+   "label": "Conversaci\u00f3n",
    "options": "AIA Conversation",
    "read_only": 1,
    "reqd": 1
@@ -52,7 +52,7 @@
    "fieldname": "direction",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Dirección",
+   "label": "Direcci\u00f3n",
    "options": "Inbound\nOutbound\nInternal",
    "read_only": 1,
    "reqd": 1
@@ -116,7 +116,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-16 21:50:27.402563",
+ "modified": "2026-10-17 16:22:41.991160",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Message",

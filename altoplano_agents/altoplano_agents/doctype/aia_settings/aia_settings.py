@@ -12,10 +12,13 @@ class AIASettings(Document):
         from frappe.types import DF
 
         base_currency: DF.Link
+        connection_probe_ttl_minutes: DF.Int
+        connector_registry_version: DF.Data
         default_company: DF.Link
         demo_mode: DF.Check
         enabled: DF.Check
         environment: DF.Literal["Development", "Staging", "Production"]
+        experimental_calendar_enabled: DF.Check
         operating_mode: DF.Literal["SelfManaged", "ManagedClient", "ProviderControl"]
         platform_account_id: DF.Data | None
         retention_days: DF.Int

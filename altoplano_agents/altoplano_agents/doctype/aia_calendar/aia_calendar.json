@@ -67,7 +67,7 @@
   {
    "fieldname": "slot_minutes",
    "fieldtype": "Int",
-   "label": "Duración de cita",
+   "label": "Duraci\u00f3n de cita",
    "reqd": 1
   },
   {
@@ -85,25 +85,25 @@
   {
    "fieldname": "buffer_after_minutes",
    "fieldtype": "Int",
-   "label": "Margen después",
+   "label": "Margen despu\u00e9s",
    "reqd": 1
   },
   {
    "fieldname": "minimum_notice_minutes",
    "fieldtype": "Int",
-   "label": "Anticipación mínima",
+   "label": "Anticipaci\u00f3n m\u00ednima",
    "reqd": 1
   },
   {
    "fieldname": "booking_horizon_days",
    "fieldtype": "Int",
-   "label": "Días permitidos a futuro",
+   "label": "D\u00edas permitidos a futuro",
    "reqd": 1
   },
   {
    "fieldname": "max_bookings_per_day",
    "fieldtype": "Int",
-   "label": "Citas máximas por día",
+   "label": "Citas m\u00e1ximas por d\u00eda",
    "reqd": 1
   },
   {
@@ -135,20 +135,20 @@
   {
    "fieldname": "sync_mode",
    "fieldtype": "Select",
-   "label": "Sincronización",
+   "label": "Sincronizaci\u00f3n",
    "options": "LocalOnly\nNativeGoogle",
    "reqd": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
+   "label": "Versi\u00f3n",
    "read_only": 1,
    "reqd": 1
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:31.079280",
+ "modified": "2026-10-17 16:22:43.116728",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Calendar",

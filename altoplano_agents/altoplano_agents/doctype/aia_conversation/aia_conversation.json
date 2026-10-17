@@ -52,14 +52,14 @@
    "fieldname": "session_key",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Clave de sesión",
+   "label": "Clave de sesi\u00f3n",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "external_conversation_id",
    "fieldtype": "Data",
-   "label": "Conversación externa",
+   "label": "Conversaci\u00f3n externa",
    "read_only": 1
   },
   {
@@ -101,26 +101,26 @@
   {
    "fieldname": "last_activity",
    "fieldtype": "Datetime",
-   "label": "Última actividad",
+   "label": "\u00daltima actividad",
    "read_only": 1
   },
   {
    "fieldname": "memory_scope",
    "fieldtype": "Data",
-   "label": "Ámbito de memoria",
+   "label": "\u00c1mbito de memoria",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "last_inbound_at",
    "fieldtype": "Datetime",
-   "label": "Último mensaje recibido",
+   "label": "\u00daltimo mensaje recibido",
    "read_only": 1
   },
   {
    "fieldname": "service_window_expires_at",
    "fieldtype": "Datetime",
-   "label": "Fin de ventana de atención",
+   "label": "Fin de ventana de atenci\u00f3n",
    "read_only": 1
   },
   {
@@ -133,7 +133,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-16 21:50:35.397704",
+ "modified": "2026-10-17 16:22:45.550000",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Conversation",

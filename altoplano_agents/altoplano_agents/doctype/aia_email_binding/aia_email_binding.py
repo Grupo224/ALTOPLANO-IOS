@@ -21,14 +21,14 @@ class AIAEmailBinding(Document):
 		email_account: DF.Link
 		last_inbound_communication: DF.Link | None
 		last_outgoing_queue: DF.Link | None
-		mailbox_kind: DF.Literal["Personal; Shared; Service"]
+		mailbox_kind: DF.Literal["Personal", "Shared", "Service"]
 		max_attachment_mb: DF.Int
 		max_recipients_per_message: DF.Int
 		native_reply_suppressed: DF.Check
 		process_historical_mail: DF.Check
 		processing_from: DF.Datetime | None
 		receive_enabled: DF.Check
-		reply_policy: DF.Literal["DraftOnly; HumanApproval; AutoWithinPolicy"]
+		reply_policy: DF.Literal["DraftOnly", "HumanApproval", "AutoWithinPolicy"]
 		send_enabled: DF.Check
 	# end: auto-generated types
 	pass

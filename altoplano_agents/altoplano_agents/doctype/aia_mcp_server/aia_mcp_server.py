@@ -17,7 +17,7 @@ class AIAMCPServer(Document):
 		allow_resources: DF.Check
 		allow_sampling: DF.Check
 		auth_header_name: DF.Data | None
-		auth_mode: DF.Literal["None; Bearer; APIKeyHeader; OAuth"]
+		auth_mode: DF.Literal["None", "Bearer", "APIKeyHeader", "OAuth"]
 		capabilities_json: DF.Code | None
 		catalog_digest: DF.Data | None
 		client_sdk_name: DF.Data
@@ -34,7 +34,7 @@ class AIAMCPServer(Document):
 		max_response_bytes: DF.Int
 		max_tools: DF.Int
 		oauth_grant: DF.Link | None
-		protocol_mode: DF.Literal["Unknown; RequestMetadata2026; SessionLegacy"]
+		protocol_mode: DF.Literal["Unknown", "RequestMetadata2026", "SessionLegacy"]
 		protocol_version: DF.Data | None
 		request_timeout_seconds: DF.Int
 		resource_uri: DF.Data | None
@@ -42,6 +42,6 @@ class AIAMCPServer(Document):
 		server_supported_versions_json: DF.Code | None
 		server_url: DF.Data | None
 		server_version: DF.Data | None
-		transport: DF.Literal["StreamableHTTP; LegacySSE; ManagedStdio"]
+		transport: DF.Literal["StreamableHTTP", "LegacySSE", "ManagedStdio"]
 	# end: auto-generated types
 	pass

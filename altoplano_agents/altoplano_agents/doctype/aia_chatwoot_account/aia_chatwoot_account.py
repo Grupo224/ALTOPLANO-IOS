@@ -14,7 +14,7 @@ class AIAChatwootAccount(Document):
 		account_id: DF.Data
 		agent_bot_id: DF.Data | None
 		api_token_ref: DF.Data | None
-		auth_header_mode: DF.Literal["ApiAccessToken; Bearer"]
+		auth_header_mode: DF.Literal["ApiAccessToken", "Bearer"]
 		base_url: DF.Data
 		chatwoot_version: DF.Data | None
 		company: DF.Link
@@ -22,7 +22,7 @@ class AIAChatwootAccount(Document):
 		connection: DF.Link
 		handoff_team_id: DF.Data | None
 		last_event_at: DF.Datetime | None
-		webhook_auth_mode: DF.Literal["ProviderSignature; PrivateRelay"]
+		webhook_auth_mode: DF.Literal["ProviderSignature", "PrivateRelay"]
 		webhook_route_key: DF.Data
 		webhook_secret_ref: DF.Data | None
 		webhook_url: DF.Data

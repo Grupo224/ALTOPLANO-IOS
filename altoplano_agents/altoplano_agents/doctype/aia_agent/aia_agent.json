@@ -85,7 +85,7 @@
   {
    "fieldname": "summary",
    "fieldtype": "Small Text",
-   "label": "Qué hará"
+   "label": "Qu\u00e9 har\u00e1"
   },
   {
    "fieldname": "model_connection",
@@ -123,7 +123,7 @@
   {
    "fieldname": "knowledge_sources",
    "fieldtype": "Table",
-   "label": "Información disponible",
+   "label": "Informaci\u00f3n disponible",
    "options": "AIA Source Assignment"
   },
   {
@@ -141,28 +141,28 @@
   {
    "fieldname": "draft_version",
    "fieldtype": "Int",
-   "label": "Versión del borrador",
+   "label": "Versi\u00f3n del borrador",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "current_revision",
    "fieldtype": "Link",
-   "label": "Revisión solicitada",
+   "label": "Revisi\u00f3n solicitada",
    "options": "AIA Agent Revision",
    "read_only": 1
   },
   {
    "fieldname": "applied_revision",
    "fieldtype": "Link",
-   "label": "Revisión aplicada",
+   "label": "Revisi\u00f3n aplicada",
    "options": "AIA Agent Revision",
    "read_only": 1
   },
   {
    "fieldname": "tested_revision",
    "fieldtype": "Link",
-   "label": "Revisión probada",
+   "label": "Revisi\u00f3n probada",
    "options": "AIA Agent Revision",
    "read_only": 1
   },
@@ -185,13 +185,13 @@
   {
    "fieldname": "configuration_hash",
    "fieldtype": "Data",
-   "label": "Huella de configuración",
+   "label": "Huella de configuraci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "last_heartbeat",
    "fieldtype": "Datetime",
-   "label": "Última señal",
+   "label": "\u00daltima se\u00f1al",
    "read_only": 1
   },
   {
@@ -212,6 +212,7 @@
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "human_handoff_enabled",
    "fieldtype": "Check",
    "label": "Transferencia a persona",
@@ -221,7 +222,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-16 21:50:23.150867",
+ "modified": "2026-10-17 16:22:41.000463",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Agent",

@@ -21,9 +21,12 @@ class AIAConversation(Document):
 		company: DF.Link
 		external_conversation_id: DF.Data | None
 		handler_state: DF.Literal["Bot", "Human", "Closed"]
+		human_assignee: DF.Link | None
 		identity_binding: DF.Link | None
 		last_activity: DF.Datetime | None
+		last_inbound_at: DF.Datetime | None
 		memory_scope: DF.Data
+		service_window_expires_at: DF.Datetime | None
 		session_key: DF.Data
 		summary: DF.SmallText | None
 	# end: auto-generated types

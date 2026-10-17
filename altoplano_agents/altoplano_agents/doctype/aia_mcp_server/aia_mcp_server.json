@@ -52,7 +52,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexión",
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -73,7 +73,7 @@
   {
    "fieldname": "resource_uri",
    "fieldtype": "Data",
-   "label": "Recurso OAuth canónico",
+   "label": "Recurso OAuth can\u00f3nico",
    "read_only": 1
   },
   {
@@ -88,7 +88,7 @@
   {
    "fieldname": "protocol_version",
    "fieldtype": "Data",
-   "label": "Versión compatible",
+   "label": "Versi\u00f3n compatible",
    "read_only": 1
   },
   {
@@ -116,7 +116,7 @@
   {
    "fieldname": "client_sdk_version",
    "fieldtype": "Data",
-   "label": "Versión de SDK",
+   "label": "Versi\u00f3n de SDK",
    "read_only": 1,
    "reqd": 1
   },
@@ -129,13 +129,13 @@
   {
    "fieldname": "server_version",
    "fieldtype": "Data",
-   "label": "Versión reportada",
+   "label": "Versi\u00f3n reportada",
    "read_only": 1
   },
   {
    "fieldname": "auth_mode",
    "fieldtype": "Select",
-   "label": "Autorización MCP",
+   "label": "Autorizaci\u00f3n MCP",
    "options": "None\nBearer\nAPIKeyHeader\nOAuth",
    "reqd": 1
   },
@@ -147,7 +147,7 @@
   {
    "fieldname": "oauth_grant",
    "fieldtype": "Link",
-   "label": "Autorización OAuth",
+   "label": "Autorizaci\u00f3n OAuth",
    "options": "AIA OAuth Grant",
    "read_only": 1
   },
@@ -165,7 +165,7 @@
   {
    "fieldname": "connect_timeout_seconds",
    "fieldtype": "Int",
-   "label": "Tiempo de conexión",
+   "label": "Tiempo de conexi\u00f3n",
    "reqd": 1
   },
   {
@@ -177,13 +177,13 @@
   {
    "fieldname": "max_response_bytes",
    "fieldtype": "Int",
-   "label": "Máximo de respuesta",
+   "label": "M\u00e1ximo de respuesta",
    "reqd": 1
   },
   {
    "fieldname": "max_tools",
    "fieldtype": "Int",
-   "label": "Máximo de herramientas",
+   "label": "M\u00e1ximo de herramientas",
    "reqd": 1
   },
   {
@@ -196,13 +196,13 @@
   {
    "fieldname": "catalog_digest",
    "fieldtype": "Data",
-   "label": "Huella del catálogo",
+   "label": "Huella del cat\u00e1logo",
    "read_only": 1
   },
   {
    "fieldname": "last_discovered_at",
    "fieldtype": "Datetime",
-   "label": "Último descubrimiento",
+   "label": "\u00daltimo descubrimiento",
    "read_only": 1
   },
   {
@@ -244,13 +244,13 @@
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
+   "label": "Versi\u00f3n",
    "read_only": 1,
    "reqd": 1
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:25.848549",
+ "modified": "2026-10-17 16:22:41.710084",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA MCP Server",

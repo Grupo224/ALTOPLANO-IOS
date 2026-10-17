@@ -40,7 +40,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexión",
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -57,14 +57,14 @@
    "fieldname": "mailbox_kind",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Tipo de buzón",
+   "label": "Tipo de buz\u00f3n",
    "options": "Personal\nShared\nService",
    "reqd": 1
   },
   {
    "fieldname": "auth_owner",
    "fieldtype": "Link",
-   "label": "Usuario que autorizó",
+   "label": "Usuario que autoriz\u00f3",
    "options": "User",
    "read_only": 1
   },
@@ -97,13 +97,13 @@
   {
    "fieldname": "max_recipients_per_message",
    "fieldtype": "Int",
-   "label": "Destinatarios máximos",
+   "label": "Destinatarios m\u00e1ximos",
    "reqd": 1
   },
   {
    "fieldname": "max_attachment_mb",
    "fieldtype": "Int",
-   "label": "Límite de adjuntos del agente",
+   "label": "L\u00edmite de adjuntos del agente",
    "reqd": 1
   },
   {
@@ -143,27 +143,27 @@
   {
    "fieldname": "last_inbound_communication",
    "fieldtype": "Link",
-   "label": "Último correo procesado",
+   "label": "\u00daltimo correo procesado",
    "options": "Communication",
    "read_only": 1
   },
   {
    "fieldname": "last_outgoing_queue",
    "fieldtype": "Link",
-   "label": "Último envío en cola",
+   "label": "\u00daltimo env\u00edo en cola",
    "options": "Email Queue",
    "read_only": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
+   "label": "Versi\u00f3n",
    "read_only": 1,
    "reqd": 1
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:40.533338",
+ "modified": "2026-10-17 16:22:46.401428",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Email Binding",

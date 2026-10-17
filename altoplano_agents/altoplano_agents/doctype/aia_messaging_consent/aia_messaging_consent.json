@@ -35,7 +35,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexión",
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -113,7 +113,7 @@
   {
    "fieldname": "policy_version",
    "fieldtype": "Data",
-   "label": "Versión de política",
+   "label": "Versi\u00f3n de pol\u00edtica",
    "read_only": 1,
    "reqd": 1
   },
@@ -126,7 +126,7 @@
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:22.704549",
+ "modified": "2026-10-17 16:22:40.552662",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Messaging Consent",

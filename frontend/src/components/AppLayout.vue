@@ -40,6 +40,7 @@ const nav = [
   { label: 'Inicio', route: '/', icon: '🏠' },
   { label: 'Cerebro', route: '/cerebro', icon: '🧠' },
   { label: 'Mis agentes', route: '/agents', icon: '🤖' },
+  { label: 'Flujos', route: '/flows', icon: '🔀' },
   { label: 'Información', route: '/business', icon: '📖' },
   { label: 'Conversaciones', route: '/conversations', icon: '💬' },
   { label: 'Conexiones', route: '/connections', icon: '🔌' },

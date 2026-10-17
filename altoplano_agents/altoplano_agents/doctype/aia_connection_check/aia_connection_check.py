@@ -18,14 +18,14 @@ class AIAConnectionCheck(Document):
 		connection: DF.Link
 		credential_version: DF.Int
 		diagnostic_code: DF.Data | None
-		effect_level: DF.Literal["ReadOnly; AuthorizedSend; AuthorizedWrite"]
+		effect_level: DF.Literal["ReadOnly", "AuthorizedSend", "AuthorizedWrite"]
 		evidence_json: DF.Code | None
 		finished_at: DF.Datetime | None
 		latency_ms: DF.Int
 		provider_error_code: DF.Data | None
 		requested_by: DF.Link
 		started_at: DF.Datetime | None
-		status: DF.Literal["Queued; Running; Pass; Fail; Blocked; Unknown"]
+		status: DF.Literal["Queued", "Running", "Pass", "Fail", "Blocked", "Unknown"]
 		summary: DF.Text
 		trace_id: DF.Data
 		valid_until: DF.Datetime | None

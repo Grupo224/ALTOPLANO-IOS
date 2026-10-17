@@ -16,12 +16,15 @@ class AIAChannelBinding(Document):
 
 		agent: DF.Link
 		audience: DF.Literal["Customer", "Internal"]
+		calendar: DF.Link | None
 		channel: DF.Literal["Portal", "Telegram", "WhatsApp"]
 		company: DF.Link
 		connection: DF.Link
 		enabled: DF.Check
 		external_account_id: DF.Data | None
 		inbox_id: DF.Data | None
+		outside_hours_policy: DF.Literal["Queue", "Handoff", "ApprovedReply"]
+		reply_policy: DF.Literal["DraftOnly", "HumanApproval", "AutoWithinPolicy"]
 		route_key: DF.Data
 		session_scope: DF.Data
 	# end: auto-generated types

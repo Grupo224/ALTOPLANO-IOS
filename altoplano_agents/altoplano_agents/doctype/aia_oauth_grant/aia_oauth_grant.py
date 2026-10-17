@@ -22,15 +22,15 @@ class AIAOAuthGrant(Document):
 		issuer: DF.Data
 		last_refreshed_at: DF.Datetime | None
 		pkce_method: DF.Literal["S256"]
-		principal_kind: DF.Literal["OwnerUser; CompanyService"]
+		principal_kind: DF.Literal["OwnerUser", "CompanyService"]
 		protected_resource_metadata_url: DF.Data | None
 		redirect_uri: DF.Data
 		refresh_available: DF.Check
-		registration_method: DF.Literal["PreRegistered; ClientIDMetadata; DynamicRegistration"]
+		registration_method: DF.Literal["PreRegistered", "ClientIDMetadata", "DynamicRegistration"]
 		requested_scopes_json: DF.Code
 		resource_uri: DF.Data
 		revocation_endpoint: DF.Data | None
-		status: DF.Literal["Pending; Active; Expired; Revoked; Failed"]
+		status: DF.Literal["Pending", "Active", "Expired", "Revoked", "Failed"]
 		subject_user: DF.Link | None
 		token_bundle_ref: DF.Data | None
 		token_endpoint: DF.Data

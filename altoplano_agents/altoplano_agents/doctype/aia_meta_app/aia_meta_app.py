@@ -12,7 +12,7 @@ class AIAMetaApp(Document):
 		from frappe.types import DF
 
 		allowed_origin: DF.Data
-		app_mode: DF.Literal["Unknown; Development; Live"]
+		app_mode: DF.Literal["Unknown", "Development", "Live"]
 		app_secret_ref: DF.Data | None
 		company: DF.Link
 		config_version: DF.Int

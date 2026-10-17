@@ -61,7 +61,7 @@
   {
    "fieldname": "description",
    "fieldtype": "Text",
-   "label": "Descripción externa",
+   "label": "Descripci\u00f3n externa",
    "read_only": 1
   },
   {
@@ -103,7 +103,7 @@
   {
    "fieldname": "review_status",
    "fieldtype": "Select",
-   "label": "Revisión",
+   "label": "Revisi\u00f3n",
    "options": "Pending\nApproved\nChanged\nBlocked\nRetired",
    "read_only": 1,
    "reqd": 1
@@ -119,14 +119,14 @@
    "default": "0",
    "fieldname": "requires_approval",
    "fieldtype": "Check",
-   "label": "Requiere revisión humana",
+   "label": "Requiere revisi\u00f3n humana",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "tool_definition",
    "fieldtype": "Link",
-   "label": "Acción del catálogo Altoplano",
+   "label": "Acci\u00f3n del cat\u00e1logo Altoplano",
    "options": "AIA Tool Definition",
    "read_only": 1
   },
@@ -147,19 +147,19 @@
   {
    "fieldname": "reviewed_at",
    "fieldtype": "Datetime",
-   "label": "Fecha de revisión",
+   "label": "Fecha de revisi\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "last_seen_at",
    "fieldtype": "Datetime",
-   "label": "Última aparición",
+   "label": "\u00daltima aparici\u00f3n",
    "read_only": 1,
    "reqd": 1
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:24.688801",
+ "modified": "2026-10-17 16:22:41.459957",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA MCP Tool",

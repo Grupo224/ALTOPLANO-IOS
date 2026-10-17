@@ -17,16 +17,19 @@ class AIAAgent(Document):
 
         applied_revision: DF.Link | None
         audience: DF.Literal["Customer", "Internal"]
+        avatar: DF.AttachImage | None
         budget_policy: DF.Link | None
         business_profile: DF.Link | None
         company: DF.Link
         configuration_hash: DF.Data | None
         context_notes: DF.TextEditor | None
         current_revision: DF.Link | None
+        default_language: DF.Data
         delegates: DF.Table[AIAAllowedAgent]
         desired_state: DF.Literal["Draft", "Active", "Paused", "Archived"]
         display_name: DF.Data
         draft_version: DF.Int
+        human_handoff_enabled: DF.Check
         instructions: DF.TextEditor | None
         knowledge_sources: DF.Table[AIASourceAssignment]
         last_heartbeat: DF.Datetime | None
@@ -34,6 +37,7 @@ class AIAAgent(Document):
         model_id: DF.Data | None
         observed_state: DF.Literal["NeedsSetup", "Validating", "Queued", "Deploying", "Active", "Degraded", "Failed", "Paused", "Suspended", "Archived"]
         owner_user: DF.Link
+        primary_calendar: DF.Link | None
         skills: DF.Table[AIASkillAssignment]
         summary: DF.SmallText | None
         template: DF.Link | None

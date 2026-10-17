@@ -36,7 +36,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexión",
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -64,7 +64,7 @@
   {
    "fieldname": "auth_header_mode",
    "fieldtype": "Select",
-   "label": "Método de autenticación",
+   "label": "M\u00e9todo de autenticaci\u00f3n",
    "options": "ApiAccessToken\nBearer",
    "read_only": 1,
    "reqd": 1
@@ -72,7 +72,7 @@
   {
    "fieldname": "chatwoot_version",
    "fieldtype": "Data",
-   "label": "Versión comprobada",
+   "label": "Versi\u00f3n comprobada",
    "read_only": 1
   },
   {
@@ -85,7 +85,7 @@
   {
    "fieldname": "webhook_url",
    "fieldtype": "Data",
-   "label": "URL de recepción",
+   "label": "URL de recepci\u00f3n",
    "read_only": 1,
    "reqd": 1
   },
@@ -116,19 +116,19 @@
   {
    "fieldname": "last_event_at",
    "fieldtype": "Datetime",
-   "label": "Último evento verificado",
+   "label": "\u00daltimo evento verificado",
    "read_only": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
+   "label": "Versi\u00f3n",
    "read_only": 1,
    "reqd": 1
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:32.080122",
+ "modified": "2026-10-17 16:22:43.643372",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Chatwoot Account",

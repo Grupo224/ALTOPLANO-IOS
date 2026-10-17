@@ -79,7 +79,7 @@
   {
    "fieldname": "condition_json",
    "fieldtype": "Code",
-   "label": "Condición"
+   "label": "Condici\u00f3n"
   },
   {
    "fieldname": "execution_principal",
@@ -99,26 +99,26 @@
   {
    "fieldname": "max_runs_period",
    "fieldtype": "Int",
-   "label": "Máximo de ejecuciones",
+   "label": "M\u00e1ximo de ejecuciones",
    "reqd": 1
   },
   {
    "fieldname": "last_run",
    "fieldtype": "Link",
-   "label": "Última ejecución",
+   "label": "\u00daltima ejecuci\u00f3n",
    "options": "AIA Run",
    "read_only": 1
   },
   {
    "fieldname": "next_run",
    "fieldtype": "Datetime",
-   "label": "Siguiente ejecución",
+   "label": "Siguiente ejecuci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "display_name",
    "fieldtype": "Data",
-   "label": "Nombre de automatización",
+   "label": "Nombre de automatizaci\u00f3n",
    "reqd": 1
   },
   {
@@ -144,14 +144,14 @@
   {
    "fieldname": "max_execution_seconds",
    "fieldtype": "Int",
-   "label": "Duración máxima",
+   "label": "Duraci\u00f3n m\u00e1xima",
    "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-16 21:50:38.774640",
+ "modified": "2026-10-17 16:22:46.030112",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Automation",

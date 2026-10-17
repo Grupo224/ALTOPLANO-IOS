@@ -74,12 +74,12 @@
   {
    "fieldname": "base_url",
    "fieldtype": "Data",
-   "label": "Dirección del servicio"
+   "label": "Direcci\u00f3n del servicio"
   },
   {
    "fieldname": "auth_type",
    "fieldtype": "Select",
-   "label": "Autorización",
+   "label": "Autorizaci\u00f3n",
    "options": "None\nAPIKey\nOAuth\nServiceAccount\nSecretRef",
    "reqd": 1
   },
@@ -114,13 +114,13 @@
   {
    "fieldname": "last_checked",
    "fieldtype": "Datetime",
-   "label": "Última verificación",
+   "label": "\u00daltima verificaci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "error_code",
    "fieldtype": "Data",
-   "label": "Código de problema",
+   "label": "C\u00f3digo de problema",
    "read_only": 1
   },
   {
@@ -149,14 +149,14 @@
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
+   "label": "Versi\u00f3n",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "payer_mode",
    "fieldtype": "Select",
-   "label": "Quién paga la IA",
+   "label": "Qui\u00e9n paga la IA",
    "options": "Included\nBYOK\nManaged",
    "reqd": 1
   },
@@ -164,17 +164,18 @@
    "fieldname": "adapter_key",
    "fieldtype": "Data",
    "label": "Adaptador",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "adapter_schema_version",
    "fieldtype": "Data",
-   "label": "Versión del contrato",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n del contrato",
+   "read_only": 1,
+   "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "enabled",
    "fieldtype": "Check",
    "label": "Habilitada",
@@ -199,54 +200,55 @@
    "fieldtype": "Code",
    "label": "Operaciones requeridas",
    "options": "JSON",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "health_status",
    "fieldtype": "Select",
    "label": "Salud operativa",
    "options": "Unknown\nHealthy\nDegraded\nDown",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "last_success_at",
    "fieldtype": "Datetime",
-   "label": "Última operación correcta",
+   "label": "\u00daltima operaci\u00f3n correcta",
    "read_only": 1
   },
   {
    "fieldname": "next_check_at",
    "fieldtype": "Datetime",
-   "label": "Próxima comprobación",
+   "label": "Pr\u00f3xima comprobaci\u00f3n",
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "reconnect_required",
    "fieldtype": "Check",
    "label": "Requiere reconectar",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "config_fingerprint",
    "fieldtype": "Data",
    "label": "Huella no secreta",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "credential_version",
    "fieldtype": "Int",
-   "label": "Versión de credencial",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n de credencial",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "last_check",
    "fieldtype": "Link",
-   "label": "Comprobación vigente",
+   "label": "Comprobaci\u00f3n vigente",
    "options": "AIA Connection Check",
    "read_only": 1
   }
@@ -254,7 +256,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-16 21:50:29.686870",
+ "modified": "2026-10-17 16:22:42.226592",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Connection",

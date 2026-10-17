@@ -24,10 +24,10 @@ class AIAMCPTool(Document):
 		output_schema_json: DF.Code | None
 		remote_name: DF.Data
 		requires_approval: DF.Check
-		review_status: DF.Literal["Pending; Approved; Changed; Blocked; Retired"]
+		review_status: DF.Literal["Pending", "Approved", "Changed", "Blocked", "Retired"]
 		reviewed_at: DF.Datetime | None
 		reviewed_by: DF.Link | None
-		risk_level: DF.Literal["Read; Write; Destructive; ExternalMessage; Financial"]
+		risk_level: DF.Literal["Read", "Write", "Destructive", "ExternalMessage", "Financial"]
 		tool_definition: DF.Link | None
 	# end: auto-generated types
 	pass

@@ -27,7 +27,7 @@ def grant_doctype_permissions():
     roles = ["System Manager", "Administrator"] + AIA_ROLES
     doctypes = frappe.get_all(
         "DocType",
-        filters={"name": ["like", "AIA %"], "istable": 0},
+        filters={"module": "Altoplano Agents", "istable": 0},
         pluck="name",
     )
     full = {

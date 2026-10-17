@@ -22,10 +22,10 @@ class AIAAppointment(Document):
 		event: DF.Link
 		hold_expires_at: DF.Datetime | None
 		last_notification: DF.Link | None
-		notification_policy: DF.Literal["None; HumanApproval; ApprovedTemplates"]
+		notification_policy: DF.Literal["None", "HumanApproval", "ApprovedTemplates"]
 		revision: DF.Int
-		source: DF.Literal["Portal; WhatsApp; Email; InternalAgent"]
-		status: DF.Literal["Held; Confirmed; Cancelled; Completed; NoShow"]
+		source: DF.Literal["Portal", "WhatsApp", "Email", "InternalAgent"]
+		status: DF.Literal["Held", "Confirmed", "Cancelled", "Completed", "NoShow"]
 		timezone: DF.Data
 	# end: auto-generated types
 	pass

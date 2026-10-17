@@ -42,7 +42,7 @@
    "fieldname": "operating_mode",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Modo de operación",
+   "label": "Modo de operaci\u00f3n",
    "options": "SelfManaged\nManagedClient\nProviderControl",
    "reqd": 1
   },
@@ -71,20 +71,20 @@
    "default": "0",
    "fieldname": "demo_mode",
    "fieldtype": "Check",
-   "label": "Datos de demostración",
+   "label": "Datos de demostraci\u00f3n",
    "reqd": 1
   },
   {
    "fieldname": "schema_version",
    "fieldtype": "Data",
-   "label": "Versión de esquema",
+   "label": "Versi\u00f3n de esquema",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "retention_days",
    "fieldtype": "Int",
-   "label": "Días de conservación",
+   "label": "D\u00edas de conservaci\u00f3n",
    "reqd": 1
   },
   {
@@ -101,11 +101,12 @@
   {
    "fieldname": "connector_registry_version",
    "fieldtype": "Data",
-   "label": "Versión de conectores",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n de conectores",
+   "read_only": 1,
+   "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "experimental_calendar_enabled",
    "fieldtype": "Check",
    "label": "Calendario visual experimental",
@@ -122,7 +123,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-10-16 21:50:41.023651",
+ "modified": "2026-10-17 16:22:46.928760",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Settings",

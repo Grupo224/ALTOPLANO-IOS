@@ -17,11 +17,14 @@ class AIAMessage(Document):
 		actor: DF.Literal["User", "Agent", "Human", "System"]
 		body: DF.TextEditor | None
 		company: DF.Link
+		consent: DF.Link | None
 		conversation: DF.Link
 		created_at: DF.Datetime
 		delivery_state: DF.Literal["Queued", "Sent", "Delivered", "Read", "Failed", "Unknown"]
 		direction: DF.Literal["Inbound", "Outbound", "Internal"]
 		event_key: DF.Data
 		external_message_id: DF.Data | None
+		native_communication: DF.Link | None
+		whatsapp_template: DF.Link | None
 	# end: auto-generated types
 	pass

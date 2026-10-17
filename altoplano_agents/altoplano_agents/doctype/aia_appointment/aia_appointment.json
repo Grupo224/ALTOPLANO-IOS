@@ -60,7 +60,7 @@
   {
    "fieldname": "conversation",
    "fieldtype": "Link",
-   "label": "Conversación origen",
+   "label": "Conversaci\u00f3n origen",
    "options": "AIA Conversation",
    "read_only": 1
   },
@@ -123,25 +123,25 @@
   {
    "fieldname": "last_notification",
    "fieldtype": "Link",
-   "label": "Última notificación",
+   "label": "\u00daltima notificaci\u00f3n",
    "options": "AIA Outbox Event",
    "read_only": 1
   },
   {
    "fieldname": "cancel_reason",
    "fieldtype": "Small Text",
-   "label": "Motivo de cancelación"
+   "label": "Motivo de cancelaci\u00f3n"
   },
   {
    "fieldname": "revision",
    "fieldtype": "Int",
-   "label": "Versión de reserva",
+   "label": "Versi\u00f3n de reserva",
    "read_only": 1,
    "reqd": 1
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:37.771161",
+ "modified": "2026-10-17 16:22:45.789298",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Appointment",

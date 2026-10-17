@@ -41,6 +41,11 @@ export const api = {
   calendars: () => call(NS + 'calendar.list_calendars'),
   appointments: () => call(NS + 'calendar.list_appointments'),
   createCalendar: (fields) => call(NS + 'calendar.create_calendar', fields),
+  // flujos
+  listFlows: () => call(NS + 'flows.list_flows'),
+  getFlow: (name) => call(NS + 'flows.get_flow', { name }),
+  createFlow: (fields) => call(NS + 'flows.create_flow', fields),
+  saveFlow: (fields) => call(NS + 'flows.save_flow', fields),
 }
 
 export function humanError(err) {

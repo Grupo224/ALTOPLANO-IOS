@@ -39,7 +39,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexión",
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -48,7 +48,7 @@
    "fieldname": "check_key",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Clave de comprobación",
+   "label": "Clave de comprobaci\u00f3n",
    "read_only": 1,
    "reqd": 1
   },
@@ -56,7 +56,7 @@
    "fieldname": "config_version",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Versión comprobada",
+   "label": "Versi\u00f3n comprobada",
    "read_only": 1,
    "reqd": 1
   },
@@ -78,7 +78,7 @@
   {
    "fieldname": "capability",
    "fieldtype": "Data",
-   "label": "Operación comprobada",
+   "label": "Operaci\u00f3n comprobada",
    "read_only": 1,
    "reqd": 1
   },
@@ -119,13 +119,13 @@
   {
    "fieldname": "latency_ms",
    "fieldtype": "Int",
-   "label": "Duración de respuesta",
+   "label": "Duraci\u00f3n de respuesta",
    "read_only": 1
   },
   {
    "fieldname": "provider_error_code",
    "fieldtype": "Data",
-   "label": "Código externo",
+   "label": "C\u00f3digo externo",
    "read_only": 1
   },
   {
@@ -137,14 +137,14 @@
   {
    "fieldname": "summary",
    "fieldtype": "Text",
-   "label": "Qué ocurrió",
+   "label": "Qu\u00e9 ocurri\u00f3",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "evidence_json",
    "fieldtype": "Code",
-   "label": "Evidencia mínima",
+   "label": "Evidencia m\u00ednima",
    "options": "JSON",
    "read_only": 1
   },
@@ -157,7 +157,7 @@
   }
  ],
  "links": [],
- "modified": "2026-10-16 21:50:35.106654",
+ "modified": "2026-10-17 16:22:45.304956",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Connection Check",

@@ -43,7 +43,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexión",
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
    "reqd": 1
   },
@@ -76,7 +76,7 @@
   {
    "fieldname": "audience",
    "fieldtype": "Select",
-   "label": "Tipo de conversación",
+   "label": "Tipo de conversaci\u00f3n",
    "options": "Customer\nInternal",
    "reqd": 1
   },
@@ -90,7 +90,7 @@
   {
    "fieldname": "session_scope",
    "fieldtype": "Data",
-   "label": "Separación de sesiones",
+   "label": "Separaci\u00f3n de sesiones",
    "read_only": 1,
    "reqd": 1
   },
@@ -118,7 +118,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-16 21:50:30.166417",
+ "modified": "2026-10-17 16:22:42.670349",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Channel Binding",

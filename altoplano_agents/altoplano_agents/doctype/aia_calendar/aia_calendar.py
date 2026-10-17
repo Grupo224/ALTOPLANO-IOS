@@ -29,7 +29,7 @@ class AIACalendar(Document):
 		owner_user: DF.Link
 		slot_minutes: DF.Int
 		slot_step_minutes: DF.Int
-		sync_mode: DF.Literal["LocalOnly; NativeGoogle"]
+		sync_mode: DF.Literal["LocalOnly", "NativeGoogle"]
 		timezone: DF.Data
 	# end: auto-generated types
 	pass
