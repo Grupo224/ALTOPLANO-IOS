@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-10-17 00:00:00.000000",
+ "autoname": "hash",
+ "creation": "2026-10-17 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -28,24 +29,27 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Empresa",
    "options": "Company",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "display_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Nombre de agenda",
    "reqd": 1
   },
   {
    "fieldname": "owner_user",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Responsable",
    "options": "User",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "agent",
@@ -56,13 +60,14 @@
   {
    "fieldname": "timezone",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Zona de la agenda",
    "reqd": 1
   },
   {
    "fieldname": "slot_minutes",
    "fieldtype": "Int",
-   "label": "Duración de cita",
+   "label": "Duraci\u00f3n de cita",
    "reqd": 1
   },
   {
@@ -80,25 +85,25 @@
   {
    "fieldname": "buffer_after_minutes",
    "fieldtype": "Int",
-   "label": "Margen después",
+   "label": "Margen despu\u00e9s",
    "reqd": 1
   },
   {
    "fieldname": "minimum_notice_minutes",
    "fieldtype": "Int",
-   "label": "Anticipación mínima",
+   "label": "Anticipaci\u00f3n m\u00ednima",
    "reqd": 1
   },
   {
    "fieldname": "booking_horizon_days",
    "fieldtype": "Int",
-   "label": "Días permitidos a futuro",
+   "label": "D\u00edas permitidos a futuro",
    "reqd": 1
   },
   {
    "fieldname": "max_bookings_per_day",
    "fieldtype": "Int",
-   "label": "Citas máximas por día",
+   "label": "Citas m\u00e1ximas por d\u00eda",
    "reqd": 1
   },
   {
@@ -115,6 +120,7 @@
    "options": "AIA Calendar Exception"
   },
   {
+   "default": "0",
    "fieldname": "enabled",
    "fieldtype": "Check",
    "label": "Permitir nuevas reservas",
@@ -129,65 +135,162 @@
   {
    "fieldname": "sync_mode",
    "fieldtype": "Select",
-   "label": "Sincronización",
+   "label": "Sincronizaci\u00f3n",
    "options": "LocalOnly; NativeGoogle",
    "reqd": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
- "istable": 0,
  "links": [],
- "modified": "2026-10-17 00:00:00.000000",
+ "modified": "2026-10-16 21:50:31.079280",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Calendar",
  "owner": "Administrator",
  "permissions": [
   {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
-   "export": 1,
-   "print": 1,
-   "email": 1,
-   "report": 1,
-   "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
   },
   {
-   "role": "Administrator",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
+   "read": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
    "export": 1,
    "print": 1,
-   "email": 1,
+   "read": 1,
    "report": 1,
+   "role": "AIA User",
    "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "autoname": "hash"
+ "states": []
 }

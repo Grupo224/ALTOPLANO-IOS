@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-10-17 00:00:00.000000",
+ "autoname": "hash",
+ "creation": "2026-10-17 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -34,18 +35,20 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Empresa",
    "options": "Company",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "connection",
    "fieldtype": "Link",
-   "label": "Conexión",
+   "in_list_view": 1,
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "subject_user",
@@ -57,17 +60,19 @@
   {
    "fieldname": "principal_kind",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Tipo de principal",
    "options": "OwnerUser; CompanyService",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "resource_uri",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Recurso autorizado",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "protected_resource_metadata_url",
@@ -79,27 +84,27 @@
    "fieldname": "issuer",
    "fieldtype": "Data",
    "label": "Emisor OAuth",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "authorization_endpoint",
    "fieldtype": "Data",
-   "label": "Endpoint de autorización",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Endpoint de autorizaci\u00f3n",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "token_endpoint",
    "fieldtype": "Data",
    "label": "Endpoint de tokens",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "revocation_endpoint",
    "fieldtype": "Data",
-   "label": "Endpoint de revocación",
+   "label": "Endpoint de revocaci\u00f3n",
    "read_only": 1
   },
   {
@@ -107,15 +112,15 @@
    "fieldtype": "Select",
    "label": "Registro de cliente",
    "options": "PreRegistered; ClientIDMetadata; DynamicRegistration",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "client_id",
    "fieldtype": "Data",
    "label": "Identificador del cliente",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "client_secret_ref",
@@ -127,16 +132,16 @@
    "fieldname": "redirect_uri",
    "fieldtype": "Data",
    "label": "URL de retorno",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "requested_scopes_json",
    "fieldtype": "Code",
    "label": "Scopes solicitados",
    "options": "JSON",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "granted_scopes_json",
@@ -148,10 +153,10 @@
   {
    "fieldname": "pkce_method",
    "fieldtype": "Select",
-   "label": "Método PKCE",
+   "label": "M\u00e9todo PKCE",
    "options": "S256",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "token_bundle_ref",
@@ -166,87 +171,185 @@
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "refresh_available",
    "fieldtype": "Check",
    "label": "Puede renovarse",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Estado",
    "options": "Pending; Active; Expired; Revoked; Failed",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "authorized_at",
    "fieldtype": "Datetime",
-   "label": "Fecha de autorización",
+   "label": "Fecha de autorizaci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "last_refreshed_at",
    "fieldtype": "Datetime",
-   "label": "Última renovación",
+   "label": "\u00daltima renovaci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "token_version",
    "fieldtype": "Int",
-   "label": "Versión de tokens",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n de tokens",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
- "istable": 0,
  "links": [],
- "modified": "2026-10-17 00:00:00.000000",
+ "modified": "2026-10-16 21:50:34.155425",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA OAuth Grant",
  "owner": "Administrator",
  "permissions": [
   {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
-   "export": 1,
-   "print": 1,
-   "email": 1,
-   "report": 1,
-   "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
   },
   {
-   "role": "Administrator",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
+   "read": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
    "export": 1,
    "print": 1,
-   "email": 1,
+   "read": 1,
    "report": 1,
+   "role": "AIA User",
    "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "autoname": "hash"
+ "states": []
 }

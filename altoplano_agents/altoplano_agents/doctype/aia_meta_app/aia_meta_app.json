@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-10-17 00:00:00.000000",
+ "autoname": "hash",
+ "creation": "2026-10-17 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -28,43 +29,48 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Empresa",
    "options": "Company",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "display_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Nombre interno",
    "reqd": 1
   },
   {
    "fieldname": "meta_app_id",
    "fieldtype": "Data",
-   "label": "ID de aplicación Meta",
+   "in_list_view": 1,
+   "label": "ID de aplicaci\u00f3n Meta",
    "reqd": 1
   },
   {
    "fieldname": "graph_api_version",
    "fieldtype": "Data",
-   "label": "Versión de Graph API",
+   "in_list_view": 1,
+   "label": "Versi\u00f3n de Graph API",
    "reqd": 1
   },
   {
    "fieldname": "app_secret_ref",
    "fieldtype": "Data",
-   "label": "Secreto de aplicación",
+   "label": "Secreto de aplicaci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "verify_token_ref",
    "fieldtype": "Data",
-   "label": "Token de verificación",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Token de verificaci\u00f3n",
+   "read_only": 1,
+   "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "embedded_signup_enabled",
    "fieldtype": "Check",
    "label": "Conectar con Meta",
@@ -73,7 +79,7 @@
   {
    "fieldname": "embedded_signup_config_id",
    "fieldtype": "Data",
-   "label": "ID de configuración de registro"
+   "label": "ID de configuraci\u00f3n de registro"
   },
   {
    "fieldname": "signup_contract_version",
@@ -90,22 +96,22 @@
   {
    "fieldname": "oauth_redirect_uri",
    "fieldtype": "Data",
-   "label": "Callback de autorización",
+   "label": "Callback de autorizaci\u00f3n",
    "read_only": 1
   },
   {
    "fieldname": "webhook_route_key",
    "fieldtype": "Data",
-   "label": "Ruta de recepción",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Ruta de recepci\u00f3n",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "webhook_callback_url",
    "fieldtype": "Data",
    "label": "URL del webhook",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "webhook_verified_at",
@@ -118,18 +124,19 @@
    "fieldtype": "Code",
    "label": "Suscripciones del webhook",
    "options": "JSON",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "app_mode",
    "fieldtype": "Select",
    "label": "Modo comprobado",
    "options": "Unknown; Development; Live",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "enabled",
    "fieldtype": "Check",
    "label": "Habilitada",
@@ -138,58 +145,155 @@
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
- "istable": 0,
  "links": [],
- "modified": "2026-10-17 00:00:00.000000",
+ "modified": "2026-10-16 21:50:33.157413",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Meta App",
  "owner": "Administrator",
  "permissions": [
   {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
-   "export": 1,
-   "print": 1,
-   "email": 1,
-   "report": 1,
-   "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
   },
   {
-   "role": "Administrator",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
+   "read": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
    "export": 1,
    "print": 1,
-   "email": 1,
+   "read": 1,
    "report": 1,
+   "role": "AIA User",
    "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "autoname": "hash"
+ "states": []
 }

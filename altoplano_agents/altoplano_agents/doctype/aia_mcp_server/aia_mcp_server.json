@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-10-17 00:00:00.000000",
+ "autoname": "hash",
+ "creation": "2026-10-17 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -41,22 +42,25 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Empresa",
    "options": "Company",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "connection",
    "fieldtype": "Link",
-   "label": "Conexión",
+   "in_list_view": 1,
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "transport",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Transporte",
    "options": "StreamableHTTP; LegacySSE; ManagedStdio",
    "reqd": 1
@@ -69,21 +73,22 @@
   {
    "fieldname": "resource_uri",
    "fieldtype": "Data",
-   "label": "Recurso OAuth canónico",
+   "label": "Recurso OAuth can\u00f3nico",
    "read_only": 1
   },
   {
    "fieldname": "protocol_mode",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Familia de protocolo",
    "options": "Unknown; RequestMetadata2026; SessionLegacy",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "protocol_version",
    "fieldtype": "Data",
-   "label": "Versión compatible",
+   "label": "Versi\u00f3n compatible",
    "read_only": 1
   },
   {
@@ -91,8 +96,8 @@
    "fieldtype": "Code",
    "label": "Versiones del cliente",
    "options": "JSON",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "server_supported_versions_json",
@@ -105,15 +110,15 @@
    "fieldname": "client_sdk_name",
    "fieldtype": "Data",
    "label": "SDK utilizado",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "client_sdk_version",
    "fieldtype": "Data",
-   "label": "Versión de SDK",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n de SDK",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "server_name",
@@ -124,13 +129,13 @@
   {
    "fieldname": "server_version",
    "fieldtype": "Data",
-   "label": "Versión reportada",
+   "label": "Versi\u00f3n reportada",
    "read_only": 1
   },
   {
    "fieldname": "auth_mode",
    "fieldtype": "Select",
-   "label": "Autorización MCP",
+   "label": "Autorizaci\u00f3n MCP",
    "options": "None; Bearer; APIKeyHeader; OAuth",
    "reqd": 1
   },
@@ -142,7 +147,7 @@
   {
    "fieldname": "oauth_grant",
    "fieldtype": "Link",
-   "label": "Autorización OAuth",
+   "label": "Autorizaci\u00f3n OAuth",
    "options": "AIA OAuth Grant",
    "read_only": 1
   },
@@ -160,7 +165,7 @@
   {
    "fieldname": "connect_timeout_seconds",
    "fieldtype": "Int",
-   "label": "Tiempo de conexión",
+   "label": "Tiempo de conexi\u00f3n",
    "reqd": 1
   },
   {
@@ -172,13 +177,13 @@
   {
    "fieldname": "max_response_bytes",
    "fieldtype": "Int",
-   "label": "Máximo de respuesta",
+   "label": "M\u00e1ximo de respuesta",
    "reqd": 1
   },
   {
    "fieldname": "max_tools",
    "fieldtype": "Int",
-   "label": "Máximo de herramientas",
+   "label": "M\u00e1ximo de herramientas",
    "reqd": 1
   },
   {
@@ -191,41 +196,46 @@
   {
    "fieldname": "catalog_digest",
    "fieldtype": "Data",
-   "label": "Huella del catálogo",
+   "label": "Huella del cat\u00e1logo",
    "read_only": 1
   },
   {
    "fieldname": "last_discovered_at",
    "fieldtype": "Datetime",
-   "label": "Último descubrimiento",
+   "label": "\u00daltimo descubrimiento",
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "discovery_complete",
    "fieldtype": "Check",
    "label": "Descubrimiento completo",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "allow_resources",
    "fieldtype": "Check",
    "label": "Permitir recursos",
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "allow_prompts",
    "fieldtype": "Check",
    "label": "Permitir prompts externos",
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "allow_sampling",
    "fieldtype": "Check",
    "label": "Permitir muestreo solicitado",
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "allow_elicitation",
    "fieldtype": "Check",
    "label": "Permitir solicitud de datos",
@@ -234,58 +244,155 @@
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Versi\u00f3n",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
- "istable": 0,
  "links": [],
- "modified": "2026-10-17 00:00:00.000000",
+ "modified": "2026-10-16 21:50:25.848549",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA MCP Server",
  "owner": "Administrator",
  "permissions": [
   {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
-   "export": 1,
-   "print": 1,
-   "email": 1,
-   "report": 1,
-   "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
   },
   {
-   "role": "Administrator",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
+   "read": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
    "export": 1,
    "print": 1,
-   "email": 1,
+   "read": 1,
    "report": 1,
+   "role": "AIA User",
    "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "autoname": "hash"
+ "states": []
 }

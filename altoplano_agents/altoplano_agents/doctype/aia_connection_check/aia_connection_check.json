@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-10-17 00:00:00.000000",
+ "autoname": "hash",
+ "creation": "2026-10-17 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -28,70 +29,74 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Empresa",
    "options": "Company",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "connection",
    "fieldtype": "Link",
-   "label": "Conexión",
+   "in_list_view": 1,
+   "label": "Conexi\u00f3n",
    "options": "AIA Connection",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "check_key",
    "fieldtype": "Data",
-   "label": "Clave de comprobación",
-   "reqd": 1,
-   "read_only": 1
+   "in_list_view": 1,
+   "label": "Clave de comprobaci\u00f3n",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versión comprobada",
-   "reqd": 1,
-   "read_only": 1
+   "in_list_view": 1,
+   "label": "Versi\u00f3n comprobada",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "credential_version",
    "fieldtype": "Int",
    "label": "Credencial comprobada",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "requested_by",
    "fieldtype": "Link",
    "label": "Solicitado por",
    "options": "User",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "capability",
    "fieldtype": "Data",
-   "label": "Operación comprobada",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Operaci\u00f3n comprobada",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "effect_level",
    "fieldtype": "Select",
    "label": "Efecto de la prueba",
    "options": "ReadOnly; AuthorizedSend; AuthorizedWrite",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Resultado",
    "options": "Queued; Running; Pass; Fail; Blocked; Unknown",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "started_at",
@@ -114,13 +119,13 @@
   {
    "fieldname": "latency_ms",
    "fieldtype": "Int",
-   "label": "Duración de respuesta",
+   "label": "Duraci\u00f3n de respuesta",
    "read_only": 1
   },
   {
    "fieldname": "provider_error_code",
    "fieldtype": "Data",
-   "label": "Código externo",
+   "label": "C\u00f3digo externo",
    "read_only": 1
   },
   {
@@ -132,14 +137,14 @@
   {
    "fieldname": "summary",
    "fieldtype": "Text",
-   "label": "Qué ocurrió",
-   "reqd": 1,
-   "read_only": 1
+   "label": "Qu\u00e9 ocurri\u00f3",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "evidence_json",
    "fieldtype": "Code",
-   "label": "Evidencia mínima",
+   "label": "Evidencia m\u00ednima",
    "options": "JSON",
    "read_only": 1
   },
@@ -147,57 +152,154 @@
    "fieldname": "trace_id",
    "fieldtype": "Data",
    "label": "Seguimiento",
-   "reqd": 1,
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   }
  ],
- "istable": 0,
  "links": [],
- "modified": "2026-10-17 00:00:00.000000",
+ "modified": "2026-10-16 21:50:35.106654",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "AIA Connection Check",
  "owner": "Administrator",
  "permissions": [
   {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
-   "export": 1,
-   "print": 1,
-   "email": 1,
-   "report": 1,
-   "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
   },
   {
-   "role": "Administrator",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "import": 1,
+   "read": 1,
+   "role": "Administrator",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
    "export": 1,
    "print": 1,
-   "email": 1,
+   "read": 1,
    "report": 1,
+   "role": "AIA User",
    "share": 1,
-   "if_owner": 0,
-   "permlevel": 0
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Viewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Billing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Technical Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Provisioner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "autoname": "hash"
+ "states": []
 }

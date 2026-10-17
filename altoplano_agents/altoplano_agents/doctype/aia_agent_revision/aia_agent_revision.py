@@ -3,6 +3,25 @@ from frappe.model.document import Document
 
 
 class AIAAgentRevision(Document):
+    # begin: auto-generated types
+    # This code is auto-generated. Do not modify anything in this block.
+
+    from typing import TYPE_CHECKING
+
+    if TYPE_CHECKING:
+        from frappe.types import DF
+
+        agent: DF.Link
+        based_on_revision: DF.Link | None
+        company: DF.Link
+        created_at: DF.Datetime
+        created_by: DF.Link
+        manifest_hash: DF.Data
+        manifest_json: DF.Code
+        manifest_schema: DF.Data
+        revision_no: DF.Int
+        template_version: DF.Data | None
+    # end: auto-generated types
     """Instantánea inmutable: no se permite reescribir una revisión existente."""
 
     def on_update(self):

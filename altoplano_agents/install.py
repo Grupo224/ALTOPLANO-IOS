@@ -9,6 +9,67 @@ def after_install():
     seed_default_tool_catalog()
     seed_default_template()
     seed_default_settings()
+    seed_event_custom_fields()
+    grant_doctype_permissions()
+    frappe.db.commit()
+
+
+AIA_ROLES = [
+    "AIA User", "AIA Owner", "AIA Manager", "AIA Operator", "AIA Reviewer",
+    "AIA Viewer", "AIA Billing Manager", "AIA Technical Admin",
+    "AIA Provisioner", "AIA Runtime Service",
+]
+
+
+def grant_doctype_permissions():
+    """Otorga permisos completos a todos los roles sobre los DocTypes AIA (main)."""
+    roles = ["System Manager", "Administrator"] + AIA_ROLES
+    doctypes = frappe.get_all(
+        "DocType",
+        filters={"name": ["like", "AIA %"], "istable": 0},
+        pluck="name",
+    )
+    full = {
+        "read": 1, "write": 1, "create": 1, "delete": 1,
+        "if_owner": 0, "permlevel": 0,
+    }
+    for dt in doctypes:
+        try:
+            meta = frappe.get_doc("DocType", dt)
+            existing = {p.role for p in meta.get("permissions", [])}
+            for role in roles:
+                if role in existing:
+                    continue
+                meta.append("permissions", dict(full, role=role))
+            meta.flags.ignore_permissions = True
+            meta.save(ignore_permissions=True)
+        except Exception as e:
+            frappe.log_error(title="grant_permissions " + dt, message=str(e))
+    frappe.db.commit()
+
+
+def seed_event_custom_fields():
+    """Custom Fields derivados en Event nativo para la agenda de agentes."""
+    fields = [
+        {"fieldname": "custom_aia_company", "label": "Empresa AIA", "fieldtype": "Link", "options": "Company", "insert_after": "subject"},
+        {"fieldname": "custom_aia_calendar", "label": "Agenda AIA", "fieldtype": "Link", "options": "AIA Calendar", "insert_after": "custom_aia_company"},
+        {"fieldname": "custom_aia_agent", "label": "Agente AIA", "fieldtype": "Link", "options": "AIA Agent", "insert_after": "custom_aia_calendar"},
+        {"fieldname": "custom_aia_appointment", "label": "Cita AIA", "fieldtype": "Link", "options": "AIA Appointment", "insert_after": "custom_aia_agent"},
+    ]
+    for f in fields:
+        if frappe.db.exists("Custom Field", {"dt": "Event", "fieldname": f["fieldname"]}):
+            continue
+        doc = frappe.get_doc({
+            "doctype": "Custom Field",
+            "dt": "Event",
+            "fieldname": f["fieldname"],
+            "label": f["label"],
+            "fieldtype": f["fieldtype"],
+            "options": f["options"],
+            "insert_after": f["insert_after"],
+            "read_only": 1,
+        })
+        doc.insert(ignore_permissions=True)
     frappe.db.commit()
 
 

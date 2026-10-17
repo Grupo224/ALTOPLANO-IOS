@@ -18,12 +18,12 @@ class AIABusinessProfile(Document):
 		company: DF.Link
 		config_version: DF.Int
 		display_name: DF.Data
-		handoff_instructions: DF.SmallText
+		handoff_instructions: DF.SmallText | None
 		offering: DF.TextEditor
 		opening_hours: DF.SmallText | None
 		public_contact: DF.Data | None
 		status: DF.Literal["Active", "Archived"]
-		timezone: DF.Data
+		timezone: DF.Data | None
 		tone: DF.Literal["Cercano", "Profesional", "Breve"]
 	# end: auto-generated types
 	pass

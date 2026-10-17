@@ -7,6 +7,16 @@ app_license = "mit"
 
 required_apps = ["erpnext"]
 
+# Campos derivados por servidor en Event nativo (agenda de agentes).
+custom_fields = {
+	"Event": [
+		{"fieldname": "custom_aia_company", "label": "Empresa AIA", "fieldtype": "Link", "options": "Company", "insert_after": "subject", "read_only": 1},
+		{"fieldname": "custom_aia_calendar", "label": "Agenda AIA", "fieldtype": "Link", "options": "AIA Calendar", "insert_after": "custom_aia_company", "read_only": 1},
+		{"fieldname": "custom_aia_agent", "label": "Agente AIA", "fieldtype": "Link", "options": "AIA Agent", "insert_after": "custom_aia_calendar", "read_only": 1},
+		{"fieldname": "custom_aia_appointment", "label": "Cita AIA", "fieldtype": "Link", "options": "AIA Appointment", "insert_after": "custom_aia_agent", "read_only": 1},
+	],
+}
+
 add_to_apps_screen = [
 	{
 		"name": "altoplano_agents",

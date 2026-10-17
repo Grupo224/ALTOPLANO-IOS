@@ -14,7 +14,7 @@ class AIAConversation(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		agent: DF.Link
+		agent: DF.Link | None
 		assigned_user: DF.Link | None
 		audience: DF.Literal["Customer", "Internal"]
 		binding: DF.Link | None
