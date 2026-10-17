@@ -161,3 +161,50 @@ def update_doc(doctype, name, values):
     d.flags.ignore_permissions = True
     d.save(ignore_permissions=True)
     return {"name": d.name}
+
+
+@frappe.whitelist(methods=["POST"])
+def save_process_meta(name=None, values=None, goals=None):
+    """Guarda los DATOS del proceso (wizard SIPOC/RACI/metas) y su child table goals.
+    Los pasos/edges se manejan por separado en save_process_canvas."""
+    if isinstance(values, str):
+        values = json.loads(values)
+    if isinstance(goals, str):
+        goals = json.loads(goals)
+    values = values or {}
+    if name:
+        d = frappe.get_doc("OS Process", name)
+    else:
+        if not values.get("process_code"):
+            base = (values.get("process_title") or "PROC").upper()
+            slug = "".join(c for c in base if c.isalnum())[:20] or "PROC"
+            values["process_code"] = slug + "-" + frappe.generate_hash(length=4).upper()
+        values.setdefault("status", "Draft")
+        values.setdefault("trigger_type", "Manual")
+        values.setdefault("max_autonomy", "L1")
+        values.setdefault("risk_level", "Medium")
+        values.setdefault("version_label", "v0.1")
+        d = frappe.get_doc({"doctype": "OS Process"})
+    for k, v in values.items():
+        if k in ("steps", "edges"):
+            continue
+        d.set(k, v)
+    if goals is not None:
+        d.set("goals", [])
+        for g in goals or []:
+            try:
+                target = float(g.get("target")) if g.get("target") not in (None, "") else 0
+            except (TypeError, ValueError):
+                target = 0
+            d.append("goals", {
+                "cadence": g.get("cadence") or "Monthly",
+                "metric": g.get("metric"),
+                "target": target,
+                "unit": g.get("unit"),
+                "tolerance": g.get("tolerance"),
+                "direction": g.get("direction") or "More is better",
+                "responsible": g.get("responsible"),
+            })
+    d.flags.ignore_permissions = True
+    d.save(ignore_permissions=True)
+    return {"name": d.name}

@@ -94,3 +94,23 @@ body { background: var(--os-navy); }
 .node-label { font-size: 13px; color: var(--os-text); margin-top: 3px; }
 .notice { margin-top: 15px; font-size: 12px; color: var(--os-steel); }
 @media (max-width: 768px) { .flow-layout { grid-template-columns: 1fr; } }
+
+/* ===== Wizard de proceso (repo: PROC_SECTIONS) ===== */
+.os-mode-choice { padding: 4px 0; }
+.os-mode-card { flex: 1; border: 1px solid #2b3c56; background: var(--os-navy-2); border-radius: 12px; padding: 16px; cursor: pointer; transition: border-color .15s; }
+.os-mode-card:hover { border-color: var(--os-orange); }
+.os-mode-card span { display: block; color: #fff; font-weight: 700; margin-bottom: 4px; }
+.os-mode-card b { display: block; color: var(--os-orange); font-size: 12px; margin-bottom: 6px; }
+.os-mode-card p { color: var(--os-steel); font-size: 12.5px; margin: 0; }
+.os-wizard-steps { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid #1a283e; padding-bottom: 12px; }
+.os-wizard-step { border: 1px solid #2b3c56; background: var(--os-navy-2); color: var(--os-steel); border-radius: 20px; padding: 6px 12px; font-size: 12px; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.os-wizard-step.on { border-color: var(--os-orange); color: #fff; background: #23334a; }
+.os-wizard-step.done { color: var(--os-text); }
+.os-wizard-step:disabled { opacity: .45; cursor: not-allowed; }
+.os-wizard-num { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: #2b3c56; color: #fff; font-size: 11px; }
+.os-wizard-step.on .os-wizard-num { background: var(--os-orange); }
+.os-wizard-step.done .os-wizard-num { background: #2e7d32; }
+.os-section-title { color: #fff; font-weight: 700; font-size: 13px; margin: 18px 0 10px; }
+.os-form-body { padding-bottom: 6px; }
+.muted { color: var(--os-steel); }
+

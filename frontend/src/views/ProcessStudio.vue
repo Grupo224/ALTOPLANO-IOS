@@ -9,6 +9,7 @@
         </div>
         <div class="flex gap-2">
           <Button variant="ghost" label="← Procesos" @click="$router.push('/processes')" />
+          <Button variant="ghost" label="✎ Editar datos" @click="wizardOpen = true" />
           <Button variant="ghost" :theme="connectMode ? 'orange' : 'gray'" :label="connectMode ? 'Conectar: ON' : 'Conectar'" @click="connectMode = !connectMode" />
           <Button variant="solid" theme="blue" label="Guardar" :loading="saving" @click="save" />
         </div>
@@ -40,6 +41,8 @@
           <Button variant="solid" theme="blue" :label="editingKey ? 'Guardar' : 'Agregar'" :loading="saving" @click="saveStep" />
         </template>
       </Dialog>
+
+      <ProcessWizard v-model:open="wizardOpen" :name="route.params.name" @saved="load" />
     </div>
   </AppLayout>
 </template>
@@ -50,6 +53,7 @@ import { useRoute } from 'vue-router'
 import { Button, Dialog, toast } from 'frappe-ui'
 import AppLayout from '../components/AppLayout.vue'
 import OsForm from '../components/OsForm.vue'
+import ProcessWizard from '../components/ProcessWizard.vue'
 import { osApi, humanError, resetForm, fillFromDoc, coerceValues } from '../resources/os'
 
 const route = useRoute()
@@ -59,6 +63,7 @@ const edges = ref([])
 const connectMode = ref(false)
 const connectFrom = ref(null)
 const saving = ref(false)
+const wizardOpen = ref(false)
 
 const dialogOpen = ref(false)
 const editingKey = ref(null)
