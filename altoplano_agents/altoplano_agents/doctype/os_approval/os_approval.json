@@ -102,7 +102,7 @@
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:34.560149",
+ "modified": "2026-10-17 17:38:43.661085",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS Approval",
@@ -243,6 +243,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }

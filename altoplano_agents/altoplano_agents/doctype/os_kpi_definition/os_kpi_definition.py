@@ -11,12 +11,15 @@ class OSKPIDefinition(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		entity_type: DF.Literal["Company", "Process", "Step", "Agent", "Connector"]
+		designation: DF.Link | None
+		entity_type: DF.Literal["Company", "Process", "Step", "Agent", "Connector", "Position", "RoleCard"]
 		formula: DF.SmallText | None
 		frequency: DF.Data | None
 		kpi_code: DF.Data | None
 		kpi_title: DF.Data
+		org_node: DF.Link | None
 		owner_user: DF.Link | None
+		role_card: DF.Link | None
 		source: DF.Data | None
 		threshold_critical: DF.Data | None
 		threshold_warning: DF.Data | None

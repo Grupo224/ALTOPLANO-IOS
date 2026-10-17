@@ -22,7 +22,22 @@
   "error_code",
   "error_message",
   "evidence_required",
-  "approval_required"
+  "approval_required",
+  "step_type_snapshot",
+  "process_version_snapshot",
+  "instructions_snapshot",
+  "sop_snapshot",
+  "prompt_snapshot",
+  "policy_snapshot",
+  "actor_role",
+  "approval_role_snapshot",
+  "action_status",
+  "action_snapshot_json",
+  "source_doctype",
+  "source_name",
+  "reference_doctype",
+  "reference_name",
+  "last_action_at"
  ],
  "fields": [
   {
@@ -69,7 +84,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Queued\nRunning\nWaiting\nApproved\nCompleted\nFailed\nSkipped\nCancelled"
+   "options": "Blocked\nQueued\nRunning\nWaiting\nApproved\nCompleted\nFailed\nSkipped\nCancelled"
   },
   {
    "fieldname": "queued_at",
@@ -125,10 +140,96 @@
    "fieldname": "approval_required",
    "fieldtype": "Check",
    "label": "Approval Required"
+  },
+  {
+   "fieldname": "step_type_snapshot",
+   "fieldtype": "Data",
+   "label": "Step Type Snapshot"
+  },
+  {
+   "fieldname": "process_version_snapshot",
+   "fieldtype": "Data",
+   "label": "Process Version Snapshot"
+  },
+  {
+   "fieldname": "instructions_snapshot",
+   "fieldtype": "Long Text",
+   "label": "Instructions Snapshot"
+  },
+  {
+   "fieldname": "sop_snapshot",
+   "fieldtype": "Data",
+   "label": "SOP Snapshot"
+  },
+  {
+   "fieldname": "prompt_snapshot",
+   "fieldtype": "Data",
+   "label": "Prompt Snapshot"
+  },
+  {
+   "fieldname": "policy_snapshot",
+   "fieldtype": "Data",
+   "label": "Policy Snapshot"
+  },
+  {
+   "fieldname": "actor_role",
+   "fieldtype": "Link",
+   "label": "Actor Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "approval_role_snapshot",
+   "fieldtype": "Link",
+   "label": "Approval Role Snapshot",
+   "options": "Role"
+  },
+  {
+   "default": "Not Required",
+   "fieldname": "action_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "System Action Status",
+   "options": "Not Required\nReady\nExecuted\nFailed\nSkipped"
+  },
+  {
+   "fieldname": "action_snapshot_json",
+   "fieldtype": "Code",
+   "label": "System Actions Snapshot JSON",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Link",
+   "label": "Primary Source DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Primary Source Name",
+   "options": "source_doctype"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Primary Result DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Primary Result Name",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "last_action_at",
+   "fieldtype": "Datetime",
+   "label": "Last System Action At",
+   "read_only": 1
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:38.635591",
+ "modified": "2026-10-17 17:38:41.127495",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS Step Run",
@@ -269,6 +370,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }

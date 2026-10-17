@@ -14,7 +14,10 @@
   "frequency",
   "owner_user",
   "threshold_warning",
-  "threshold_critical"
+  "threshold_critical",
+  "org_node",
+  "role_card",
+  "designation"
  ],
  "fields": [
   {
@@ -36,7 +39,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Entity Type",
-   "options": "Company\nProcess\nStep\nAgent\nConnector"
+   "options": "Company\nProcess\nStep\nAgent\nConnector\nPosition\nRoleCard"
   },
   {
    "fieldname": "formula",
@@ -68,10 +71,28 @@
    "fieldname": "threshold_critical",
    "fieldtype": "Data",
    "label": "Threshold Critical"
+  },
+  {
+   "fieldname": "org_node",
+   "fieldtype": "Link",
+   "label": "Organization Node",
+   "options": "OS Org Node"
+  },
+  {
+   "fieldname": "role_card",
+   "fieldtype": "Link",
+   "label": "Role Card",
+   "options": "OS Role Card"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation"
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:19.383388",
+ "modified": "2026-10-17 17:38:39.092651",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS KPI Definition",
@@ -212,6 +233,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }

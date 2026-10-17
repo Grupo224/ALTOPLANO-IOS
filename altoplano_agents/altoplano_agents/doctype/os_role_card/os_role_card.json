@@ -12,7 +12,15 @@
   "expected_results",
   "responsibilities",
   "kpis",
-  "owner_user"
+  "owner_user",
+  "org_node",
+  "purpose",
+  "objectives",
+  "functions",
+  "competencies",
+  "tools",
+  "process_refs",
+  "sop_refs"
  ],
  "fields": [
   {
@@ -55,10 +63,52 @@
    "in_list_view": 1,
    "label": "Owner User",
    "options": "User"
+  },
+  {
+   "fieldname": "org_node",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Organization Node",
+   "options": "OS Org Node"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose"
+  },
+  {
+   "fieldname": "objectives",
+   "fieldtype": "Text Editor",
+   "label": "Objectives"
+  },
+  {
+   "fieldname": "functions",
+   "fieldtype": "Text Editor",
+   "label": "Functions"
+  },
+  {
+   "fieldname": "competencies",
+   "fieldtype": "Text Editor",
+   "label": "Competencies"
+  },
+  {
+   "fieldname": "tools",
+   "fieldtype": "Small Text",
+   "label": "Tools"
+  },
+  {
+   "fieldname": "process_refs",
+   "fieldtype": "Small Text",
+   "label": "Process References (Legacy Summary)"
+  },
+  {
+   "fieldname": "sop_refs",
+   "fieldtype": "Small Text",
+   "label": "SOP References (Legacy Summary)"
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:36.020415",
+ "modified": "2026-10-17 17:38:39.713057",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS Role Card",
@@ -199,6 +249,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }

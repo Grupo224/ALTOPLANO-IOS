@@ -35,7 +35,8 @@
   "exceptions",
   "controls",
   "metrics",
-  "procedure_legacy"
+  "procedure_legacy",
+  "responsible_node"
  ],
  "fields": [
   {
@@ -204,10 +205,17 @@
    "fieldname": "procedure_legacy",
    "fieldtype": "Text Editor",
    "label": "Procedure (legacy free text)"
+  },
+  {
+   "description": "Organigrama Vivo 2.0: puesto responsable del SOP.",
+   "fieldname": "responsible_node",
+   "fieldtype": "Link",
+   "label": "Responsible Organization Node",
+   "options": "OS Org Node"
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:14.947131",
+ "modified": "2026-10-17 17:38:40.507594",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS SOP",
@@ -348,6 +356,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }

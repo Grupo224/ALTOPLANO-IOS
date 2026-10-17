@@ -29,6 +29,7 @@ class OSSOP(Document):
 		owner_user: DF.Link | None
 		procedure_legacy: DF.TextEditor | None
 		process_ref: DF.Link | None
+		responsible_node: DF.Link | None
 		responsible_users: DF.SmallText | None
 		risk_level: DF.Literal["Low", "Medium", "High", "Critical"]
 		roles: DF.SmallText | None

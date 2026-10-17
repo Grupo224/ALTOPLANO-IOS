@@ -9,11 +9,13 @@ class OSProcess(Document):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
+		from altoplano_agents.altoplano_agents.doctype.os_process_action.os_process_action import OSProcessAction
 		from altoplano_agents.altoplano_agents.doctype.os_process_edge.os_process_edge import OSProcessEdge
 		from altoplano_agents.altoplano_agents.doctype.os_process_goal.os_process_goal import OSProcessGoal
 		from altoplano_agents.altoplano_agents.doctype.os_process_step.os_process_step import OSProcessStep
 		from frappe.types import DF
 
+		actions: DF.Table[OSProcessAction]
 		canvas_json: DF.LongText | None
 		changelog: DF.LongText | None
 		clients: DF.Data | None

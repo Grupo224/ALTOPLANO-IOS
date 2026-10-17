@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-10-17 17:38:35.083449",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "run",
+  "step_run",
+  "process_ref",
+  "step_key",
+  "action_key",
+  "link_role",
+  "reference_doctype",
+  "reference_name",
+  "label",
+  "is_primary",
+  "document_status_snapshot"
+ ],
+ "fields": [
+  {
+   "fieldname": "run",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Run",
+   "options": "OS Run",
+   "reqd": 1
+  },
+  {
+   "fieldname": "step_run",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Step Run",
+   "options": "OS Step Run"
+  },
+  {
+   "fieldname": "process_ref",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Process",
+   "options": "OS Process"
+  },
+  {
+   "fieldname": "step_key",
+   "fieldtype": "Data",
+   "label": "Step Key"
+  },
+  {
+   "fieldname": "action_key",
+   "fieldtype": "Data",
+   "label": "Action Key"
+  },
+  {
+   "default": "Result",
+   "fieldname": "link_role",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Link Role",
+   "options": "Source\nTarget\nResult\nRelated"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Reference DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Reference Name",
+   "options": "reference_doctype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_primary",
+   "fieldtype": "Check",
+   "label": "Primary Result"
+  },
+  {
+   "description": "Estado/docstatus observado al vincular el documento.",
+   "fieldname": "document_status_snapshot",
+   "fieldtype": "Data",
+   "label": "Document Status Snapshot"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-17 17:38:42.745204",
+ "modified_by": "Administrator",
+ "module": "Altoplano Agents",
+ "name": "OS Document Link",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

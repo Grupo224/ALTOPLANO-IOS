@@ -49,7 +49,8 @@
   "docs",
   "next_review_on",
   "changelog",
-  "kaizen"
+  "kaizen",
+  "actions"
  ],
  "fields": [
   {
@@ -326,10 +327,17 @@
    "fieldname": "kaizen",
    "fieldtype": "Long Text",
    "label": "Improvement Opportunities"
+  },
+  {
+   "description": "Acciones estructuradas por step_key.",
+   "fieldname": "actions",
+   "fieldtype": "Table",
+   "label": "System Actions",
+   "options": "OS Process Action"
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:17.456156",
+ "modified": "2026-10-17 17:38:42.174748",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS Process",
@@ -470,6 +478,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }

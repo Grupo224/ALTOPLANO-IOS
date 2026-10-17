@@ -98,7 +98,7 @@
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:30.164623",
+ "modified": "2026-10-17 17:38:44.159174",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS Prompt",
@@ -239,6 +239,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }

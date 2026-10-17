@@ -19,7 +19,9 @@
   "completed_at",
   "current_step_key",
   "correlation_id",
-  "summary"
+  "summary",
+  "run_mode",
+  "context_json"
  ],
  "fields": [
   {
@@ -105,10 +107,24 @@
    "fieldname": "summary",
    "fieldtype": "Small Text",
    "label": "Summary"
+  },
+  {
+   "default": "Live",
+   "fieldname": "run_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Run Mode",
+   "options": "Test\nLive"
+  },
+  {
+   "fieldname": "context_json",
+   "fieldtype": "Code",
+   "label": "Runtime Context JSON",
+   "options": "JSON"
   }
  ],
  "links": [],
- "modified": "2026-10-17 16:39:25.679374",
+ "modified": "2026-10-17 17:38:41.712822",
  "modified_by": "Administrator",
  "module": "Altoplano Agents",
  "name": "OS Run",
@@ -249,6 +265,18 @@
    "read": 1,
    "report": 1,
    "role": "AIA Runtime Service",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "OS Admin",
    "share": 1,
    "write": 1
   }
