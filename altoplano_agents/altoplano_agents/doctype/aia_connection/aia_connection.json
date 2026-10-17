@@ -41,7 +41,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Tipo",
-   "options": "LLM\nERP\nMCP\nTelegram\nWhatsApp\nChatwoot\nRuntime",
+   "options": "LLM\nERP\nMCP\nTelegram\nWhatsApp\nChatwoot\nEmail\nRuntime",
    "reqd": 1
   },
   {
@@ -61,12 +61,12 @@
   {
    "fieldname": "base_url",
    "fieldtype": "Data",
-   "label": "Direcci\u00f3n del servicio"
+   "label": "Dirección del servicio"
   },
   {
    "fieldname": "auth_type",
    "fieldtype": "Select",
-   "label": "Autorizaci\u00f3n",
+   "label": "Autorización",
    "options": "None\nAPIKey\nOAuth\nServiceAccount\nSecretRef",
    "reqd": 1
   },
@@ -101,13 +101,13 @@
   {
    "fieldname": "last_checked",
    "fieldtype": "Datetime",
-   "label": "\u00daltima verificaci\u00f3n",
+   "label": "Última verificación",
    "read_only": 1
   },
   {
    "fieldname": "error_code",
    "fieldtype": "Data",
-   "label": "C\u00f3digo de problema",
+   "label": "Código de problema",
    "read_only": 1
   },
   {
@@ -136,14 +136,14 @@
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n",
+   "label": "Versión",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "payer_mode",
    "fieldtype": "Select",
-   "label": "Qui\u00e9n paga la IA",
+   "label": "Quién paga la IA",
    "options": "Included\nBYOK\nManaged",
    "reqd": 1
   }
