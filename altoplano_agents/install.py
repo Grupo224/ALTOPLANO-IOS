@@ -11,6 +11,7 @@ def after_install():
     seed_default_settings()
     seed_event_custom_fields()
     grant_doctype_permissions()
+    seed_workspace()
     frappe.db.commit()
 
 
@@ -71,6 +72,43 @@ def seed_event_custom_fields():
         })
         doc.insert(ignore_permissions=True)
     frappe.db.commit()
+
+
+def seed_workspace():
+    """Crea el Workspace 'Altoplano Agents' en Desk para ver todos los doctypes."""
+    import json
+    sections = [
+        ("Agentes", ["AIA Agent", "AIA Agent Template", "AIA Agent Revision", "AIA Skill", "AIA Skill Assignment", "AIA Deployment", "AIA Run", "AIA Test Result", "AIA Allowed Agent"]),
+        ("Conectores", ["AIA Connection", "AIA Channel Binding", "AIA Identity Binding", "AIA Meta App", "AIA WhatsApp Account", "AIA WhatsApp Template", "AIA Email Binding", "AIA MCP Server", "AIA MCP Tool", "AIA OAuth Grant", "AIA Connection Check", "AIA Chatwoot Account"]),
+        ("Mensajeria", ["AIA Conversation", "AIA Message", "AIA Messaging Consent", "AIA Event Inbox", "AIA Outbox Event"]),
+        ("Agenda", ["AIA Calendar", "AIA Appointment"]),
+        ("Herramientas", ["AIA Tool Definition", "AIA Tool Grant", "AIA Tool Call", "AIA Command Receipt"]),
+        ("Aprobaciones", ["AIA Approval Request"]),
+        ("Presupuesto y gastos", ["AIA Budget Policy", "AIA Budget Bucket", "AIA Budget Reservation", "AIA Reservation Allocation", "AIA Billing Batch", "AIA Entitlement", "AIA Rate Line", "AIA Price Card", "AIA Usage Event"]),
+        ("Conocimiento", ["AIA Knowledge Source", "AIA Source Assignment", "AIA Source Access", "AIA Business Profile"]),
+        ("Auditoria y seguridad", ["AIA Audit Event", "AIA Access Profile", "AIA Automation", "AIA ERP Link"]),
+        ("Configuracion", ["AIA Settings"]),
+    ]
+    blocks = []
+    for label, doctypes in sections:
+        blocks.append({"id": "hdr_" + label, "type": "header", "data": {"text": "<span class='h4'><b>" + label + "</b></span>", "col": 12}})
+        for dt in doctypes:
+            if frappe.db.exists("DocType", dt):
+                blocks.append({"id": "sc_" + dt, "type": "shortcut", "data": {"shortcut_name": dt, "col": 3}})
+    content = json.dumps(blocks, ensure_ascii=False)
+    if frappe.db.exists("Workspace", "Altoplano Agents"):
+        ws = frappe.get_doc("Workspace", "Altoplano Agents")
+    else:
+        ws = frappe.new_doc("Workspace")
+        ws.name = "Altoplano Agents"
+        ws.label = "Altoplano Agents"
+        ws.title = "Altoplano Agents"
+        ws.module = "Altoplano Agents"
+    ws.content = content
+    ws.flags.ignore_permissions = True
+    ws.save(ignore_permissions=True)
+    frappe.db.commit()
+    frappe.clear_cache()
 
 
 def seed_default_tool_catalog():
