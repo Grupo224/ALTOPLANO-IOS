@@ -61,7 +61,7 @@
   {
    "fieldname": "description",
    "fieldtype": "Text",
-   "label": "Descripci\u00f3n externa",
+   "label": "Descripción externa",
    "read_only": 1
   },
   {
@@ -103,8 +103,8 @@
   {
    "fieldname": "review_status",
    "fieldtype": "Select",
-   "label": "Revisi\u00f3n",
-   "options": "Pending; Approved; Changed; Blocked; Retired",
+   "label": "Revisión",
+   "options": "Pending\nApproved\nChanged\nBlocked\nRetired",
    "read_only": 1,
    "reqd": 1
   },
@@ -112,21 +112,21 @@
    "fieldname": "risk_level",
    "fieldtype": "Select",
    "label": "Riesgo asignado localmente",
-   "options": "Read; Write; Destructive; ExternalMessage; Financial",
+   "options": "Read\nWrite\nDestructive\nExternalMessage\nFinancial",
    "reqd": 1
   },
   {
    "default": "0",
    "fieldname": "requires_approval",
    "fieldtype": "Check",
-   "label": "Requiere revisi\u00f3n humana",
+   "label": "Requiere revisión humana",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "tool_definition",
    "fieldtype": "Link",
-   "label": "Acci\u00f3n del cat\u00e1logo Altoplano",
+   "label": "Acción del catálogo Altoplano",
    "options": "AIA Tool Definition",
    "read_only": 1
   },
@@ -147,13 +147,13 @@
   {
    "fieldname": "reviewed_at",
    "fieldtype": "Datetime",
-   "label": "Fecha de revisi\u00f3n",
+   "label": "Fecha de revisión",
    "read_only": 1
   },
   {
    "fieldname": "last_seen_at",
    "fieldtype": "Datetime",
-   "label": "\u00daltima aparici\u00f3n",
+   "label": "Última aparición",
    "read_only": 1,
    "reqd": 1
   }

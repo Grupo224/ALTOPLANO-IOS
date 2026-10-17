@@ -45,7 +45,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexi\u00f3n",
+   "label": "Conexión",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -62,7 +62,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Tipo de principal",
-   "options": "OwnerUser; CompanyService",
+   "options": "OwnerUser\nCompanyService",
    "read_only": 1,
    "reqd": 1
   },
@@ -90,7 +90,7 @@
   {
    "fieldname": "authorization_endpoint",
    "fieldtype": "Data",
-   "label": "Endpoint de autorizaci\u00f3n",
+   "label": "Endpoint de autorización",
    "read_only": 1,
    "reqd": 1
   },
@@ -104,14 +104,14 @@
   {
    "fieldname": "revocation_endpoint",
    "fieldtype": "Data",
-   "label": "Endpoint de revocaci\u00f3n",
+   "label": "Endpoint de revocación",
    "read_only": 1
   },
   {
    "fieldname": "registration_method",
    "fieldtype": "Select",
    "label": "Registro de cliente",
-   "options": "PreRegistered; ClientIDMetadata; DynamicRegistration",
+   "options": "PreRegistered\nClientIDMetadata\nDynamicRegistration",
    "read_only": 1,
    "reqd": 1
   },
@@ -153,7 +153,7 @@
   {
    "fieldname": "pkce_method",
    "fieldtype": "Select",
-   "label": "M\u00e9todo PKCE",
+   "label": "Método PKCE",
    "options": "S256",
    "read_only": 1,
    "reqd": 1
@@ -182,26 +182,26 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Estado",
-   "options": "Pending; Active; Expired; Revoked; Failed",
+   "options": "Pending\nActive\nExpired\nRevoked\nFailed",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "authorized_at",
    "fieldtype": "Datetime",
-   "label": "Fecha de autorizaci\u00f3n",
+   "label": "Fecha de autorización",
    "read_only": 1
   },
   {
    "fieldname": "last_refreshed_at",
    "fieldtype": "Datetime",
-   "label": "\u00daltima renovaci\u00f3n",
+   "label": "Última renovación",
    "read_only": 1
   },
   {
    "fieldname": "token_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n de tokens",
+   "label": "Versión de tokens",
    "read_only": 1,
    "reqd": 1
   }

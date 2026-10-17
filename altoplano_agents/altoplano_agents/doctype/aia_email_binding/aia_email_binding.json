@@ -40,7 +40,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexi\u00f3n",
+   "label": "Conexión",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -57,14 +57,14 @@
    "fieldname": "mailbox_kind",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Tipo de buz\u00f3n",
-   "options": "Personal; Shared; Service",
+   "label": "Tipo de buzón",
+   "options": "Personal\nShared\nService",
    "reqd": 1
   },
   {
    "fieldname": "auth_owner",
    "fieldtype": "Link",
-   "label": "Usuario que autoriz\u00f3",
+   "label": "Usuario que autorizó",
    "options": "User",
    "read_only": 1
   },
@@ -86,7 +86,7 @@
    "fieldname": "reply_policy",
    "fieldtype": "Select",
    "label": "Modo de respuesta",
-   "options": "DraftOnly; HumanApproval; AutoWithinPolicy",
+   "options": "DraftOnly\nHumanApproval\nAutoWithinPolicy",
    "reqd": 1
   },
   {
@@ -97,13 +97,13 @@
   {
    "fieldname": "max_recipients_per_message",
    "fieldtype": "Int",
-   "label": "Destinatarios m\u00e1ximos",
+   "label": "Destinatarios máximos",
    "reqd": 1
   },
   {
    "fieldname": "max_attachment_mb",
    "fieldtype": "Int",
-   "label": "L\u00edmite de adjuntos del agente",
+   "label": "Límite de adjuntos del agente",
    "reqd": 1
   },
   {
@@ -143,21 +143,21 @@
   {
    "fieldname": "last_inbound_communication",
    "fieldtype": "Link",
-   "label": "\u00daltimo correo procesado",
+   "label": "Último correo procesado",
    "options": "Communication",
    "read_only": 1
   },
   {
    "fieldname": "last_outgoing_queue",
    "fieldtype": "Link",
-   "label": "\u00daltimo env\u00edo en cola",
+   "label": "Último envío en cola",
    "options": "Email Queue",
    "read_only": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n",
+   "label": "Versión",
    "read_only": 1,
    "reqd": 1
   }

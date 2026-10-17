@@ -24,7 +24,20 @@
   "expires_at",
   "config_json",
   "config_version",
-  "payer_mode"
+  "payer_mode",
+  "adapter_key",
+  "adapter_schema_version",
+  "enabled",
+  "environment",
+  "authorization_scope",
+  "required_capabilities_json",
+  "health_status",
+  "last_success_at",
+  "next_check_at",
+  "reconnect_required",
+  "config_fingerprint",
+  "credential_version",
+  "last_check"
  ],
  "fields": [
   {
@@ -146,6 +159,96 @@
    "label": "Quién paga la IA",
    "options": "Included\nBYOK\nManaged",
    "reqd": 1
+  },
+  {
+   "fieldname": "adapter_key",
+   "fieldtype": "Data",
+   "label": "Adaptador",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "adapter_schema_version",
+   "fieldtype": "Data",
+   "label": "Versión del contrato",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Habilitada",
+   "reqd": 1
+  },
+  {
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "label": "Entorno del conector",
+   "options": "Sandbox\nProduction",
+   "reqd": 1
+  },
+  {
+   "fieldname": "authorization_scope",
+   "fieldtype": "Select",
+   "label": "Uso de credencial",
+   "options": "OwnerUser\nCompanyService",
+   "reqd": 1
+  },
+  {
+   "fieldname": "required_capabilities_json",
+   "fieldtype": "Code",
+   "label": "Operaciones requeridas",
+   "options": "JSON",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "health_status",
+   "fieldtype": "Select",
+   "label": "Salud operativa",
+   "options": "Unknown\nHealthy\nDegraded\nDown",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_success_at",
+   "fieldtype": "Datetime",
+   "label": "Última operación correcta",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_check_at",
+   "fieldtype": "Datetime",
+   "label": "Próxima comprobación",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reconnect_required",
+   "fieldtype": "Check",
+   "label": "Requiere reconectar",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "config_fingerprint",
+   "fieldtype": "Data",
+   "label": "Huella no secreta",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "credential_version",
+   "fieldtype": "Int",
+   "label": "Versión de credencial",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_check",
+   "fieldtype": "Link",
+   "label": "Comprobación vigente",
+   "options": "AIA Connection Check",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,

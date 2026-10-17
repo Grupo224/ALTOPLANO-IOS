@@ -22,7 +22,7 @@
    "fieldname": "exception_kind",
    "fieldtype": "Select",
    "label": "Excepción",
-   "options": "Closed; CustomWindow",
+   "options": "Closed\nCustomWindow",
    "reqd": 1
   },
   {

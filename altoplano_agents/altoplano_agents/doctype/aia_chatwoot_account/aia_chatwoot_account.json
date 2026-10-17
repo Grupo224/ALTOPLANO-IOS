@@ -36,7 +36,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexi\u00f3n",
+   "label": "Conexión",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -64,15 +64,15 @@
   {
    "fieldname": "auth_header_mode",
    "fieldtype": "Select",
-   "label": "M\u00e9todo de autenticaci\u00f3n",
-   "options": "ApiAccessToken; Bearer",
+   "label": "Método de autenticación",
+   "options": "ApiAccessToken\nBearer",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "chatwoot_version",
    "fieldtype": "Data",
-   "label": "Versi\u00f3n comprobada",
+   "label": "Versión comprobada",
    "read_only": 1
   },
   {
@@ -85,7 +85,7 @@
   {
    "fieldname": "webhook_url",
    "fieldtype": "Data",
-   "label": "URL de recepci\u00f3n",
+   "label": "URL de recepción",
    "read_only": 1,
    "reqd": 1
   },
@@ -93,7 +93,7 @@
    "fieldname": "webhook_auth_mode",
    "fieldtype": "Select",
    "label": "Autenticidad del ingreso",
-   "options": "ProviderSignature; PrivateRelay",
+   "options": "ProviderSignature\nPrivateRelay",
    "reqd": 1
   },
   {
@@ -116,13 +116,13 @@
   {
    "fieldname": "last_event_at",
    "fieldtype": "Datetime",
-   "label": "\u00daltimo evento verificado",
+   "label": "Último evento verificado",
    "read_only": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n",
+   "label": "Versión",
    "read_only": 1,
    "reqd": 1
   }

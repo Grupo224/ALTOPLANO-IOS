@@ -11,7 +11,8 @@
   "access_level",
   "requires_approval",
   "scope_json",
-  "max_calls_per_run"
+  "max_calls_per_run",
+  "mcp_tool"
  ],
  "fields": [
   {
@@ -35,7 +36,7 @@
    "fieldname": "requires_approval",
    "fieldtype": "Check",
    "in_list_view": 1,
-   "label": "Requiere aprobaci\u00f3n",
+   "label": "Requiere aprobación",
    "read_only": 1,
    "reqd": 1
   },
@@ -49,8 +50,14 @@
   {
    "fieldname": "max_calls_per_run",
    "fieldtype": "Int",
-   "label": "M\u00e1ximo por ejecuci\u00f3n",
+   "label": "Máximo por ejecución",
    "reqd": 1
+  },
+  {
+   "fieldname": "mcp_tool",
+   "fieldtype": "Link",
+   "label": "Herramienta MCP específica",
+   "options": "AIA MCP Tool"
   }
  ],
  "grid_page_length": 50,

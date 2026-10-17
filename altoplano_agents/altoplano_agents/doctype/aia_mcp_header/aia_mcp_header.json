@@ -21,7 +21,7 @@
    "fieldname": "value_mode",
    "fieldtype": "Select",
    "label": "Tipo de valor",
-   "options": "Static; SecretRef",
+   "options": "Static\nSecretRef",
    "reqd": 1
   },
   {

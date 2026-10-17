@@ -60,7 +60,7 @@
   {
    "fieldname": "conversation",
    "fieldtype": "Link",
-   "label": "Conversaci\u00f3n origen",
+   "label": "Conversación origen",
    "options": "AIA Conversation",
    "read_only": 1
   },
@@ -95,7 +95,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Estado de reserva",
-   "options": "Held; Confirmed; Cancelled; Completed; NoShow",
+   "options": "Held\nConfirmed\nCancelled\nCompleted\nNoShow",
    "read_only": 1,
    "reqd": 1
   },
@@ -109,7 +109,7 @@
    "fieldname": "source",
    "fieldtype": "Select",
    "label": "Origen",
-   "options": "Portal; WhatsApp; Email; InternalAgent",
+   "options": "Portal\nWhatsApp\nEmail\nInternalAgent",
    "read_only": 1,
    "reqd": 1
   },
@@ -117,25 +117,25 @@
    "fieldname": "notification_policy",
    "fieldtype": "Select",
    "label": "Notificaciones",
-   "options": "None; HumanApproval; ApprovedTemplates",
+   "options": "None\nHumanApproval\nApprovedTemplates",
    "reqd": 1
   },
   {
    "fieldname": "last_notification",
    "fieldtype": "Link",
-   "label": "\u00daltima notificaci\u00f3n",
+   "label": "Última notificación",
    "options": "AIA Outbox Event",
    "read_only": 1
   },
   {
    "fieldname": "cancel_reason",
    "fieldtype": "Small Text",
-   "label": "Motivo de cancelaci\u00f3n"
+   "label": "Motivo de cancelación"
   },
   {
    "fieldname": "revision",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n de reserva",
+   "label": "Versión de reserva",
    "read_only": 1,
    "reqd": 1
   }

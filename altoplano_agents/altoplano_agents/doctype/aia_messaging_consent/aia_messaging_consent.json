@@ -35,7 +35,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexi\u00f3n",
+   "label": "Conexión",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -45,7 +45,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Canal",
-   "options": "WhatsApp; Email",
+   "options": "WhatsApp\nEmail",
    "reqd": 1
   },
   {
@@ -66,14 +66,14 @@
    "fieldname": "purpose",
    "fieldtype": "Select",
    "label": "Finalidad",
-   "options": "Service; Appointment; Marketing",
+   "options": "Service\nAppointment\nMarketing",
    "reqd": 1
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Estado",
-   "options": "Unknown; OptedIn; OptedOut; Expired",
+   "options": "Unknown\nOptedIn\nOptedOut\nExpired",
    "read_only": 1,
    "reqd": 1
   },
@@ -81,7 +81,7 @@
    "fieldname": "evidence_method",
    "fieldtype": "Select",
    "label": "Origen de evidencia",
-   "options": "Form; InboundRequest; WrittenConsent; ProviderImport; OptOut",
+   "options": "Form\nInboundRequest\nWrittenConsent\nProviderImport\nOptOut",
    "read_only": 1,
    "reqd": 1
   },
@@ -113,7 +113,7 @@
   {
    "fieldname": "policy_version",
    "fieldtype": "Data",
-   "label": "Versi\u00f3n de pol\u00edtica",
+   "label": "Versión de política",
    "read_only": 1,
    "reqd": 1
   },

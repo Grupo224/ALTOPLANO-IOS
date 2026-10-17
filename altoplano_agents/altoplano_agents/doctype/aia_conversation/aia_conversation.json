@@ -18,7 +18,10 @@
   "assigned_user",
   "summary",
   "last_activity",
-  "memory_scope"
+  "memory_scope",
+  "last_inbound_at",
+  "service_window_expires_at",
+  "human_assignee"
  ],
  "fields": [
   {
@@ -49,14 +52,14 @@
    "fieldname": "session_key",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Clave de sesi\u00f3n",
+   "label": "Clave de sesión",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "external_conversation_id",
    "fieldtype": "Data",
-   "label": "Conversaci\u00f3n externa",
+   "label": "Conversación externa",
    "read_only": 1
   },
   {
@@ -98,15 +101,33 @@
   {
    "fieldname": "last_activity",
    "fieldtype": "Datetime",
-   "label": "\u00daltima actividad",
+   "label": "Última actividad",
    "read_only": 1
   },
   {
    "fieldname": "memory_scope",
    "fieldtype": "Data",
-   "label": "\u00c1mbito de memoria",
+   "label": "Ámbito de memoria",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "last_inbound_at",
+   "fieldtype": "Datetime",
+   "label": "Último mensaje recibido",
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_window_expires_at",
+   "fieldtype": "Datetime",
+   "label": "Fin de ventana de atención",
+   "read_only": 1
+  },
+  {
+   "fieldname": "human_assignee",
+   "fieldtype": "Link",
+   "label": "Persona a cargo",
+   "options": "User"
   }
  ],
  "grid_page_length": 50,

@@ -15,7 +15,10 @@
   "external_message_id",
   "delivery_state",
   "event_key",
-  "created_at"
+  "created_at",
+  "native_communication",
+  "whatsapp_template",
+  "consent"
  ],
  "fields": [
   {
@@ -31,7 +34,7 @@
    "fieldname": "conversation",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conversaci\u00f3n",
+   "label": "Conversación",
    "options": "AIA Conversation",
    "read_only": 1,
    "reqd": 1
@@ -49,7 +52,7 @@
    "fieldname": "direction",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Direcci\u00f3n",
+   "label": "Dirección",
    "options": "Inbound\nOutbound\nInternal",
    "read_only": 1,
    "reqd": 1
@@ -87,6 +90,27 @@
    "label": "Fecha",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "native_communication",
+   "fieldtype": "Link",
+   "label": "Correo ERP relacionado",
+   "options": "Communication",
+   "read_only": 1
+  },
+  {
+   "fieldname": "whatsapp_template",
+   "fieldtype": "Link",
+   "label": "Plantilla utilizada",
+   "options": "AIA WhatsApp Template",
+   "read_only": 1
+  },
+  {
+   "fieldname": "consent",
+   "fieldtype": "Link",
+   "label": "Consentimiento aplicable",
+   "options": "AIA Messaging Consent",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,

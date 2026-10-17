@@ -47,7 +47,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexi\u00f3n",
+   "label": "Conexión",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -56,7 +56,7 @@
    "fieldname": "meta_app",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Aplicaci\u00f3n Meta",
+   "label": "Aplicación Meta",
    "options": "AIA Meta App",
    "reqd": 1
   },
@@ -76,13 +76,13 @@
   {
    "fieldname": "phone_number_id",
    "fieldtype": "Data",
-   "label": "ID del n\u00famero en Meta",
+   "label": "ID del número en Meta",
    "reqd": 1
   },
   {
    "fieldname": "phone_number_e164",
    "fieldtype": "Data",
-   "label": "N\u00famero verificado",
+   "label": "Número verificado",
    "read_only": 1
   },
   {
@@ -101,7 +101,7 @@
    "fieldname": "token_kind",
    "fieldtype": "Select",
    "label": "Tipo de token",
-   "options": "Unknown; User; SystemUser; BusinessIntegration",
+   "options": "Unknown\nUser\nSystemUser\nBusinessIntegration",
    "read_only": 1,
    "reqd": 1
   },
@@ -127,8 +127,8 @@
   {
    "fieldname": "registration_status",
    "fieldtype": "Select",
-   "label": "Registro del n\u00famero",
-   "options": "Unknown; Pending; Registered; Failed",
+   "label": "Registro del número",
+   "options": "Unknown\nPending\nRegistered\nFailed",
    "read_only": 1,
    "reqd": 1
   },
@@ -155,15 +155,15 @@
   {
    "fieldname": "onboarding_method",
    "fieldtype": "Select",
-   "label": "Forma de conexi\u00f3n",
-   "options": "Manual; EmbeddedSignup",
+   "label": "Forma de conexión",
+   "options": "Manual\nEmbeddedSignup",
    "reqd": 1
   },
   {
    "fieldname": "coexistence_status",
    "fieldtype": "Select",
-   "label": "Coexistencia con app m\u00f3vil",
-   "options": "NotRequested; Unverified; Supported; Unsupported",
+   "label": "Coexistencia con app móvil",
+   "options": "NotRequested\nUnverified\nSupported\nUnsupported",
    "read_only": 1,
    "reqd": 1
   },
@@ -183,32 +183,32 @@
   {
    "fieldname": "last_inbound_webhook_at",
    "fieldtype": "Datetime",
-   "label": "\u00daltimo mensaje aut\u00e9ntico",
+   "label": "Último mensaje auténtico",
    "read_only": 1
   },
   {
    "fieldname": "last_status_webhook_at",
    "fieldtype": "Datetime",
-   "label": "\u00daltimo estado aut\u00e9ntico",
+   "label": "Último estado auténtico",
    "read_only": 1
   },
   {
    "fieldname": "last_delivery_at",
    "fieldtype": "Datetime",
-   "label": "\u00daltima entrega confirmada",
+   "label": "Última entrega confirmada",
    "read_only": 1
   },
   {
    "fieldname": "messaging_policy_version",
    "fieldtype": "Data",
-   "label": "Pol\u00edtica aplicada",
+   "label": "Política aplicada",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n",
+   "label": "Versión",
    "read_only": 1,
    "reqd": 1
   }

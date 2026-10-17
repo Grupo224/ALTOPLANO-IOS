@@ -16,7 +16,10 @@
   "schema_version",
   "retention_days",
   "support_contact",
-  "platform_account_id"
+  "platform_account_id",
+  "connector_registry_version",
+  "experimental_calendar_enabled",
+  "connection_probe_ttl_minutes"
  ],
  "fields": [
   {
@@ -39,7 +42,7 @@
    "fieldname": "operating_mode",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Modo de operaci\u00f3n",
+   "label": "Modo de operación",
    "options": "SelfManaged\nManagedClient\nProviderControl",
    "reqd": 1
   },
@@ -68,20 +71,20 @@
    "default": "0",
    "fieldname": "demo_mode",
    "fieldtype": "Check",
-   "label": "Datos de demostraci\u00f3n",
+   "label": "Datos de demostración",
    "reqd": 1
   },
   {
    "fieldname": "schema_version",
    "fieldtype": "Data",
-   "label": "Versi\u00f3n de esquema",
+   "label": "Versión de esquema",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "retention_days",
    "fieldtype": "Int",
-   "label": "D\u00edas de conservaci\u00f3n",
+   "label": "Días de conservación",
    "reqd": 1
   },
   {
@@ -94,6 +97,25 @@
    "fieldtype": "Data",
    "label": "Cuenta del servicio",
    "read_only": 1
+  },
+  {
+   "fieldname": "connector_registry_version",
+   "fieldtype": "Data",
+   "label": "Versión de conectores",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "experimental_calendar_enabled",
+   "fieldtype": "Check",
+   "label": "Calendario visual experimental",
+   "reqd": 1
+  },
+  {
+   "fieldname": "connection_probe_ttl_minutes",
+   "fieldtype": "Int",
+   "label": "Vigencia de comprobaciones",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,

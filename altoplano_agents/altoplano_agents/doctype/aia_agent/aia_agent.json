@@ -30,7 +30,11 @@
   "desired_state",
   "observed_state",
   "configuration_hash",
-  "last_heartbeat"
+  "last_heartbeat",
+  "avatar",
+  "primary_calendar",
+  "default_language",
+  "human_handoff_enabled"
  ],
  "fields": [
   {
@@ -81,7 +85,7 @@
   {
    "fieldname": "summary",
    "fieldtype": "Small Text",
-   "label": "Qu\u00e9 har\u00e1"
+   "label": "Qué hará"
   },
   {
    "fieldname": "model_connection",
@@ -119,7 +123,7 @@
   {
    "fieldname": "knowledge_sources",
    "fieldtype": "Table",
-   "label": "Informaci\u00f3n disponible",
+   "label": "Información disponible",
    "options": "AIA Source Assignment"
   },
   {
@@ -137,28 +141,28 @@
   {
    "fieldname": "draft_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n del borrador",
+   "label": "Versión del borrador",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "current_revision",
    "fieldtype": "Link",
-   "label": "Revisi\u00f3n solicitada",
+   "label": "Revisión solicitada",
    "options": "AIA Agent Revision",
    "read_only": 1
   },
   {
    "fieldname": "applied_revision",
    "fieldtype": "Link",
-   "label": "Revisi\u00f3n aplicada",
+   "label": "Revisión aplicada",
    "options": "AIA Agent Revision",
    "read_only": 1
   },
   {
    "fieldname": "tested_revision",
    "fieldtype": "Link",
-   "label": "Revisi\u00f3n probada",
+   "label": "Revisión probada",
    "options": "AIA Agent Revision",
    "read_only": 1
   },
@@ -181,14 +185,37 @@
   {
    "fieldname": "configuration_hash",
    "fieldtype": "Data",
-   "label": "Huella de configuraci\u00f3n",
+   "label": "Huella de configuración",
    "read_only": 1
   },
   {
    "fieldname": "last_heartbeat",
    "fieldtype": "Datetime",
-   "label": "\u00daltima se\u00f1al",
+   "label": "Última señal",
    "read_only": 1
+  },
+  {
+   "fieldname": "avatar",
+   "fieldtype": "Attach Image",
+   "label": "Imagen del agente"
+  },
+  {
+   "fieldname": "primary_calendar",
+   "fieldtype": "Link",
+   "label": "Agenda principal",
+   "options": "AIA Calendar"
+  },
+  {
+   "fieldname": "default_language",
+   "fieldtype": "Data",
+   "label": "Idioma principal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "human_handoff_enabled",
+   "fieldtype": "Check",
+   "label": "Transferencia a persona",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,

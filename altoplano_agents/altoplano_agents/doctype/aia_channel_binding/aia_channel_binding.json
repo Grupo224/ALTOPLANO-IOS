@@ -16,7 +16,10 @@
   "route_key",
   "audience",
   "enabled",
-  "session_scope"
+  "session_scope",
+  "calendar",
+  "reply_policy",
+  "outside_hours_policy"
  ],
  "fields": [
   {
@@ -40,7 +43,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexi\u00f3n",
+   "label": "Conexión",
    "options": "AIA Connection",
    "reqd": 1
   },
@@ -73,7 +76,7 @@
   {
    "fieldname": "audience",
    "fieldtype": "Select",
-   "label": "Tipo de conversaci\u00f3n",
+   "label": "Tipo de conversación",
    "options": "Customer\nInternal",
    "reqd": 1
   },
@@ -87,8 +90,28 @@
   {
    "fieldname": "session_scope",
    "fieldtype": "Data",
-   "label": "Separaci\u00f3n de sesiones",
+   "label": "Separación de sesiones",
    "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "calendar",
+   "fieldtype": "Link",
+   "label": "Agenda para citas",
+   "options": "AIA Calendar"
+  },
+  {
+   "fieldname": "reply_policy",
+   "fieldtype": "Select",
+   "label": "Forma de responder",
+   "options": "DraftOnly\nHumanApproval\nAutoWithinPolicy",
+   "reqd": 1
+  },
+  {
+   "fieldname": "outside_hours_policy",
+   "fieldtype": "Select",
+   "label": "Fuera de horario",
+   "options": "Queue\nHandoff\nApprovedReply",
    "reqd": 1
   }
  ],

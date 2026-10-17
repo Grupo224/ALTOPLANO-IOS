@@ -67,7 +67,7 @@
   {
    "fieldname": "slot_minutes",
    "fieldtype": "Int",
-   "label": "Duraci\u00f3n de cita",
+   "label": "Duración de cita",
    "reqd": 1
   },
   {
@@ -85,25 +85,25 @@
   {
    "fieldname": "buffer_after_minutes",
    "fieldtype": "Int",
-   "label": "Margen despu\u00e9s",
+   "label": "Margen después",
    "reqd": 1
   },
   {
    "fieldname": "minimum_notice_minutes",
    "fieldtype": "Int",
-   "label": "Anticipaci\u00f3n m\u00ednima",
+   "label": "Anticipación mínima",
    "reqd": 1
   },
   {
    "fieldname": "booking_horizon_days",
    "fieldtype": "Int",
-   "label": "D\u00edas permitidos a futuro",
+   "label": "Días permitidos a futuro",
    "reqd": 1
   },
   {
    "fieldname": "max_bookings_per_day",
    "fieldtype": "Int",
-   "label": "Citas m\u00e1ximas por d\u00eda",
+   "label": "Citas máximas por día",
    "reqd": 1
   },
   {
@@ -135,14 +135,14 @@
   {
    "fieldname": "sync_mode",
    "fieldtype": "Select",
-   "label": "Sincronizaci\u00f3n",
-   "options": "LocalOnly; NativeGoogle",
+   "label": "Sincronización",
+   "options": "LocalOnly\nNativeGoogle",
    "reqd": 1
   },
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n",
+   "label": "Versión",
    "read_only": 1,
    "reqd": 1
   }

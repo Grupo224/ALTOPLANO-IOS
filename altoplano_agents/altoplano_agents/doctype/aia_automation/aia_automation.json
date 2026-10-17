@@ -19,7 +19,12 @@
   "enabled",
   "max_runs_period",
   "last_run",
-  "next_run"
+  "next_run",
+  "display_name",
+  "schedule_kind",
+  "misfire_policy",
+  "overlap_policy",
+  "max_execution_seconds"
  ],
  "fields": [
   {
@@ -74,7 +79,7 @@
   {
    "fieldname": "condition_json",
    "fieldtype": "Code",
-   "label": "Condici\u00f3n"
+   "label": "Condición"
   },
   {
    "fieldname": "execution_principal",
@@ -94,21 +99,53 @@
   {
    "fieldname": "max_runs_period",
    "fieldtype": "Int",
-   "label": "M\u00e1ximo de ejecuciones",
+   "label": "Máximo de ejecuciones",
    "reqd": 1
   },
   {
    "fieldname": "last_run",
    "fieldtype": "Link",
-   "label": "\u00daltima ejecuci\u00f3n",
+   "label": "Última ejecución",
    "options": "AIA Run",
    "read_only": 1
   },
   {
    "fieldname": "next_run",
    "fieldtype": "Datetime",
-   "label": "Siguiente ejecuci\u00f3n",
+   "label": "Siguiente ejecución",
    "read_only": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "label": "Nombre de automatización",
+   "reqd": 1
+  },
+  {
+   "fieldname": "schedule_kind",
+   "fieldtype": "Select",
+   "label": "Frecuencia",
+   "options": "Once\nDaily\nWeekly\nMonthly\nAdvanced"
+  },
+  {
+   "fieldname": "misfire_policy",
+   "fieldtype": "Select",
+   "label": "Si el sistema estaba detenido",
+   "options": "Skip\nRunOnce",
+   "reqd": 1
+  },
+  {
+   "fieldname": "overlap_policy",
+   "fieldtype": "Select",
+   "label": "Si la anterior sigue en curso",
+   "options": "Skip\nQueueOne",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_execution_seconds",
+   "fieldtype": "Int",
+   "label": "Duración máxima",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,

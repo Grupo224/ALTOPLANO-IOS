@@ -52,7 +52,7 @@
    "fieldname": "connection",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Conexi\u00f3n",
+   "label": "Conexión",
    "options": "AIA Connection",
    "read_only": 1,
    "reqd": 1
@@ -62,7 +62,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Transporte",
-   "options": "StreamableHTTP; LegacySSE; ManagedStdio",
+   "options": "StreamableHTTP\nLegacySSE\nManagedStdio",
    "reqd": 1
   },
   {
@@ -73,7 +73,7 @@
   {
    "fieldname": "resource_uri",
    "fieldtype": "Data",
-   "label": "Recurso OAuth can\u00f3nico",
+   "label": "Recurso OAuth canónico",
    "read_only": 1
   },
   {
@@ -81,14 +81,14 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Familia de protocolo",
-   "options": "Unknown; RequestMetadata2026; SessionLegacy",
+   "options": "Unknown\nRequestMetadata2026\nSessionLegacy",
    "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "protocol_version",
    "fieldtype": "Data",
-   "label": "Versi\u00f3n compatible",
+   "label": "Versión compatible",
    "read_only": 1
   },
   {
@@ -116,7 +116,7 @@
   {
    "fieldname": "client_sdk_version",
    "fieldtype": "Data",
-   "label": "Versi\u00f3n de SDK",
+   "label": "Versión de SDK",
    "read_only": 1,
    "reqd": 1
   },
@@ -129,14 +129,14 @@
   {
    "fieldname": "server_version",
    "fieldtype": "Data",
-   "label": "Versi\u00f3n reportada",
+   "label": "Versión reportada",
    "read_only": 1
   },
   {
    "fieldname": "auth_mode",
    "fieldtype": "Select",
-   "label": "Autorizaci\u00f3n MCP",
-   "options": "None; Bearer; APIKeyHeader; OAuth",
+   "label": "Autorización MCP",
+   "options": "None\nBearer\nAPIKeyHeader\nOAuth",
    "reqd": 1
   },
   {
@@ -147,7 +147,7 @@
   {
    "fieldname": "oauth_grant",
    "fieldtype": "Link",
-   "label": "Autorizaci\u00f3n OAuth",
+   "label": "Autorización OAuth",
    "options": "AIA OAuth Grant",
    "read_only": 1
   },
@@ -165,7 +165,7 @@
   {
    "fieldname": "connect_timeout_seconds",
    "fieldtype": "Int",
-   "label": "Tiempo de conexi\u00f3n",
+   "label": "Tiempo de conexión",
    "reqd": 1
   },
   {
@@ -177,13 +177,13 @@
   {
    "fieldname": "max_response_bytes",
    "fieldtype": "Int",
-   "label": "M\u00e1ximo de respuesta",
+   "label": "Máximo de respuesta",
    "reqd": 1
   },
   {
    "fieldname": "max_tools",
    "fieldtype": "Int",
-   "label": "M\u00e1ximo de herramientas",
+   "label": "Máximo de herramientas",
    "reqd": 1
   },
   {
@@ -196,13 +196,13 @@
   {
    "fieldname": "catalog_digest",
    "fieldtype": "Data",
-   "label": "Huella del cat\u00e1logo",
+   "label": "Huella del catálogo",
    "read_only": 1
   },
   {
    "fieldname": "last_discovered_at",
    "fieldtype": "Datetime",
-   "label": "\u00daltimo descubrimiento",
+   "label": "Último descubrimiento",
    "read_only": 1
   },
   {
@@ -244,7 +244,7 @@
   {
    "fieldname": "config_version",
    "fieldtype": "Int",
-   "label": "Versi\u00f3n",
+   "label": "Versión",
    "read_only": 1,
    "reqd": 1
   }

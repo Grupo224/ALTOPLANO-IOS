@@ -14,7 +14,7 @@
    "fieldname": "weekday",
    "fieldtype": "Select",
    "label": "Día de semana",
-   "options": "Monday; Tuesday; Wednesday; Thursday; Friday; Saturday; Sunday",
+   "options": "Monday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday",
    "reqd": 1
   },
   {
