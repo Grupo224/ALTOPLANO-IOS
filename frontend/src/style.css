@@ -114,3 +114,36 @@ body { background: var(--os-navy); }
 .os-form-body { padding-bottom: 6px; }
 .muted { color: var(--os-steel); }
 
+
+/* ===== Organigrama: layout con panel lateral ===== */
+.org-layout { display: grid; grid-template-columns: 240px 1fr; gap: 15px; }
+.org-side { display: flex; flex-direction: column; gap: 12px; }
+.org-panel { background: var(--os-navy-2); border: 1px solid #1a283e; border-radius: 12px; padding: 14px; max-height: 470px; overflow-y: auto; }
+.org-list-item { display: flex; align-items: center; gap: 6px; padding: 7px 9px; border-radius: 8px; cursor: pointer; font-size: 13px; color: var(--os-text); border: 1px solid transparent; }
+.org-list-item:hover { background: #16233a; }
+.org-list-item .node-port { display: none; }
+
+/* ===== Zoom ===== */
+.zoom-bar { display: flex; align-items: center; gap: 2px; background: var(--os-navy-2); border: 1px solid #1a283e; border-radius: 8px; padding: 2px; }
+.zbtn { min-width: 30px; height: 28px; border: 0; background: transparent; color: var(--os-text); border-radius: 6px; cursor: pointer; font-size: 14px; }
+.zbtn:hover { background: #23334a; }
+.zval { min-width: 48px; font-size: 11px; color: var(--os-steel); }
+
+/* ===== Puerto de conexión (n8n-like) ===== */
+.node { position: relative; }
+.node-port { position: absolute; right: -6px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--os-orange); border: 2px solid #0a111c; cursor: crosshair; box-shadow: 0 0 0 1px rgba(255,148,34,0.4); }
+.node-port:hover { background: #fff; }
+
+/* ===== Línea temporal de conexión ===== */
+.temp-wire { position: absolute; inset: 0; width: 100%; height: 100%; }
+.temp-wire line { stroke: var(--os-orange); stroke-width: 2; stroke-dasharray: 5 4; }
+
+/* ===== Menú de apps (tipo Frappe CRM) ===== */
+.avatar-btn { border: 0; background: transparent; cursor: pointer; padding: 0; border-radius: 9999px; }
+.app-menu { position: absolute; top: 46px; right: 0; width: 260px; background: var(--os-navy-2); border: 1px solid #1a283e; border-radius: 12px; padding: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 60; }
+.app-menu-head { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--os-steel); padding: 6px 10px; font-weight: 700; }
+.app-menu-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; color: var(--os-text); font-size: 13.5px; text-decoration: none; }
+.app-menu-item:hover { background: #1a283e; color: #fff; }
+.app-menu-icon { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 7px; background: #23334a; color: var(--os-orange); font-size: 15px; }
+
+@media (max-width: 900px) { .org-layout { grid-template-columns: 1fr; } }

@@ -16,9 +16,19 @@
     <main class="flex min-w-0 flex-1 flex-col">
       <div class="os-top">
         <span class="text-sm" style="color: var(--os-steel)">Altoplano &nbsp; / &nbsp; {{ currentLabel }}</span>
-        <div class="flex items-center gap-2">
+        <div class="relative flex items-center gap-2">
           <span class="os-pill">● En vivo</span>
-          <span class="flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold" style="background:#23334a;color:#ff9422">{{ initials }}</span>
+          <button class="avatar-btn" @click="appMenuOpen = !appMenuOpen">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold" style="background:#23334a;color:#ff9422">{{ initials }}</span>
+          </button>
+          <div v-if="appMenuOpen" class="app-menu" @mouseleave="appMenuOpen = false">
+            <div class="app-menu-head">Aplicaciones</div>
+            <a v-for="app in apps" :key="app.route" :href="app.route" class="app-menu-item">
+              <span class="app-menu-icon">{{ app.icon }}</span>
+              <span class="flex-1">{{ app.label }}</span>
+              <span class="text-xs" style="color: var(--os-steel)">{{ app.sub }}</span>
+            </a>
+          </div>
         </div>
       </div>
       <div class="scroll-area min-h-0 flex-1">
@@ -29,10 +39,11 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
 const route = useRoute()
+const appMenuOpen = ref(false)
 
 const navGroups = [
   {
@@ -68,6 +79,14 @@ const navGroups = [
       { label: 'Analítica', route: '/analytics', icon: '▥' },
     ],
   },
+]
+
+// Switcher tipo Frappe CRM: apps ERPNext del mismo sitio.
+const apps = [
+  { label: 'LivingOrg OS', route: '/ai-agents', icon: '◇', sub: 'Organigrama y procesos' },
+  { label: 'ERPNext Desk', route: '/app', icon: '▦', sub: 'ERP completo' },
+  { label: 'CRM', route: '/crm', icon: '✧', sub: 'Ventas y contactos' },
+  { label: 'Punto de Venta', route: '/pos', icon: '💰', sub: 'POS' },
 ]
 
 const flat = navGroups.flatMap((g) => g.items)

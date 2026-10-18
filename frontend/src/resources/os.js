@@ -13,6 +13,9 @@ export const osApi = {
   getOrg: () => call(NS + 'get_org'),
   addOrgNode: (title, nodeType, x, y) => call(NS + 'add_org_node', { title, node_type: nodeType, x, y }),
   saveOrgNode: (name, x, y) => call(NS + 'save_org_node', { name, x, y }),
+  deleteOrgNode: (name) => call(NS + 'delete_org_node', { name }),
+  deleteOrgRelation: (name) => call(NS + 'delete_org_relation', { name }),
+  addOrgRelation: (fromNode, toNode, relationType) => call(NS + 'add_org_relation', { from_node: fromNode, to_node: toNode, relation_type: relationType }),
   createProcess: (fields) => call(NS + 'create_process', fields),
   updateDoc: (doctype, name, values) => call(NS + 'update_doc', { doctype, name, values }),
 }

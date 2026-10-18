@@ -208,3 +208,38 @@ def save_process_meta(name=None, values=None, goals=None):
     d.flags.ignore_permissions = True
     d.save(ignore_permissions=True)
     return {"name": d.name}
+
+
+@frappe.whitelist(methods=["POST"])
+def delete_org_node(name):
+    """Elimina un nodo del organigrama y limpia sus relaciones (from/to)."""
+    frappe.db.delete("OS Org Relation", {"from_node": name})
+    frappe.db.delete("OS Org Relation", {"to_node": name})
+    frappe.delete_doc("OS Org Node", name, ignore_permissions=True, force=True)
+    return {"ok": 1}
+
+
+@frappe.whitelist(methods=["POST"])
+def delete_org_relation(name):
+    """Elimina una conexión (OS Org Relation) del organigrama."""
+    frappe.delete_doc("OS Org Relation", name, ignore_permissions=True, force=True)
+    return {"ok": 1}
+
+
+@frappe.whitelist(methods=["GET", "POST"])
+def add_org_relation(from_node=None, to_node=None, relation_type=None):
+    """Crea una conexión entre dos nodos (idempotente)."""
+    if not from_node or not to_node or from_node == to_node:
+        return {"error": "Selecciona dos nodos distintos."}
+    exists = frappe.db.exists("OS Org Relation", {"from_node": from_node, "to_node": to_node})
+    if exists:
+        return {"name": exists}
+    d = frappe.get_doc({
+        "doctype": "OS Org Relation",
+        "from_node": from_node,
+        "to_node": to_node,
+        "relation_type": relation_type or "REPORTS_TO",
+    })
+    d.flags.ignore_permissions = True
+    d.insert(ignore_permissions=True)
+    return {"name": d.name}
