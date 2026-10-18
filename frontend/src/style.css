@@ -170,3 +170,8 @@ body { background: var(--os-navy); }
 .vf-org-node .vf-org-sub { font-size: 10px; color: var(--os-steel); text-transform: uppercase; letter-spacing: 0.5px; }
 .vf-org-node .vue-flow__handle { width: 11px; height: 11px; background: var(--os-orange); border: 2px solid #0a111c; }
 .vf-org-node .vue-flow__handle:hover { background: #fff; }
+
+/* Nodo resaltado como origen de conexión (modo Conectar) */
+.vf-org-node.vf-connect-source { border-color: #fff; box-shadow: 0 0 0 3px rgba(255,148,34,0.6); }
+.vf-org-node .vue-flow__handle { width: 14px; height: 14px; background: var(--os-orange); border: 2px solid #0a111c; }
+.vf-org-node .vue-flow__handle:hover { background: #fff; transform: scale(1.2); }

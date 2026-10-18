@@ -5,9 +5,12 @@
         <div>
           <div class="os-eyebrow">Organigrama Vivo</div>
           <h1 class="os-h1">Quién es quién</h1>
-          <p class="text-sm" style="color: var(--os-steel)">Arrastra el lienzo, haz zoom, mueve los nodos y conecta arrastrando el punto del borde.</p>
+          <p class="text-sm" style="color: var(--os-steel)">Mueve el lienzo, haz zoom y conecta nodos: arrastra el punto ● del borde, o activa "Conectar" y haz clic en dos nodos.</p>
         </div>
-        <Button variant="solid" theme="blue" label="＋ Nodo" @click="openCreate()" />
+        <div class="flex items-center gap-2">
+          <Button variant="ghost" :theme="connectMode ? 'orange' : 'gray'" :label="connectMode ? 'Conectar: activo' : 'Conectar'" @click="toggleConnect" />
+          <Button variant="solid" theme="blue" label="＋ Nodo" @click="openCreate()" />
+        </div>
       </div>
 
       <div class="org-layout">
@@ -52,7 +55,7 @@
             <MiniMap />
             <Controls />
             <template #node-org="nodeProps">
-              <div class="vf-org-node" :data-node-type="nodeProps.data.node_type">
+              <div class="vf-org-node" :data-node-type="nodeProps.data.node_type" :class="{ 'vf-connect-source': connectMode && connectSource === nodeProps.id }">
                 <Handle type="target" :position="Position.Left" />
                 <div class="vf-org-icon">{{ typeIcon(nodeProps.data.node_type) }}</div>
                 <div class="vf-org-label">{{ nodeProps.data.title }}</div>
@@ -89,6 +92,8 @@ import { osApi, humanError, resetForm, fillFromDoc, coerceValues } from '../reso
 
 const nodes = ref([])
 const relations = ref([])
+const connectMode = ref(false)
+const connectSource = ref(null)
 
 const dialogOpen = ref(false)
 const editingName = ref(null)
@@ -223,8 +228,32 @@ function onNodeDragStop(e) {
   if (id && pos) osApi.saveOrgNode(id, Math.round(pos.x), Math.round(pos.y)).catch(() => {})
 }
 
+function toggleConnect() {
+  connectMode.value = !connectMode.value
+  connectSource.value = null
+  if (connectMode.value) toast.info('Conectar: haz clic en el nodo origen y luego en el destino.')
+}
+
 function onNodeClick(e) {
-  if (e.node?.id) editNode(e.node.id)
+  if (!e.node?.id) return
+  if (connectMode.value) {
+    if (!connectSource.value) {
+      connectSource.value = e.node.id
+      toast.info('Origen elegido. Ahora haz clic en el destino.')
+    } else {
+      const from = connectSource.value
+      connectSource.value = null
+      if (from !== e.node.id) {
+        const exists = relations.value.some((r) => r.from_node === from && r.to_node === e.node.id)
+        if (exists) { toast.info('Ya están conectados.') ; return }
+        osApi.addOrgRelation(from, e.node.id, 'REPORTS_TO')
+          .then(() => { toast.success('Conectado.'); return load() })
+          .catch((err) => toast.error(humanError(err)))
+      }
+    }
+    return
+  }
+  editNode(e.node.id)
 }
 
 function onEdgeClick(e) {

@@ -48,63 +48,25 @@ def _definition_changed(before, doc) -> bool:
 
 
 def validate_org_relation(doc, method=None) -> None:
-    """Valida nuevas/alteradas relaciones jerárquicas de Organigrama Vivo 2.0.
+    """Validación mínima para un organigrama libre (sin matriz jerárquica).
 
-    Relaciones históricas no se reescriben. Si una relación previa fuera del
-    modelo 2.0 permanece sin editar, el upgrade no la elimina ni la corrige a
-    escondidas; la UI la reporta como advertencia para revisión humana.
+    Sólo bloquea:
+    - auto-referencia (un nodo conectado a sí mismo)
+    - conexión inversa duplicada (A->B y B->A al mismo tiempo)
+
+    No impone matriz de jerarquía ni padre único: el usuario conecta nodos libremente.
     """
     if not doc.from_node or not doc.to_node:
         return
     if doc.from_node == doc.to_node:
-        frappe.throw(_("Un elemento del organigrama no puede depender de sí mismo."))
-    if doc.relation_type != "REPORTS_TO":
-        return
+        frappe.throw(_("Un nodo no puede conectarse consigo mismo."))
 
-    child = frappe.get_doc("OS Org Node", doc.from_node)
-    parent = frappe.get_doc("OS Org Node", doc.to_node)
-    allowed = ORG_ALLOWED_PARENTS.get(child.node_type, set())
-    if parent.node_type not in allowed:
-        frappe.throw(
-            _("Jerarquía no válida: {0} no puede depender de {1}.").format(
-                child.node_type, parent.node_type
-            )
-        )
-
-    # Un elemento sólo puede tener un padre jerárquico vigente.
-    existing = frappe.get_all(
+    reverse = frappe.db.exists(
         "OS Org Relation",
-        filters={"from_node": doc.from_node, "relation_type": "REPORTS_TO"},
-        fields=["name", "to_node"],
-        limit_page_length=100,
+        {"from_node": doc.to_node, "to_node": doc.from_node},
     )
-    for rel in existing:
-        if rel.name != doc.name:
-            frappe.throw(_("Este elemento ya tiene un padre jerárquico. Reasígnalo en lugar de crear una segunda relación."))
-
-    # Defensa en profundidad: evita ciclos aunque un cliente API omita la UI.
-    rows = frappe.get_all(
-        "OS Org Relation",
-        filters={"relation_type": "REPORTS_TO"},
-        fields=["name", "from_node", "to_node"],
-        limit_page_length=5000,
-    )
-    parent_of = {}
-    for rel in rows:
-        if rel.name == doc.name:
-            continue
-        parent_of.setdefault(rel.from_node, rel.to_node)
-    parent_of[doc.from_node] = doc.to_node
-
-    cur = doc.to_node
-    visited = set()
-    while cur:
-        if cur == doc.from_node:
-            frappe.throw(_("La relación crearía un ciclo jerárquico."))
-        if cur in visited:
-            break
-        visited.add(cur)
-        cur = parent_of.get(cur)
+    if reverse and reverse != doc.name:
+        frappe.throw(_("Ya existe la conexión inversa entre estos dos nodos."))
 
 
 def validate_process(doc, method=None) -> None:

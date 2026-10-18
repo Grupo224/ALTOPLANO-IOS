@@ -1,1 +1,0 @@
-import{av as t}from"./index-C2WEYybK.js";function o(a,r={},e={}){return t({url:a,method:"POST",params:r??{},headers:e.headers,onError:s=>{e.onError&&s.response&&e.onError({response:s.response,status:s.status??s.response.status,error:s})}})}export{o as c};
