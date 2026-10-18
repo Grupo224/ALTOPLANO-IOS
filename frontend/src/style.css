@@ -130,7 +130,6 @@ body { background: var(--os-navy); }
 .zval { min-width: 48px; font-size: 11px; color: var(--os-steel); }
 
 /* ===== Puerto de conexión (n8n-like) ===== */
-.node { position: relative; }
 .node-port { position: absolute; right: -6px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--os-orange); border: 2px solid #0a111c; cursor: crosshair; box-shadow: 0 0 0 1px rgba(255,148,34,0.4); }
 .node-port:hover { background: #fff; }
 

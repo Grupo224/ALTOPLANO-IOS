@@ -1,1 +1,0 @@
-import{ap as t}from"./index-BvbtpHOg.js";function p(a,r={},e={}){return t({url:a,method:"POST",params:r??{},headers:e.headers,onError:s=>{e.onError&&s.response&&e.onError({response:s.response,status:s.status??s.response.status,error:s})}})}export{p as c};
