@@ -69,7 +69,7 @@
   {
    "fieldname": "department",
    "fieldtype": "Link",
-   "label": "Department (\u00c1rea)",
+   "label": "Department (Área)",
    "options": "Department"
   },
   {
@@ -201,7 +201,7 @@
    "label": "Metrics"
   },
   {
-   "description": "Campo heredado de la versi\u00f3n anterior; el procedimiento vivo ahora es la tabla Steps.",
+   "description": "Campo heredado de la versión anterior; el procedimiento vivo ahora es la tabla Steps.",
    "fieldname": "procedure_legacy",
    "fieldtype": "Text Editor",
    "label": "Procedure (legacy free text)"
@@ -376,5 +376,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1
+ "track_changes": 1,
+ "title_field": "sop_title"
 }

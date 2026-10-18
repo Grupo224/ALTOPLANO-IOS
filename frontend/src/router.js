@@ -11,6 +11,7 @@ const routes = [
   { path: '/runs', name: 'Runs', component: () => import('./views/RunsView.vue') },
   { path: '/runs/:name', name: 'RunDetail', component: () => import('./views/RunDetailView.vue'), props: true },
   { path: '/agents', name: 'Agents', component: () => import('./views/AgentsView.vue') },
+  { path: '/prompts', name: 'Prompts', component: () => import('./views/PromptsView.vue') },
   { path: '/roles', name: 'Roles', component: () => import('./views/RolesView.vue') },
   { path: '/kpis', name: 'KPIs', component: () => import('./views/KpisView.vue') },
   { path: '/integrations', name: 'Integrations', component: () => import('./views/IntegrationsView.vue') },

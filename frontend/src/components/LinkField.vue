@@ -1,10 +1,16 @@
 <template>
-  <Select v-model="value" :options="options" :label="t(label)" :placeholder="'Buscar ' + t(label)" />
+  <Combobox
+    v-model="value"
+    :options="options"
+    :label="t(label)"
+    :placeholder="'Buscar ' + t(label)"
+    filterable
+  />
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import { Select, useList } from 'frappe-ui'
+import { Combobox, useList } from 'frappe-ui'
 import { t } from '../resources/es'
 
 const props = defineProps({
@@ -16,14 +22,14 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const value = computed({
-  get: () => props.modelValue,
-  set: (v) => emit('update:modelValue', v),
+  get: () => props.modelValue || null,
+  set: (v) => emit('update:modelValue', v || ''),
 })
 
 const tf = computed(() => (props.titleField && props.titleField !== 'name' ? props.titleField : 'name'))
 const listFields = computed(() => (tf.value === 'name' ? ['name'] : ['name', tf.value]))
 
-const list = useList({ doctype: props.doctype, fields: listFields.value, limit: 200, orderBy: 'modified desc' })
+const list = useList({ doctype: props.doctype, fields: listFields.value, limit: 500, orderBy: 'modified desc' })
 
 const options = computed(() => {
   const arr = (list.data || []).map((r) => ({ label: r[tf.value] || r.name, value: r.name }))

@@ -61,7 +61,8 @@ const navGroups = [
   {
     label: 'Gobierno',
     items: [
-      { label: 'Agentes y Prompts', route: '/agents', icon: '◇' },
+      { label: 'Agentes', route: '/agents', icon: '◇' },
+      { label: 'Prompts', route: '/prompts', icon: '✎' },
       { label: 'Roles', route: '/roles', icon: '✧' },
       { label: 'KPIs', route: '/kpis', icon: '◴' },
       { label: 'Integraciones', route: '/integrations', icon: '⊞' },

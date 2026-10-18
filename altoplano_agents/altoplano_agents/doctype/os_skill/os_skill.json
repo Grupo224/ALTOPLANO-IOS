@@ -31,7 +31,7 @@
    "unique": 1
   },
   {
-   "description": "Qu\u00e9 hace esta capacidad reutilizable.",
+   "description": "Qué hace esta capacidad reutilizable.",
    "fieldname": "description",
    "fieldtype": "Small Text",
    "label": "Description"
@@ -231,5 +231,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1
+ "track_changes": 1,
+ "title_field": "skill_title"
 }

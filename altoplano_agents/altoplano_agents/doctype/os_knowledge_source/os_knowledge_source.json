@@ -49,7 +49,7 @@
    "options": "OS Process"
   },
   {
-   "description": "\u00c1rea, cliente, proceso \u2014 separados por coma.",
+   "description": "Área, cliente, proceso — separados por coma.",
    "fieldname": "tags",
    "fieldtype": "Small Text",
    "label": "Tags"
@@ -272,5 +272,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1
+ "track_changes": 1,
+ "title_field": "source_title"
 }

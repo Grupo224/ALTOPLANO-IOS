@@ -76,7 +76,7 @@
    "options": "DocType"
   },
   {
-   "description": "Rol adicional necesario para ejecutar esta acci\u00f3n.",
+   "description": "Rol adicional necesario para ejecutar esta acción.",
    "fieldname": "required_role",
    "fieldtype": "Link",
    "label": "Required Role",
@@ -139,5 +139,6 @@
  "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "action_label"
 }

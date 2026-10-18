@@ -65,7 +65,7 @@
   {
    "fieldname": "owner_user",
    "fieldtype": "Link",
-   "label": "Owner User (responsable t\u00e9cnico)",
+   "label": "Owner User (responsable técnico)",
    "options": "User"
   },
   {
@@ -74,7 +74,7 @@
    "label": "Health Notes"
   },
   {
-   "description": "Procesos que dependen de esta integraci\u00f3n, separados por coma \u2014 para an\u00e1lisis de impacto si falla.",
+   "description": "Procesos que dependen de esta integración, separados por coma — para análisis de impacto si falla.",
    "fieldname": "depends",
    "fieldtype": "Small Text",
    "label": "Dependent Processes"
@@ -242,5 +242,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1
+ "track_changes": 1,
+ "title_field": "integration_name"
 }

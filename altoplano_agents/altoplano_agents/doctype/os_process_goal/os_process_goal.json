@@ -67,5 +67,6 @@
   "tolerance",
   "direction",
   "responsible"
- ]
+ ],
+ "title_field": "metric"
 }

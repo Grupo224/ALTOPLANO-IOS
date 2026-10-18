@@ -194,25 +194,25 @@
    "options": "OS Org Node"
   },
   {
-   "description": "SIPOC: qui\u00e9n provee los insumos, separado por comas.",
+   "description": "SIPOC: quién provee los insumos, separado por comas.",
    "fieldname": "suppliers",
    "fieldtype": "Small Text",
    "label": "Suppliers"
   },
   {
-   "description": "SIPOC: qu\u00e9 se necesita para poder ejecutar, separado por comas.",
+   "description": "SIPOC: qué se necesita para poder ejecutar, separado por comas.",
    "fieldname": "inputs",
    "fieldtype": "Small Text",
    "label": "Inputs"
   },
   {
-   "description": "SIPOC: qu\u00e9 produce el proceso, separado por comas.",
+   "description": "SIPOC: qué produce el proceso, separado por comas.",
    "fieldname": "outputs",
    "fieldtype": "Small Text",
    "label": "Outputs"
   },
   {
-   "description": "SIPOC: qui\u00e9n recibe la salida.",
+   "description": "SIPOC: quién recibe la salida.",
    "fieldname": "clients",
    "fieldtype": "Data",
    "label": "Process Client"
@@ -235,26 +235,26 @@
    "label": "Decision Rules"
   },
   {
-   "description": "Qu\u00e9 hacer cuando algo se sale de lo normal.",
+   "description": "Qué hacer cuando algo se sale de lo normal.",
    "fieldname": "exceptions",
    "fieldtype": "Small Text",
    "label": "Exceptions Handling"
   },
   {
-   "description": "Qui\u00e9n ejecuta el trabajo. El Aprobador (A) es Owner User.",
+   "description": "Quién ejecuta el trabajo. El Aprobador (A) es Owner User.",
    "fieldname": "raci_responsible",
    "fieldtype": "Link",
    "label": "RACI Responsible (R)",
    "options": "User"
   },
   {
-   "description": "A qui\u00e9n se consulta antes de decidir, separado por comas.",
+   "description": "A quién se consulta antes de decidir, separado por comas.",
    "fieldname": "raci_consulted",
    "fieldtype": "Small Text",
    "label": "RACI Consulted (C)"
   },
   {
-   "description": "A qui\u00e9n se notifica del resultado, separado por comas.",
+   "description": "A quién se notifica del resultado, separado por comas.",
    "fieldname": "raci_informed",
    "fieldtype": "Small Text",
    "label": "RACI Informed (I)"
@@ -267,7 +267,7 @@
    "options": "OS Org Node"
   },
   {
-   "description": "D\u00f3nde el proceso se detiene a esperar autorizaci\u00f3n.",
+   "description": "Dónde el proceso se detiene a esperar autorización.",
    "fieldname": "gates",
    "fieldtype": "Small Text",
    "label": "Approval Gates"
@@ -280,7 +280,7 @@
    "options": "OS Policy"
   },
   {
-   "description": "Salvaguardas que reducen el riesgo. Obligatorio en la pr\u00e1ctica si Risk Level es High/Critical.",
+   "description": "Salvaguardas que reducen el riesgo. Obligatorio en la práctica si Risk Level es High/Critical.",
    "fieldname": "controls",
    "fieldtype": "Small Text",
    "label": "Controls"
@@ -303,7 +303,7 @@
    "label": "Definition of Done"
   },
   {
-   "description": "Qu\u00e9 debe guardarse para probar que el proceso se ejecut\u00f3 bien.",
+   "description": "Qué debe guardarse para probar que el proceso se ejecutó bien.",
    "fieldname": "evidence_required",
    "fieldtype": "Small Text",
    "label": "Evidence Required"
@@ -498,5 +498,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1
+ "track_changes": 1,
+ "title_field": "process_title"
 }

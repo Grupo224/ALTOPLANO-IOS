@@ -22,7 +22,7 @@
    "reqd": 1
   },
   {
-   "description": "A qu\u00e9 aplica: un \u00e1rea, un tipo de acci\u00f3n, o 'Global'.",
+   "description": "A qué aplica: un área, un tipo de acción, o 'Global'.",
    "fieldname": "scope",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -37,7 +37,7 @@
    "options": "Draft\nActive\nRetired"
   },
   {
-   "description": "Reglas de permisos, riesgo, uso de herramientas o autonom\u00eda.",
+   "description": "Reglas de permisos, riesgo, uso de herramientas o autonomía.",
    "fieldname": "rules",
    "fieldtype": "Long Text",
    "label": "Rules"
@@ -217,5 +217,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1
+ "track_changes": 1,
+ "title_field": "policy_title"
 }

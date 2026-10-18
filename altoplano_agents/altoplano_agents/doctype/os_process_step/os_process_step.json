@@ -166,5 +166,6 @@
   "responsible_designation",
   "tool",
   "control_point"
- ]
+ ],
+ "title_field": "step_title"
 }
