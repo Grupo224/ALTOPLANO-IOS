@@ -3,7 +3,7 @@
     <div class="os-body">
       <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <div class="os-eyebrow">Execution Center</div>
+          <div class="os-eyebrow">Centro de ejecución</div>
           <h1 class="os-h1">{{ run.run_code || 'Ejecución' }}</h1>
           <p class="text-sm" style="color: var(--os-steel)">{{ run.process_ref }} · {{ run.status }}</p>
         </div>

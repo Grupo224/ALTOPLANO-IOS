@@ -49,7 +49,7 @@ const navGroups = [
   {
     label: 'Operación',
     items: [
-      { label: 'Command Center', route: '/', icon: '⌂' },
+      { label: 'Centro de mando', route: '/', icon: '⌂' },
       { label: 'Organigrama', route: '/org', icon: '⊞' },
       { label: 'Procesos', route: '/processes', icon: '⑂' },
       { label: 'SOP', route: '/sop', icon: '▤' },
@@ -90,7 +90,7 @@ const apps = [
 ]
 
 const flat = navGroups.flatMap((g) => g.items)
-const currentLabel = computed(() => flat.find((i) => isActive(i.route))?.label || 'Command Center')
+const currentLabel = computed(() => flat.find((i) => isActive(i.route))?.label || 'Centro de mando')
 const initials = computed(() => (typeof frappe !== 'undefined' && frappe.session?.user ? frappe.session.user.slice(0, 2).toUpperCase() : 'AQ'))
 
 function isActive(r) {

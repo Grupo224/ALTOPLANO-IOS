@@ -48,7 +48,7 @@ def get_process(name):
         "process_title": d.process_title,
         "status": d.status,
         "steps": [dict(s.as_dict(), x=float(s.x or 0), y=float(s.y or 0)) for s in d.get("steps", [])],
-        "edges": [{"name": e.name, "source_step_key": e.source_step_key, "target_step_key": e.target_step_key, "relation_type": e.relation_type} for e in d.get("edges", [])],
+        "edges": [{"edge_key": e.edge_key, "source_step_key": e.source_step_key, "target_step_key": e.target_step_key, "relation_type": e.relation_type} for e in d.get("edges", [])],
     }
 
 
@@ -243,3 +243,48 @@ def add_org_relation(from_node=None, to_node=None, relation_type=None):
     d.flags.ignore_permissions = True
     d.insert(ignore_permissions=True)
     return {"name": d.name}
+
+
+@frappe.whitelist(methods=["POST"])
+def add_process_edge(name, source_step_key=None, target_step_key=None, relation_type=None):
+    """Agrega una conexión entre dos pasos (idempotente)."""
+    d = frappe.get_doc("OS Process", name)
+    keys = {s.step_key for s in d.get("steps", [])}
+    if source_step_key not in keys or target_step_key not in keys:
+        return {"error": "Los pasos no pertenecen a este proceso."}
+    exists = any(e.source_step_key == source_step_key and e.target_step_key == target_step_key for e in d.get("edges", []))
+    if exists:
+        return {"ok": 1}
+    d.append("edges", {
+        "edge_key": frappe.generate_hash(length=8),
+        "source_step_key": source_step_key,
+        "target_step_key": target_step_key,
+        "relation_type": relation_type or "NEXT",
+    })
+    d.flags.ignore_permissions = True
+    d.save(ignore_permissions=True)
+    return {"ok": 1}
+
+
+@frappe.whitelist(methods=["POST"])
+def delete_process_edge(name, source_step_key=None, target_step_key=None):
+    """Elimina una conexión entre dos pasos."""
+    d = frappe.get_doc("OS Process", name)
+    d.set("edges", [e for e in d.get("edges", []) if not (e.source_step_key == source_step_key and e.target_step_key == target_step_key)])
+    d.flags.ignore_permissions = True
+    d.save(ignore_permissions=True)
+    return {"ok": 1}
+
+
+@frappe.whitelist(methods=["POST"])
+def save_process_step_position(name, step_key=None, x=None, y=None):
+    """Guarda la posición de un paso en el lienzo."""
+    d = frappe.get_doc("OS Process", name)
+    for s in d.get("steps", []):
+        if s.step_key == step_key:
+            s.x = float(x or 0)
+            s.y = float(y or 0)
+            break
+    d.flags.ignore_permissions = True
+    d.save(ignore_permissions=True)
+    return {"ok": 1}

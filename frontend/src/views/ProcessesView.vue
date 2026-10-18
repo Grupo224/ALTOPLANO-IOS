@@ -3,7 +3,7 @@
     <div class="os-body">
       <div class="mb-6 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <div class="os-eyebrow">Process Studio</div>
+          <div class="os-eyebrow">Estudio de procesos</div>
           <h1 class="os-h1">Procesos</h1>
           <p class="text-sm" style="color: var(--os-steel)">Define el proceso con el asistente (SIPOC, RACI, metas) y dibuja su flujo en el lienzo.</p>
         </div>

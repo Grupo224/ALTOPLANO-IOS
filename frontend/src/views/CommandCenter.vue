@@ -2,7 +2,7 @@
   <AppLayout>
     <div class="os-body">
       <div class="os-eyebrow">Sistema operativo vivo</div>
-      <h1 class="os-h1">Command Center</h1>
+      <h1 class="os-h1">Centro de mando</h1>
       <p class="mb-6 text-sm" style="color: var(--os-steel)">Dibuja cómo funciona tu empresa, decide qué hace una persona y qué la IA, ejecuta y guarda evidencia desde un solo mapa.</p>
 
       <div class="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">

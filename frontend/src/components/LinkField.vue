@@ -1,10 +1,11 @@
 <template>
-  <Select v-model="value" :options="options" :label="label" :placeholder="'Buscar ' + label" />
+  <Select v-model="value" :options="options" :label="t(label)" :placeholder="'Buscar ' + t(label)" />
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { Select, useList } from 'frappe-ui'
+import { t } from '../resources/es'
 
 const props = defineProps({
   modelValue: { type: String, default: '' },

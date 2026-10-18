@@ -3,14 +3,14 @@
     <div class="os-body">
       <div class="mb-6 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <div class="os-eyebrow">Execution Center</div>
+          <div class="os-eyebrow">Centro de ejecución</div>
           <h1 class="os-h1">Ejecuciones</h1>
           <p class="text-sm" style="color: var(--os-steel)">Cada corrida de un proceso, con su estado y evidencia. Clic para abrir y avanzar pasos.</p>
         </div>
       </div>
 
       <div v-if="loading" class="py-8 text-center" style="color: var(--os-steel)">Cargando…</div>
-      <div v-else-if="!rows.length" class="os-card py-10 text-center" style="color: var(--os-steel)">Aún no hay ejecuciones. Ejecuta un proceso desde Process Studio.</div>
+      <div v-else-if="!rows.length" class="os-card py-10 text-center" style="color: var(--os-steel)">Aún no hay ejecuciones. Ejecuta un proceso desde el estudio de procesos.</div>
       <div v-else class="os-card overflow-x-auto">
         <table class="w-full text-sm">
           <thead><tr class="text-left text-xs uppercase" style="color: var(--os-steel)">

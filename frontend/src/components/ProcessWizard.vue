@@ -41,8 +41,8 @@
           <div v-if="SECTIONS[stepIdx].stepsSummary">
             <div class="os-section-title">Resumen de pasos</div>
             <p v-if="isEdit && (stepsCount > 0)" style="font-size: 13px; color: var(--os-steel)">{{ stepsCount }} paso(s) definidos en el lienzo.</p>
-            <p v-else style="font-size: 13px; color: var(--os-steel)">Los pasos y sus conexiones se dibujan en el lienzo de Process Studio — podrás agregarlos justo después de guardar.</p>
-            <Button v-if="isEdit" variant="ghost" label="↗ Ir al lienzo (Process Studio)" @click="goCanvas" />
+            <p v-else style="font-size: 13px; color: var(--os-steel)">Los pasos y sus conexiones se dibujan en el lienzo de procesos — podrás agregarlos justo después de guardar.</p>
+            <Button v-if="isEdit" variant="ghost" label="↗ Ir al lienzo de pasos" @click="goCanvas" />
           </div>
 
           <div v-if="SECTIONS[stepIdx].goals">
