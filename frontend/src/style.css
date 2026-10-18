@@ -146,3 +146,27 @@ body { background: var(--os-navy); }
 .app-menu-icon { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 7px; background: #23334a; color: var(--os-orange); font-size: 15px; }
 
 @media (max-width: 900px) { .org-layout { grid-template-columns: 1fr; } }
+
+/* ===== Organigrama vue-flow ===== */
+.org-canvas { height: 560px; border: 1px solid #1a283e; border-radius: 12px; background: #0a111c; overflow: hidden; }
+.org-canvas .vue-flow { height: 100%; width: 100%; }
+.org-canvas .vue-flow__minimap { background: var(--os-navy-2); border: 1px solid #1a283e; border-radius: 8px; }
+.org-canvas .vue-flow__controls { border: 1px solid #1a283e; border-radius: 8px; box-shadow: none; }
+.org-canvas .vue-flow__controls-button { background: var(--os-navy-2); border-bottom: 1px solid #1a283e; color: var(--os-text); }
+.org-canvas .vue-flow__controls-button:hover { background: #23334a; }
+.org-canvas .vue-flow__controls-button svg { fill: var(--os-text); }
+
+.vf-org-node {
+  background: var(--os-navy-2);
+  border: 1px solid #2b3c56;
+  border-radius: 10px;
+  padding: 8px 12px;
+  min-width: 130px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+.vf-org-node .vf-org-icon { font-size: 18px; font-weight: 700; color: var(--os-orange); }
+.vf-org-node .vf-org-label { font-size: 13px; color: #fff; margin-top: 2px; font-weight: 600; }
+.vf-org-node .vf-org-sub { font-size: 10px; color: var(--os-steel); text-transform: uppercase; letter-spacing: 0.5px; }
+.vf-org-node .vue-flow__handle { width: 11px; height: 11px; background: var(--os-orange); border: 2px solid #0a111c; }
+.vf-org-node .vue-flow__handle:hover { background: #fff; }

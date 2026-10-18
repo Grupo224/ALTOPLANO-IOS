@@ -1,4 +1,8 @@
 import './style.css'
+import '@vue-flow/core/dist/style.css'
+import '@vue-flow/core/dist/theme-default.css'
+import '@vue-flow/controls/dist/style.css'
+import '@vue-flow/minimap/dist/style.css'
 import { createApp } from 'vue'
 import { FrappeUI, setConfig, frappeRequest } from 'frappe-ui'
 import router from './router'
@@ -6,7 +10,6 @@ import App from './App.vue'
 
 setConfig('resourceFetcher', frappeRequest)
 
-// Evita pantalla en blanco silenciosa: muestra el error real si falla el arranque.
 function showFatal(err) {
   const el = document.getElementById('app')
   const msg = (err && (err.message || err.reason?.message || String(err))) || 'Error desconocido'
