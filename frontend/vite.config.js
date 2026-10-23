@@ -5,12 +5,12 @@ import frappeui from 'frappe-ui/vite'
 export default defineConfig({
   plugins: [
     frappeui({
-      frontendRoute: '/ai-agents',
+      frontendRoute: '/ios',
       frappeProxy: true,
       jinjaBootData: true,
       codeLanguages: false,
       buildConfig: {
-        indexHtmlPath: '../altoplano_agents/www/ai-agents.html',
+        indexHtmlPath: '../altoplano_agents/www/ios.html',
         emptyOutDir: true,
       },
     }),

@@ -1,4 +1,4 @@
-# Bootstrap de la SPA /ai-agents (página no cacheable con sesión + CSRF).
+# Bootstrap de la SPA /ios (página no cacheable con sesión + CSRF).
 import frappe
 
 no_cache = 1
@@ -6,7 +6,7 @@ no_cache = 1
 
 def get_context(context):
     if frappe.session.user == "Guest":
-        frappe.local.flags.redirect_location = "/login?redirect-to=/ai-agents"
+        frappe.local.flags.redirect_location = "/login?redirect-to=/ios"
         raise frappe.Redirect
 
     from altoplano_agents.permissions import can_access_app

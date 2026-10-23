@@ -84,7 +84,7 @@ const navGroups = [
 
 // Switcher tipo Frappe CRM: apps ERPNext del mismo sitio.
 const apps = [
-  { label: 'LivingOrg OS', route: '/ai-agents', icon: '◇', sub: 'Organigrama y procesos' },
+  { label: 'IOS', route: '/ios', icon: '◇', sub: 'Organigrama y procesos' },
   { label: 'ERPNext Desk', route: '/app', icon: '▦', sub: 'ERP completo' },
   { label: 'CRM', route: '/crm', icon: '✧', sub: 'Ventas y contactos' },
   { label: 'Punto de Venta', route: '/pos', icon: '💰', sub: 'POS' },

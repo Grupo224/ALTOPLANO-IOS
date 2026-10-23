@@ -15,7 +15,7 @@ def boot(company_context=None):
         "roles": roles,
         "companies": sorted(companies),
         "company": company,
-        "app_route": "/ai-agents",
+        "app_route": "/ios",
         "capabilities": {
             "manage_agents": bool({"AIA Owner", "AIA Manager", "AIA Technical Admin"} & set(roles)),
             "manage_business": bool({"AIA Manager"} & set(roles)),
