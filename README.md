@@ -1,9 +1,9 @@
-# Altoplano IA Agents
+# IOS
 
 Custom App de Grupo Altoplano sobre Frappe Framework / ERPNext para administrar
 agentes de IA integrados a los datos, permisos y procesos reales de ERPNext.
 
-**Frontend:** Vue 3 + Vite + Frappe UI (experiencia tipo Frappe CRM) en `/ai-agents`.
+**Frontend:** Vue 3 + Vite + Frappe UI (experiencia tipo Frappe CRM) en `/ios`.
 **Backend:** DocTypes propios + API v1 (`@frappe.whitelist`) + servicios autorizados.
 
 ## Instalación
